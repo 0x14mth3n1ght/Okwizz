@@ -33,7 +33,7 @@ if($_POST)
     @$checkSum--;
   }
 }
-
+ 
 # CHOIX DE L'OUTPUT
 //if(!$checkSum)
 if($checkSum==3)

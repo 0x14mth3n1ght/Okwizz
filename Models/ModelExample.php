@@ -36,6 +36,6 @@ function isVisa($str)
 
 return preg_match('/^([0-9]{16})$/',$str);
 }//
-*/
+*/ 
 
 ?>
