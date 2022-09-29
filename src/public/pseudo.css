@@ -1,0 +1,139 @@
+/* importing google fonts */
+@import url('https://fonts.googleapis.com/css?family=Tangerine');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+/* label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+} */
+
+/* input,
+label {
+    margin: .4rem 0;
+} */
+.wrapper {
+	width: 450px;
+	background: white;
+	padding: 30px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0, 0.1);
+}
+
+.wrapper .input-data {
+	height: 40px;
+	width: 100%;
+	position: relative;
+}
+
+.wrapper .input-data input {
+	height: 100%;
+	width: 100%;
+	border: none;
+	outline: none; /* remove border of box */
+	font-size: 17px;
+	border-bottom: 2px solid silver;
+}
+
+.input-data input:focus ~ label, .input-data input:valid ~ label {
+	transform: translateY(-30px);
+	font-size: 15px;
+	color: #4158d0;
+}
+
+.wrapper .input-data label {
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	color: grey;
+	pointer-events: none;
+	transition: all 0.3s ease;
+}
+
+.wrapper .input-data .underline {
+	position: absolute;
+	bottom: 0px;
+	height: 2px;
+	width: 100%;
+}
+
+.input-data .underline:before {
+	position: absolute;
+	content: "";
+	height: 100%;
+	width: 100%;
+	background: #4158d0;
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
+}
+
+.input-data input:focus ~ .underline:before, .input-data input:valid ~
+	.underline:before {
+	transform: scaleX(1);
+	font-size: 15px;
+	color: #4158d0;
+}
+
+/* NO USE */
+.start_btn, .info_box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* Start Quiz Button Styling */
+.start_btn button {
+	font-size: 25px;
+	font-weight: 500;
+	color: #007bff;
+	padding: 15px 30px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	background: #fff;
+	cursor: pointer;
+}
+
+.info_box {
+	width: 540px;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.info_box .info_title {
+	height: 60px;
+	width: 100%;
+	border-bottom: 1px solid lightgray;
+	display: flex;
+	align-items: center;
+	padding: 0 35px;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.info_box .buttons {
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 0 35px;
+	border-top: 1px solid lightgray;
+}
+
+.info_box .buttons button {
+	margin: 0 5px;
+	height: 40px;
+	width: 100px;
+	border: 1px solid #007bff;
+	background: #007bff;
+	border-radius: 5px;
+	color: white;
+	font-size: 16px;
+	font-weight: 500;
+	cursor: pointer;
+}
