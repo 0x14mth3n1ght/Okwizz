@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>LEAGUE OF SCRUM</title>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="stylesheet.css" />
-</head>
-
-<body>
-	<h1 class="titre">LEAGUE OF SCRUM</h1>
-</body>
-
-</html>
+<?php
+/*** page principale de l'application  */   
+/**     mise en place des remontées d'erreur dans la page web    
+ * À retirer IMPÉRATIVEMENT lors de la mise en production  */ 
+error_reporting(E_ALL); ini_set('display_errors', 1);  
+/* connection à la base de données    
+	
+/* mise en place du template */ 
+	
+include_once '../view/template.php';  
+loadView('home.php',array()); 
+/** fin du model pour la page principale */ 
+?>
