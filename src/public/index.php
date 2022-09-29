@@ -7,7 +7,7 @@ error_reporting(E_ALL); ini_set('display_errors', 1);
 	
 /* mise en place du template */ 
 	
-include_once '../view/template.php';  
+include_once '../public/template.php';  
 loadView('home.php',array()); 
 /** fin du model pour la page principale */ 
 ?>
