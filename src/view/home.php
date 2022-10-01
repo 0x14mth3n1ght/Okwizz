@@ -1,7 +1,40 @@
 <!--Page principale-->
 
-<p>Texte du mec qui doit ecrire les règles</p>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="pseudo.css">
+</head>
+<body>
 
-<form action="../view/question.php" method="post">
-	<button type="submit">JOUER</button>
-</form>
+	<h1>LEAGUE OF SCRUM</h1>
+	<p>Pseudo page</p>
+
+	<div class="info_box">
+		<!-- <label for="name">Pseudo :</label> -->
+		<div class="wrapper">
+			<div class="input-data">
+				<input type="text" required>
+				<div class="underline"></div>
+				<label>Pseudo</label>
+			</div>
+		</div>
+		<!-- <input type="text" id="name" name="name" required
+                    size="10"> -->
+
+
+		<div class="buttons">
+			<button class="quit">Exit</button>
+			<!-- <button class="restart">Start Quiz</button> -->
+			<form action="../view/question.php" method="post">
+				<button type="submit" class="start">START</button>
+			</form>
+		</div>
+
+	</div>
+
+</body>
+</html>
+
+
+<p>Texte du mec qui doit ecrire les règles</p>
