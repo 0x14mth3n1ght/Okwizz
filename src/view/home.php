@@ -27,7 +27,7 @@
 			<button class="quit">Exit</button>
 			<!-- <button class="restart">Start Quiz</button> -->
 			<form action="../view/question.php" method="post">
-				<button type="submit" class="start">START</button>
+				<button type="submit" class="restart">START</button>
 			</form>
 		</div>
 
