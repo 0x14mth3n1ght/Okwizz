@@ -1,5 +1,10 @@
 <!--Page principale-->
 
+<p>Texte du mec qui doit ecrire les règles</p>
+		<form action="../view/question.php" method="post">
+				<button type="submit" class="restart">START</button>
+		</form>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,15 +31,9 @@
 		<div class="buttons">
 			<button class="quit">Exit</button>
 			<!-- <button class="restart">Start Quiz</button> -->
-			<form action="../view/question.php" method="post">
-				<button type="submit" class="restart">START</button>
-			</form>
 		</div>
 
 	</div>
 
 </body>
 </html>
-
-
-<p>Texte du mec qui doit ecrire les règles</p>
