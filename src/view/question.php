@@ -16,7 +16,7 @@ else
 
 
 <div class="AnswerPanel">
-		<form action="" method="post">
+		<form action="../view/question.php" method="post">
       <button class="AnswerButton" type="submit">Answer 1</button>
       <button class="AnswerButton" type="submit">Answer 2</button>
       <button class="AnswerButton" type="submit">Answer 3</button>
