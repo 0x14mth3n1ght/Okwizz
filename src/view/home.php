@@ -1,6 +1,7 @@
 <!--Page principale-->
 
-<p>Texte du mec qui doit ecrire les règles</p>
+<h2>Règles du jeu</h2>
+<p>Répondez aux questions suivantes en cochant les bonnes réponses puis cliquez sur "valider".</p>
 		<form action="../view/question.php" method="post">
 				<button type="submit" class="restart">START</button>
 		</form>
