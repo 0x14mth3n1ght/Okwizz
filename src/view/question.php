@@ -105,5 +105,7 @@ echo "<h3>You have $wrong wrong answers</h3>";
 ?>
 
 
+<a class="button" href="home.php"><strong>Try Again</strong></a>
+
 </body>
 </html>
