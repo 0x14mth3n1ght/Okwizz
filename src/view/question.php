@@ -62,8 +62,8 @@ echo "Wrong !";
 <li>How many weeks are in a year? 
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
-      <input class="AnswerButton" type="submit" name="AnswerQuestion3" value="67"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion3" value="52"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion3" value="52"/>
+      <input class="AnswerButton" type="submit" name="Answerquestion3" value="67"/>
       <input class="AnswerButton" type="submit" name="Answerquestion3" value="34"/>
       <input class="AnswerButton" type="submit" name="Answerquestion3"" value="89"/>
 		</form>
