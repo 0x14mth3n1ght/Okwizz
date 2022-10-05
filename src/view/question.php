@@ -27,17 +27,19 @@ Hello, <?php echo htmlspecialchars($_POST["name"]); ?>.
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion1" value="7"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion1" value="4"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion1" value="1"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion1"" value="8"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion1" value="4"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion1" value="1"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion1"" value="8"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion1'];
 if($answer == "7"){
 echo "Well Done !";
-}else{
+}else if($answer != ""){
 echo "Wrong !";
+}else{
+  echo $answer;
 }
 ?>
 </li>
@@ -54,7 +56,7 @@ echo "Wrong !";
 $answer=$_POST['AnswerQuestion2'];
 if($answer == "367"){
 echo "Well Done !";
-}else{
+}else if($answer != ""){
 echo "Wrong !";
 }
 ?>
@@ -63,16 +65,16 @@ echo "Wrong !";
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion3" value="52"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion3" value="67"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion3" value="34"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion3"" value="89"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion3" value="67"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion3" value="34"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion3"" value="89"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion3'];
 if($answer == "52"){
 echo "Well Done !";
-}else{
+}else if($answer != ""){
 echo "Wrong !";
 }
 ?>
@@ -81,16 +83,16 @@ echo "Wrong !";
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion4" value="blue"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion4" value="red"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion4" value="green"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion4"" value="yellow"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion4" value="red"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion4" value="green"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion4"" value="yellow"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion4'];
 if($answer == "blue"){
 echo "Well Done !";
-}else{
+}else if($answer != ""){
 echo "Wrong !";
 }
 ?>
@@ -99,16 +101,16 @@ echo "Wrong !";
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion5" value="obama"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion5" value="trump"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion5" value="you"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion5"" value="willy"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion5" value="trump"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion5" value="you"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion5"" value="willy"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion5'];
 if($answer == "obama"){
 echo "Well Done !";
-}else{
+}else if($answer != ""){
 echo "Wrong !";
 }
 ?>
@@ -117,16 +119,16 @@ echo "Wrong !";
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion6" value="3"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion6" value="5"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion6" value="2"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion6"" value="9"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion6" value="5"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion6" value="2"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion6"" value="9"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion6'];
 if($answer == "3"){
 echo "Well Done !";
-}else{
+}else if($answer != ""){
 echo "Wrong !";
 }
 ?>
@@ -135,16 +137,16 @@ echo "Wrong !";
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion7" value="hydrogen"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion7" value="iron"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion7" value="titane"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion7"" value="cuivre"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion7" value="iron"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion7" value="titane"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion7"" value="cuivre"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion7'];
 if($answer == "hydrogen"){
 echo "Well Done !";
-}else{
+}else if($answer != ""){
 echo "Wrong !";
 }
 ?>
@@ -153,16 +155,16 @@ echo "Wrong !";
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion8" value="honey"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion8" value="water"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion8" value="pollen"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion8"" value="fire"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion8" value="water"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion8" value="pollen"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion8"" value="fire"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion8'];
 if($answer == "honey"){
 echo "Well Done !";
-}else{
+}else if($answer != ""){
 echo "Wrong !";
 }
 ?>
@@ -171,16 +173,16 @@ echo "Wrong !";
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion9" value="13"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion9" value="34"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion9" value="12"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion9"" value="42"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion9" value="34"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion9" value="12"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion9"" value="42"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion9'];
 if($answer == "13"){
 echo "Well Done !";
-}else{
+}else if($answer != ""){
 echo "Wrong !";
 }
 ?>
