@@ -1,13 +1,9 @@
-<!--Page principale-->
-
-
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="pseudo.css">
+<link rel="stylesheet" href="../view/home.css">
 </head>
 <body>
-
 	<h1>LEAGUE OF SCRUM</h1>
 	<div class="info_box">
 		<!-- <label for="name">Pseudo :</label> -->
@@ -29,17 +25,12 @@
 				<label>Pseudo</label>
 			</div>
 		</div>
-		<!-- <input type="text" id="name" name="name" required
-                    size="10"> -->
-
-
+		
 		<div class="buttons">
 			<form action="../view/question.php" method="post">
 				<button type="submit" class="restart">JOUER</button>
 			</form>
 		</div>
-
 	</div>
-
 </body>
 </html>
