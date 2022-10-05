@@ -17,10 +17,14 @@ else
 
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
-      <button class="AnswerButton" type="submit">Answer 1</button>
-      <button class="AnswerButton" type="submit">Answer 2</button>
-      <button class="AnswerButton" type="submit">Answer 3</button>
-      <button class="AnswerButton" type="submit">Answer 4</button>
+      <input class="AnswerButton" type="submit" name="Answer" value="Answer1"/>
+      <input class="AnswerButton" type="submit" name="Answer" value="Answer2"/>
+      <input class="AnswerButton" type="submit" name="Answer" value="Answer3"/>
+      <input class="AnswerButton" type="submit" name="Answer" value="Answer4"/>
 		</form>
 </div>
+
+<?php
+$daysweek=$_POST['daysweek'];
+/>
 
