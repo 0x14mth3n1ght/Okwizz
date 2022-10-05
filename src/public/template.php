@@ -16,7 +16,7 @@ function loadView($view, $data){
 <head>
 <meta charset="utf-8">
 <title>Scrum gang</title>
-<link rel="stylesheet" href="style.css">
+<!-- <link rel="stylesheet" href="style.css"> -->
 
 </head>
 <body>
