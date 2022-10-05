@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html>
+<head>
+<link rel="stylesheet" href="../view/stylesheet.css">
+</head>
 <body>
 
 <?php
 session_start();
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-	if(isset($_POST["name"]))
-		$_SESSION["name"] = test_input($_POST["name"]);
-}
-
-function test_input($data){
-	$data = trim($data);
-	$data = stripslashes($data);
-	$data = htmlspecialchars($data);
-	return $data;
-}
+extract($_POST);
+# if($_SERVER["REQUEST_METHOD"] == "POST"){
+if(isset($name))
+	$_SESSION["name"] = $name;
 ?>
 
 Bonjour, <?php echo htmlspecialchars($_SESSION["name"]); ?>.
