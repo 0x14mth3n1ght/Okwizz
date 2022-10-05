@@ -1,8 +1,5 @@
 <!--Page principale-->
 
-	<form action="../view/question.php" method="post">
-			<button type="submit" class="restart">JOUER</button>
-	</form>
 
 <!DOCTYPE html>
 <html>
@@ -12,8 +9,6 @@
 <body>
 
 	<h1>LEAGUE OF SCRUM</h1>
-	<p>Pseudo page</p>
-
 	<div class="info_box">
 		<!-- <label for="name">Pseudo :</label> -->
 		<div class="info_title">
@@ -40,8 +35,9 @@
 
 
 		<div class="buttons">
-			<button class="quit">Validate</button>
-			<!-- <button class="restart">Start Quiz</button> -->
+			<form action="../view/question.php" method="post">
+				<button type="submit" class="restart">JOUER</button>
+			</form>
 		</div>
 
 	</div>

@@ -140,7 +140,7 @@ label {
 	height: 40px;
 	width: 100px;
 	border: 1px solid #007bff;
-	/* background: #007bff; */
+	 background: #007bff; 
 	border-radius: 5px;
 	color: white;
 	font-size: 16px;
@@ -149,11 +149,11 @@ label {
 	transition: all 0.3s ease;
 }
 
-.buttons button.quit{
+/* .buttons button.quit{
 	color : #007bff;
 }
 
 .butons button.quit:hover{
 	color : #fff;
 	background : #007bff;
-}
+} */
