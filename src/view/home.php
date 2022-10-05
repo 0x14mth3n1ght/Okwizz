@@ -18,19 +18,18 @@
 			<div class="info">4. Règle n°4</div>
 		</div>
 
-		<div class="wrapper">
-			<div class="input-data">
-				<input id="name" name="name" type="text" required>
-				<div class="underline"></div>
-				<label>Pseudo</label>
+		<form action="../view/question.php" method="post">
+			<div class="wrapper">
+				<div class="input-data">
+					<input id="name" name="name" type="text" required>
+					<div class="underline"></div>
+					<label>Pseudo</label>
+				</div>
 			</div>
-		</div>
-		
-		<div class="buttons">
-			<form action="../view/question.php" method="post">
+			<div class="buttons">
 				<button type="submit" class="restart">JOUER</button>
-			</form>
-		</div>
+			</div>
+		</form>
 	</div>
 </body>
 </html>

@@ -1,18 +1,14 @@
-<!--Page de la premiere question-->
+<!DOCTYPE html>
 <html>
 <body>
 
 <?php
-// define variables and set to empty values
-$name = "";
-
+session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-	$name = test_input($_POST["name"]);
+	if(isset($_POST["name"]))
+		$_SESSION["name"] = test_input($_POST["name"]);
 }
 
-// fonctionne que si <form action="../view/question.php" method="post"> de la forme
-// Name: <input type="text" name="name"><br>
-// <input type="submit">
 function test_input($data){
 	$data = trim($data);
 	$data = stripslashes($data);
@@ -21,7 +17,7 @@ function test_input($data){
 }
 ?>
 
-Bonjour, <?php echo htmlspecialchars($_POST["name"]); ?>.
+Bonjour, <?php echo htmlspecialchars($_SESSION["name"]); ?>.
 
 <ol>
 		<li>Combien de jours il y a-t-il dans une semaine?
@@ -30,7 +26,7 @@ Bonjour, <?php echo htmlspecialchars($_POST["name"]); ?>.
 					<input class="AnswerButton" type="submit" name="AnswerQuestion1" value="7" />
 					<input class="AnswerButton" type="submit" name="AnswerQuestion1" value="4" />
 					<input class="AnswerButton" type="submit" name="AnswerQuestion1" value="1" />
-					<input class="AnswerButton" type="submit" name="AnswerQuestion1" " value="8" />
+					<input class="AnswerButton" type="submit" name="AnswerQuestion1" value="8" />
 				</form>
 			</div>
 <?php
