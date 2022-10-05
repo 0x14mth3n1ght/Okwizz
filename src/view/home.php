@@ -16,8 +16,7 @@
 		</div>
 
 		<div class="info_list">
-			<div class="info"> 1. Répondez aux questions suivantes en cochant les 
-				bonnes réponses, puis cliquez sur "valider".</div>
+			<div class="info">1. Répondez aux questions suivantes en cochant les bonnes réponses, puis cliquez sur "valider".</div>
 			<div class="info">2. Règle n°2</div>
 			<div class="info">3. Règle n°3</div>
 			<div class="info">4. Règle n°4</div>

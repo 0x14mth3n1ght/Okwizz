@@ -78,7 +78,6 @@ label {
 	color: #4158d0;
 }
 
-
 .start_btn, .info_box {
 	position: absolute;
 	top: 50%;
@@ -117,11 +116,11 @@ label {
 	font-weight: 600;
 }
 
-.info_box .info_list{
+.info_box .info_list {
 	padding: 5px 35px;
 }
 
-.info_box .info_list .info{
+.info_box .info_list .info {
 	margin: 40px 0;
 	font-size: 17px;
 }
@@ -140,7 +139,7 @@ label {
 	height: 40px;
 	width: 100px;
 	border: 1px solid #007bff;
-	 background: #007bff; 
+	background: #007bff;
 	border-radius: 5px;
 	color: white;
 	font-size: 16px;
