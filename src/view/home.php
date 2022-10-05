@@ -30,7 +30,7 @@
 
 		<div class="wrapper">
 			<div class="input-data">
-				<input type="text" required>
+				<input id="name" name="name" type="text" required>
 				<div class="underline"></div>
 				<label>Pseudo</label>
 			</div>
