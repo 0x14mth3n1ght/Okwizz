@@ -23,6 +23,7 @@ function test_input($data) {
 
 Hello, <?php echo htmlspecialchars($_POST["name"]); ?>.
 
+<ol>
 <li>Combien de jours il y a-t-il dans une semaine? 
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
