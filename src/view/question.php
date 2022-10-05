@@ -189,7 +189,7 @@ echo "Mauvaise réponse !";
 </li>
 </ol>
 
-<a class="button" href="home.php"><strong>Try Again</strong></a>
+<a class="button" href="../public/index.php"><strong>Try Again</strong></a>
 
 </body>
 </html>
