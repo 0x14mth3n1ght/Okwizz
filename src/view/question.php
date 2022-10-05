@@ -23,7 +23,7 @@ function test_input($data) {
 
 Hello, <?php echo htmlspecialchars($_POST["name"]); ?>.
 
-<li>How many days are in a week? 
+<li>Combien de jours il y a-t-il dans une semaine? 
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion1" value="7"/>
@@ -35,31 +35,31 @@ Hello, <?php echo htmlspecialchars($_POST["name"]); ?>.
 <?php
 $answer=$_POST['AnswerQuestion1'];
 if($answer == "7"){
-echo "Well Done !";
+echo "Bravo !";
 }else{
-echo "Wrong !";
+echo "Mauvaise réponse !";
 }
 ?>
 </li>
-<li>How many days are in a year? 
+<li>Combien de jours il y a-t-il dans une année? 
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion2" value="245"/>
-      <input class="AnswerButton" type="submit" name="AnswerQuestion2" value="367"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion2" value="365"/>
       <input class="AnswerButton" type="submit" name="AnswerQuestion2" value="456"/>
       <input class="AnswerButton" type="submit" name="AnswerQuestion2" value="0"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion2'];
-if($answer == "367"){
-echo "Well Done !";
+if($answer == "365"){
+echo "Bravo !";
 }else{
-echo "Wrong !";
+echo "Mauvaise réponse !";
 }
 ?>
 </li>
-<li>How many weeks are in a year? 
+<li>Combien de semaines il y a-t-il dans une année?  
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion3" value="52"/>
@@ -71,49 +71,49 @@ echo "Wrong !";
 <?php
 $answer=$_POST['AnswerQuestion3'];
 if($answer == "52"){
-echo "Well Done !";
+echo "Bravo !";
 }else{
-echo "Wrong !";
+echo "Mauvaise réponse !";
 }
 ?>
 </li>
-<li>What color is the sky? 
+<li>Quelle est la couleur du ciel? 
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
-      <input class="AnswerButton" type="submit" name="AnswerQuestion4" value="blue"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion4" value="red"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion4" value="green"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion4"" value="yellow"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion4" value="bleu"/>
+      <input class="AnswerButton" type="submit" name="Answerquestion4" value="rouge"/>
+      <input class="AnswerButton" type="submit" name="Answerquestion4" value="vert"/>
+      <input class="AnswerButton" type="submit" name="Answerquestion4"" value="jaune"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion4'];
-if($answer == "blue"){
-echo "Well Done !";
+if($answer == "bleu"){
+echo "Bravo !";
 }else{
-echo "Wrong !";
+echo "Mauvaise réponse !";
 }
 ?>
 </li>
-<li>what is us president name? 
+<li>Qui est le prédisent des États-Unis? 
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
-      <input class="AnswerButton" type="submit" name="AnswerQuestion5" value="obama"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion5" value="trump"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion5" value="you"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion5"" value="willy"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion5" value="Obama"/>
+      <input class="AnswerButton" type="submit" name="Answerquestion5" value="Biden"/>
+      <input class="AnswerButton" type="submit" name="Answerquestion5" value="Vous"/>
+      <input class="AnswerButton" type="submit" name="Answerquestion5"" value="Willy"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion5'];
-if($answer == "obama"){
-echo "Well Done !";
+if($answer == "Biden"){
+echo "Bravo !";
 }else{
-echo "Wrong !";
+echo "Mauvaise réponse !";
 }
 ?>
 </li>
-<li>How many sides does a triangle have? 
+<li>Combien de côtés possède un triangle? 
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion6" value="3"/>
@@ -125,49 +125,49 @@ echo "Wrong !";
 <?php
 $answer=$_POST['AnswerQuestion6'];
 if($answer == "3"){
-echo "Well Done !";
+echo "Bravo !";
 }else{
-echo "Wrong !";
+echo "Mauvaise réponse !";
 }
 ?>
 </li>
-<li>What is the first element on the periodic table of elements? 
+<li>Quel est le premier élément de la classification périodique des éléments chimiques? 
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
-      <input class="AnswerButton" type="submit" name="AnswerQuestion7" value="hydrogen"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion7" value="iron"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion7" value="hydrogene"/>
+      <input class="AnswerButton" type="submit" name="Answerquestion7" value="fer"/>
       <input class="AnswerButton" type="submit" name="Answerquestion7" value="titane"/>
       <input class="AnswerButton" type="submit" name="Answerquestion7"" value="cuivre"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion7'];
-if($answer == "hydrogen"){
-echo "Well Done !";
+if($answer == "hydrogene"){
+echo "Bravo !";
 }else{
-echo "Wrong !";
+echo "Mauvaise réponse !";
 }
 ?>
 </li>
-<li>Bees create what sweet substance? 
+<li>Quelle substance produisent les abeilles? 
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
-      <input class="AnswerButton" type="submit" name="AnswerQuestion8" value="honey"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion8" value="water"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion8" value="miel"/>
+      <input class="AnswerButton" type="submit" name="Answerquestion8" value="eau"/>
       <input class="AnswerButton" type="submit" name="Answerquestion8" value="pollen"/>
-      <input class="AnswerButton" type="submit" name="Answerquestion8"" value="fire"/>
+      <input class="AnswerButton" type="submit" name="Answerquestion8"" value="feu"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion8'];
-if($answer == "honey"){
-echo "Well Done !";
+if($answer == "miel"){
+echo "Bravo !";
 }else{
-echo "Wrong !";
+echo "Mauvaise réponse !";
 }
 ?>
 </li>
-<li>How many stripes are displayed on the American flag?
+<li>Combien de bandes il y a-t-il sur le drapeau américain?
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion9" value="13"/>
@@ -179,9 +179,9 @@ echo "Wrong !";
 <?php
 $answer=$_POST['AnswerQuestion9'];
 if($answer == "13"){
-echo "Well Done !";
+echo "Bravo !";
 }else{
-echo "Wrong !";
+echo "Mauvaise réponse !";
 }
 ?>
 </li>
