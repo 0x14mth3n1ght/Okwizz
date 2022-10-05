@@ -21,7 +21,7 @@ function test_input($data) {
 }
 ?>
 
-Hello, <?php echo htmlspecialchars($_POST["name"]); ?>.
+Bonjour, <?php echo htmlspecialchars($_POST["name"]); ?>.
 
 <ol>
 <li>Combien de jours il y a-t-il dans une semaine? 
@@ -52,14 +52,14 @@ echo "Mauvaise réponse!";
 <div class="AnswerPanel">
 		<form action="../view/question.php" method="post">
       <input class="AnswerButton" type="submit" name="AnswerQuestion2" value="245"/>
-      <input class="AnswerButton" type="submit" name="AnswerQuestion2" value="367"/>
+      <input class="AnswerButton" type="submit" name="AnswerQuestion2" value="365"/>
       <input class="AnswerButton" type="submit" name="AnswerQuestion2" value="456"/>
       <input class="AnswerButton" type="submit" name="AnswerQuestion2" value="0"/>
 		</form>
 </div>
 <?php
 $answer=$_POST['AnswerQuestion2'];
-if($answer == "367"){
+if($answer == "365"){
 echo "Bravo !";
 }else if($answer != ""){
 <<<<<<< HEAD
