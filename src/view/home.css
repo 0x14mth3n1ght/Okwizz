@@ -107,7 +107,7 @@ label {
 
 .info_box .info_title {
 	height: 60px;
-	width: 100%;
+	width: 105%;
 	border-bottom: 1px solid lightgray;
 	display: flex;
 	align-items: center;
@@ -137,7 +137,8 @@ label {
 .info_box .buttons button {
 	margin: 0 5px;
 	height: 40px;
-	width: 100px;
+	width: 80%;
+	/*width: 100px;*/
 	border: 1px solid #007bff;
 	background: #007bff;
 	border-radius: 5px;
@@ -162,4 +163,11 @@ h1 {
 	left: 50%;
 	top: 10%;
 	transform: translate(-50%, -50%);
+}
+.green {
+	color: green;
+}
+
+.red {
+	color: red;
 }

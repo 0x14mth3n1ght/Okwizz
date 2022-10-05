@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../view/stylesheet.css">
+<link rel="stylesheet" href="../view/home.css">
 </head>
 <body>
 
@@ -11,13 +11,14 @@ extract($_POST);
 if(isset($name)){
 	$_SESSION["name"] = $name;
 	$_SESSION["question_id"] = 0;
+	$_SESSION["score"] = 0;
 }
 $questions = array(
-		[ "question" => "Combien de jours il y a-t-il dans une semaine?",
+		[ "question" => "Combien de jours il y a-t-il dans une semaine ?",
 				"awnsers" => array("7", "4", "1", "8"),
 				"correct_awnser" => "7"
 		],
-		[ "question" => "Combien de jours il y a-t-il dans une année?",
+		[ "question" => "Combien de jours il y a-t-il dans une année ?",
 				"awnsers" => array("245", "365", "456", "0"),
 				"correct_awnser" => "365"
 		],
@@ -27,7 +28,7 @@ $questions = array(
 		],
 		[ "question" => "De quelle couleur est le ciel ?",
 				"awnsers" => array("bleu", "rouge", "vert", "jaune"),
-				"correct_awnser" => "blue"
+				"correct_awnser" => "bleu"
 		],
 		[ "question" => "Qui est le président des États-Unis ?",
 				"awnsers" => array("Obama", "Biden", "Vous", "Willy"),
@@ -50,53 +51,95 @@ $questions = array(
 				"correct_awnser" => "13"
 		]
 );
-?>
-
-Bonjour, <?php echo htmlspecialchars($_SESSION["name"]); ?>
-
-<?php 
-	$info = $questions[$_SESSION["question_id"]];
-?>
-<p><?php echo $info["question"]; ?></p>
-<div class="AnswerPanel">
-	<form action="../view/question.php" method="post">
-		<?php
-		foreach($info["awnsers"] as $a){
-			print_r($a);
-			?>
-			<input type="radio" id="consomateur" name="choix" value="<?php echo $a?>" <?php echo $a?> required>
-			<br>
-			<?php
-		}
-		?>
-		<?php 
-		if(! isset($choix)){
-			?>
-			<button type="submit">Envoyer la raiponse</button>
-			<?php 
-		}
-		?>
-	</form>
-</div>
-<?php 
-if(isset($choix)){
-	$info = $questions[$_SESSION["question_id"]];
-	if($choix == $info["correct_awnser"]){
-		echo "Bravo !";
-	}else{
-		echo "Mauvaise réponse! Désolé. La bonne raiponse était: ".$info["correct_awnser"];
-	}
-	$_SESSION["question_id"]++;
-	?>
-	<form action="../view/question.php" method="post">
-		<button type="submit"> => Question suivante </button>
-	</form>
-	<?php 
+$info = $questions[$_SESSION["question_id"]];
+if($choix == $info["correct_awnser"]){
+	$_SESSION["score"]++;
 }
 ?>
-<a class="button" href="../public/index.php">
-	<strong>Main Menu</strong>
-</a>
 
+<div class="info_box">
+	<p> Bonjour, <?php echo htmlspecialchars($_SESSION["name"]); ?>: <?php echo $_SESSION["score"]; ?>pts. </p>
+	<div class="info_title">
+		<p><?php echo $info["question"]; ?></p>
+	</div>
+	<?php
+	if(isset($choix)){
+		?>
+		<div class="info_list">
+			<?php
+			foreach($info["awnsers"] as $a){
+				?>
+				<div class="info">
+					<?php
+					if($a == $info["correct_awnser"]){
+						?>
+						<span class="green">
+							<?php echo "✔"; ?>
+						</span>
+						<?php 
+					}else{
+						?>
+						<span class="red">
+							<?php echo "✗"; ?>
+						</span>
+						<?php
+					}
+					?>
+					<span> <?php echo $a; ?> </span>
+				</div>
+				<?php
+			}
+			?>
+		</div>
+		<div class="info_title">
+			<?php
+			if($choix == $info["correct_awnser"]){
+				echo "Bravo !";
+			}else{
+				echo "Mauvaise réponse! Désolé. La bonne raiponse est: ".$info["correct_awnser"];
+			}
+			$_SESSION["question_id"]++;
+			?>
+		</div>
+		<form action="../view/question.php" method="post">
+			<div class="buttons">
+				<button type="submit"> Question suivante </button>
+			</div>
+		</form>
+		<?php
+	}else{
+		?>
+		<form action="../view/question.php" method="post">
+			<div class="info_list">
+				<?php
+				foreach($info["awnsers"] as $a){
+					?>
+					<div class="info">
+						<input type="radio" id="<?php echo $a; ?>" name="choix" value="<?php echo $a; ?>" required>
+						<label for="<?php echo $a; ?>"><?php echo $a; ?></label>
+					</div>
+					<?php
+				}
+				?>
+			</div>
+			<?php 
+			if(! isset($choix)){
+				?>
+				<div class="buttons">
+					<button type="submit">Envoyer la raiponse</button>
+				</div>
+				<?php 
+			}
+			?>
+		</form>
+		<?php
+	}
+	?>
+	<form action="../public/index.php" method="post">
+		<div class="buttons">
+			<button type="submit"> Main Menu </button>
+		</div>
+	</form>
+</div>
 </body>
 </html>
