@@ -14,15 +14,15 @@ if(isset($name)){
 	$_SESSION["score"] = 0;
 }
 $questions = array(
-		[ "question" => "Combien de jours il y a-t-il dans une semaine ?",
+		[ "question" => "Combien de jours y a-t-il dans une semaine ?",
 				"awnsers" => array("7", "4", "1", "8"),
 				"correct_awnser" => "7"
 		],
-		[ "question" => "Combien de jours il y a-t-il dans une année ?",
+		[ "question" => "Combien de jours y a-t-il dans une année ?",
 				"awnsers" => array("245", "365", "456", "0"),
 				"correct_awnser" => "365"
 		],
-		[ "question" => "Combien de semaines il y a-t-il dans une année ?",
+		[ "question" => "Combien de semaines y a-t-il dans une année ?",
 				"awnsers" => array("52", "67", "34", "89"),
 				"correct_awnser" => "52"
 		],
