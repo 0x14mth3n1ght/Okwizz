@@ -11,8 +11,33 @@ extract($_POST);
 if(isset($name)){
 	$_SESSION["name"] = $name;
 	$_SESSION["question_id"] = 0;
-	$_SESSION["score"] = 0;
+	$_SESSION["score"] = 1;
 }
+
+$nombre_question = 2;
+$category = 9;
+$difficulty = "easy";
+$type_question = "multiple";
+
+$json_questions = file_get_contents("https://opentdb.com/api.php?amount=".$nombre_question."&category=".$category."&difficulty=".$difficulty."&type=".$type_question);
+#echo $json_questions;
+#echo '<br><br>';
+$json_array_questions = json_decode($json_questions, true)['results'];
+#echo "test : ";
+#print_r($json_array_questions);
+
+
+#echo '<br><br>';
+#echo "question : ";
+$questions = array();
+	
+for($id = 0; $id < $nombre_question; $id++){
+	$questions[$id] = array("question" => $json_array_questions[$id]['question'],
+							"awnsers" => $json_array_questions[$id]['incorrect_answers'],
+							"correct_awnser" => $json_array_questions[$id]['correct_answer']);
+}
+#print_r($questions);
+
 $questions = array(
 		[ "question" => "Combien de jours y a-t-il dans une semaine ?",
 				"awnsers" => array("7", "4", "1", "8"),
