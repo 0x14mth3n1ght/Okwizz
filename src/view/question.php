@@ -126,7 +126,7 @@ if($choix == $info["correct_awnser"]){
 			if(! isset($choix)){
 				?>
 				<div class="buttons">
-					<button type="submit">Envoyer la raiponse</button>
+					<button type="submit">Envoyer la réponse</button>
 				</div>
 				<?php 
 			}
