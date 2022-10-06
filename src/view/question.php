@@ -96,7 +96,7 @@ if($choix == $info["correct_awnser"]){
 			if($choix == $info["correct_awnser"]){
 				echo "Bravo !";
 			}else{
-				echo "Mauvaise réponse! Désolé. La bonne raiponse est: ".$info["correct_awnser"];
+				echo "Mauvaise réponse! Désolé. La bonne réponse est: ".$info["correct_awnser"];
 			}
 			$_SESSION["question_id"]++;
 			?>

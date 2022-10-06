@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="../view/home.css">
 </head>
 <body>
-	<h1>LEAGUE OF SCRUM</h1>
 	<div class="info_box">
 		<!-- <label for="name">Pseudo :</label> -->
 		<div class="info_title">
@@ -21,11 +20,15 @@
 		<form action="../view/question.php" method="post">
 			<div class="wrapper">
 				<div class="input-data">
-					<input id="name" name="name" type="text" required>
+					<input id="name" name="name" type="text" >
 					<div class="underline"></div>
 					<label>Pseudo</label>
 				</div>
 			</div>
+				<div class="buttons">
+				<button type="submit" class="restart">Confirmer</button>
+			</div>
+
 			<div class="buttons">
 				<button type="submit" class="restart">JOUER</button>
 			</div>
