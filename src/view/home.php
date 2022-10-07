@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
+<!-- <head>
 <link rel="stylesheet" href="../view/home.css">
-</head>
+</head> -->
 <body>
 	<div class="info_box">
 		<!-- <label for="name">Pseudo :</label> -->
@@ -17,7 +17,7 @@
 			<div class="info">4. Règle n°4</div>
 		</div>
 
-		<form action="../view/question.php" method="post">
+		<form action="../public/questionController.php" method="post">
 			<div class="wrapper">
 				<div class="input-data">
 					<input id="name" name="name" type="text" >

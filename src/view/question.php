@@ -1,170 +1,101 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="../view/home.css">
-</head>
+
+<!-- <head>
+	<link rel="stylesheet" href="../view/home.css">
+</head> -->
+
 <body>
-
-<?php
-session_start();
-extract($_POST);
-if(isset($name)){
-	$_SESSION["name"] = $name;
-	$_SESSION["question_id"] = 0;
-	$_SESSION["score"] = 1;
-}
-
-$nombre_question = 2;
-$category = 9;
-$difficulty = "easy";
-$type_question = "multiple";
-
-$json_questions = file_get_contents("https://opentdb.com/api.php?amount=".$nombre_question."&category=".$category."&difficulty=".$difficulty."&type=".$type_question);
-#echo $json_questions;
-#echo '<br><br>';
-$json_array_questions = json_decode($json_questions, true)['results'];
-#echo "test : ";
-#print_r($json_array_questions);
-
-
-#echo '<br><br>';
-#echo "question : ";
-$questions = array();
-	
-for($id = 0; $id < $nombre_question; $id++){
-	$questions[$id] = array("question" => $json_array_questions[$id]['question'],
-							"awnsers" => $json_array_questions[$id]['incorrect_answers'],
-							"correct_awnser" => $json_array_questions[$id]['correct_answer']);
-}
-#print_r($questions);
-
-$questions = array(
-		[ "question" => "Combien de jours y a-t-il dans une semaine ?",
-				"awnsers" => array("7", "4", "1", "8"),
-				"correct_awnser" => "7"
-		],
-		[ "question" => "Combien de jours y a-t-il dans une année ?",
-				"awnsers" => array("245", "365", "456", "0"),
-				"correct_awnser" => "365"
-		],
-		[ "question" => "Combien de semaines y a-t-il dans une année ?",
-				"awnsers" => array("52", "67", "34", "89"),
-				"correct_awnser" => "52"
-		],
-		[ "question" => "De quelle couleur est le ciel ?",
-				"awnsers" => array("bleu", "rouge", "vert", "jaune"),
-				"correct_awnser" => "bleu"
-		],
-		[ "question" => "Qui est le président des États-Unis ?",
-				"awnsers" => array("Obama", "Biden", "Vous", "Willy"),
-				"correct_awnser" => "Biden"
-		],
-		[ "question" => "Combien de côtés possède un triangle ?",
-				"awnsers" => array("3", "5", "2", "9"),
-				"correct_awnser" => "3"
-		],
-		[ "question" => "Quel est le premier élément du tableau de la classification périodique ?",
-				"awnsers" => array("titane", "fer", "hydrogene", "cuivre"),
-				"correct_awnser" => "hydrogene"
-		],
-		[ "question" => "Quelle substance produisent les abeilles ?",
-				"awnsers" => array("eau", "miel", "pollen", "feu"),
-				"correct_awnser" => "miel"
-		],
-		[ "question" => "Combien de bandes il y a-t-il dans le drapeau américain?",
-				"awnsers" => array("13", "34", "12", "42"),
-				"correct_awnser" => "13"
-		]
-);
-$info = $questions[$_SESSION["question_id"]];
-if($choix == $info["correct_awnser"]){
-	$_SESSION["score"]++;
-}
-?>
-
-<div class="info_box">
-	<p> Bonjour, <?php echo htmlspecialchars($_SESSION["name"]); ?>: <?php echo $_SESSION["score"]; ?>pts. </p>
-	<div class="info_title">
-		<p><?php echo $info["question"]; ?></p>
-	</div>
 	<?php
-	if(isset($choix)){
-		?>
-		<div class="info_list">
-			<?php
-			foreach($info["awnsers"] as $a){
-				?>
-				<div class="info">
-					<?php
-					if($a == $info["correct_awnser"]){
-						?>
-						<span class="green">
-							<?php echo "✔"; ?>
-						</span>
-						<?php 
-					}else{
-						?>
-						<span class="red">
-							<?php echo "✗"; ?>
-						</span>
-						<?php
-					}
-					?>
-					<span> <?php echo $a; ?> </span>
-				</div>
-				<?php
-			}
-			?>
-		</div>
+	$info = $_SESSION['questions'][$_SESSION["question_id"]];
+	if ($data["choix"] == $info["correct_awnser"]) {
+		$_SESSION["score"]++;
+	}
+	?>
+	<div class="info_box">
+		<p> Bonjour, <?php echo htmlspecialchars($_SESSION["name"]); ?>: <?php echo $_SESSION["score"]; ?>pts. </p>
 		<div class="info_title">
-			<?php
-			if($choix == $info["correct_awnser"]){
-				echo "Bravo !";
-			}else{
-				echo "Mauvaise réponse! Désolé. La bonne réponse est: ".$info["correct_awnser"];
-			}
-			$_SESSION["question_id"]++;
-			?>
+			<p><?php echo $info["question"]; ?></p>
 		</div>
-		<form action="../view/question.php" method="post">
-			<div class="buttons">
-				<button type="submit"> Question suivante </button>
-			</div>
-		</form>
 		<?php
-	}else{
+		if (isset($data['choix'])) {
 		?>
-		<form action="../view/question.php" method="post">
 			<div class="info_list">
 				<?php
-				foreach($info["awnsers"] as $a){
-					?>
+				foreach ($info["awnsers"] as $a) {
+				?>
 					<div class="info">
-						<input type="radio" id="<?php echo $a; ?>" name="choix" value="<?php echo $a; ?>" required>
-						<label for="<?php echo $a; ?>"><?php echo $a; ?></label>
+						<?php
+						if ($a == $info["correct_awnser"]) {
+						?>
+							<span class="green">
+								<?php echo "✔"; ?>
+							</span>
+						<?php
+						} else {
+						?>
+							<span class="red">
+								<?php echo "✗"; ?>
+							</span>
+						<?php
+						}
+						?>
+						<span> <?php echo $a; ?> </span>
 					</div>
-					<?php
+				<?php
 				}
 				?>
 			</div>
-			<?php 
-			if(! isset($choix)){
+			<div class="info_title">
+				<?php
+				if ($data["choix"] == $info["correct_awnser"]) {
+					echo "Bravo !";
+				} else {
+					echo "Mauvaise réponse! Désolé. La bonne réponse est: " . $info["correct_awnser"];
+				}
+				$_SESSION["question_id"]++;
 				?>
+			</div>
+			<form action="../public/questionController.php" method="post">
 				<div class="buttons">
-					<button type="submit">Envoyer la réponse</button>
+					<button type="submit"> Question suivante </button>
 				</div>
-				<?php 
-			}
-			?>
-		</form>
+			</form>
 		<?php
-	}
-	?>
-	<form action="../public/index.php" method="post">
-		<div class="buttons">
-			<button type="submit"> Main Menu </button>
-		</div>
-	</form>
-</div>
+		} else {
+		?>
+			<form action="../public/questionController.php" method="post">
+				<div class="info_list">
+					<?php
+					foreach ($info["awnsers"] as $a) {
+					?>
+						<div class="info">
+							<input type="radio" id="<?php echo $a; ?>" name="choix" value="<?php echo $a; ?>" required>
+							<label for="<?php echo $a; ?>"><?php echo $a; ?></label>
+						</div>
+					<?php
+					}
+					?>
+				</div>
+				<?php
+				if (!isset($data['choix'])) {
+				?>
+					<div class="buttons">
+						<button type="submit">Envoyer la réponse</button>
+					</div>
+				<?php
+				}
+				?>
+			</form>
+		<?php
+		}
+		?>
+		<form action="../public/index.php" method="post">
+			<div class="buttons">
+				<button type="submit"> Main Menu </button>
+			</div>
+		</form>
+	</div>
 </body>
+
 </html>
