@@ -171,3 +171,12 @@ h1 {
 .red {
 	color: red;
 }
+
+/* chrono */
+#chrono {
+	position: absolute;
+	left: 50%;
+	top: 0%;
+}
+
+/* TODO timerLine */

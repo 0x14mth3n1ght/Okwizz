@@ -12,9 +12,9 @@
 
 		<div class="info_list">
 			<div class="info">1. Répondez aux questions suivantes en cochant les bonnes réponses, puis cliquez sur "valider".</div>
-			<div class="info">2. Règle n°2</div>
-			<div class="info">3. Règle n°3</div>
-			<div class="info">4. Règle n°4</div>
+			<div class="info">2. Vous avez 30 secondes pour répondre à chaque question</div>
+			<div class="info">3. Plus vous répondez vite, plus vous gagnez de points !</div>
+			<!-- <div class="info">4. Règle n°4</div> -->
 		</div>
 
 		<form action="../public/questionController.php" method="post">
