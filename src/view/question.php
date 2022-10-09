@@ -66,7 +66,7 @@
 		} else {
 		?>
 		<!-- load le script chrono -->
-		<h1 id="chrono">Timer</h1>
+			<h1 id="chrono"></h1>
 		<script>
 			//Temps initial : 30s
 			var temps = 30;
@@ -76,13 +76,16 @@
 			function diminuerTemps() {
 				if (temps < 10) temps = "0" + temps;
 				timerElement.innerText = temps;
-				if (temps <= 0) temps = 0;
+				if (temps <= 0) {
+					temps = 0;
+					timerElement.innerText = "Time's up !";
+				}
 				else temps --;
 			}
 
 			//Démarre le timer.
 			function start_timer(){
-				setInterval(diminuerTemps, 1000); //appelle diminuerTemps toutes les secondes.
+			setInterval(diminuerTemps, 1000); //appelle diminuerTemps toutes les secondes.
 			}
 
 			//Timer line
@@ -93,11 +96,10 @@
 				function timer (){
 					time += 1;
 					startTimerLine.style.width = time + "px";
-					if (time < 549) clearInterval (counterLine);
+					if (time > 549) clearInterval (counterLine);
 				}
-			}
-			*/
-
+			}*/
+			
 			start_timer();
 			//startTimerLine();
 		</script>		
