@@ -19,7 +19,7 @@ if (isset($name)) {
     $_SESSION["name"] = $name;
     $_SESSION["question_id"] = 0;
     $_SESSION["score"] = 0;
-    $_SESSION['nombre_question'] = 4;
+    $_SESSION['nombre_question'] = 5;
     $_SESSION['category'] = 9;
     $_SESSION['difficulty'] = "easy";
     $_SESSION['type_question'] = "multiple";
