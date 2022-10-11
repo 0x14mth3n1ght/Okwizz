@@ -10,8 +10,8 @@ class DB {
 	public function getDB(){
 		if(!isset($GLOBALS["DATABASE"])){
 			$db = $this->initDB();
-			// $this->populate_if_empty($db);
-			$this->populate($db);
+			$this->populate_if_empty($db);
+			//$this->populate($db);
 			$GLOBALS["DATABASE"] = $db;
 		}
 		return $GLOBALS["DATABASE"];
