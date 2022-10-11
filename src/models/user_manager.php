@@ -66,9 +66,6 @@ class UserManager {
 	 */
 	public function setPassword(string $pseudo, string $passwd): bool{
 		$passwdhash = password_hash($passwd, PASSWORD_ARGON2ID);
-		// $info = $this->getInfosDB($pseudo);
-		// if(!$info || empty($info))
-		// return false;
 		return $this->setPasswordDB($pseudo, $passwdhash);
 	}
 
@@ -83,9 +80,6 @@ class UserManager {
 	public function setHighscore(string $pseudo, string $highscore): bool{
 		if($highscore < 0)
 			return false;
-		// $info = $this->getInfosDB($pseudo);
-		// if(!$info || empty($info))
-		// return false;
 		return $this->setHighscoreDB($pseudo, $highscore);
 	}
 
