@@ -7,9 +7,14 @@ SELECT u.passwdhash, u.highscore
 FROM 'User' u
 WHERE u.pseudo = :pseudo;
 
--- set infos
+-- set info passwdhash
 UPDATE 'User'
-SET passwdhash = :passwdhash, highscore = :highscore
+SET passwdhash = :passwdhash
+WHERE pseudo = :pseudo;
+
+-- set info highscore
+UPDATE 'User'
+SET highscore = :highscore
 WHERE pseudo = :pseudo;
 
 -- get all user highscore

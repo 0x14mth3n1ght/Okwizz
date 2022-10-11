@@ -66,10 +66,10 @@ class UserManager {
 	 */
 	public function setPassword(string $pseudo, string $passwd): bool{
 		$passwdhash = password_hash($passwd, PASSWORD_ARGON2ID);
-		$info = $this->getInfosDB($pseudo);
-		if(!$info || empty($info))
-			return false;
-		return $this->setInfosDB($pseudo, $passwdhash, $info[0]["highscore"]);
+		// $info = $this->getInfosDB($pseudo);
+		// if(!$info || empty($info))
+		// return false;
+		return $this->setPasswordDB($pseudo, $passwdhash);
 	}
 
 	/**
@@ -83,10 +83,10 @@ class UserManager {
 	public function setHighscore(string $pseudo, string $highscore): bool{
 		if($highscore < 0)
 			return false;
-		$info = $this->getInfosDB($pseudo);
-		if(!$info || empty($info))
-			return false;
-		return $this->setInfosDB($pseudo, $info[0]["passwdhash"], $highscore);
+		// $info = $this->getInfosDB($pseudo);
+		// if(!$info || empty($info))
+		// return false;
+		return $this->setHighscoreDB($pseudo, $highscore);
 	}
 
 	/**
@@ -102,7 +102,7 @@ class UserManager {
 
 	/**
 	 * Get the list of players and hight score sort by hight score.
-	 * 
+	 *
 	 * @return unknown
 	 */
 	public function getAllUserHightscore(){
@@ -152,22 +152,42 @@ class UserManager {
 	}
 
 	/**
-	 * Set the informations concerning the player with the pseudo passed in argument.
+	 * Set the password hash of the player with the pseudo passed in argument.
 	 *
 	 * @param string $pseudo
 	 * @param string $passwdhash
-	 * @param int $highscore
 	 * @return bool
 	 */
-	private function setInfosDB(string $pseudo, string $passwdhash, int $highscore): bool{
+	private function setPasswordDB(string $pseudo, string $passwdhash): bool{
 		$stmt = $this->pdo->prepare("UPDATE 'User'
-		SET passwdhash = :passwdhash, highscore = :highscore
+		SET passwdhash = :passwdhash
 		WHERE pseudo = :pseudo;");
 		$stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
 		$stmt->bindValue(':passwdhash', $passwdhash, PDO::PARAM_STR);
+		try{
+			$stmt->execute();
+			return $stmt->rowCount() == 1;
+		}catch(PDOException $e){
+			return false;
+		}
+	}
+
+	/**
+	 * Set the highscore of player with the pseudo passed in argument.
+	 *
+	 * @param string $pseudo
+	 * @param int $highscore
+	 * @return bool
+	 */
+	private function setHighscoreDB(string $pseudo, int $highscore): bool{
+		$stmt = $this->pdo->prepare("UPDATE 'User'
+		SET highscore = :highscore
+		WHERE pseudo = :pseudo;");
+		$stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
 		$stmt->bindValue(':highscore', $highscore, PDO::PARAM_INT);
 		try{
-			return $stmt->execute();
+			$stmt->execute();
+			return $stmt->rowCount() == 1;
 		}catch(PDOException $e){
 			return false;
 		}
