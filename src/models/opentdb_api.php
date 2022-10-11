@@ -37,8 +37,8 @@ class OpentdbAPI
     private static function AddNewFormattedQuestion($jsonApiQuestion){
 			return array(
 				"question" => $jsonApiQuestion['question'],
-				"awnsers" => $jsonApiQuestion['incorrect_answers'],
-				"correct_awnser" => $jsonApiQuestion['correct_answer']
+				"answers" => $jsonApiQuestion['incorrect_answers'],
+				"correct_answer" => $jsonApiQuestion['correct_answer']
 			);
     }
     

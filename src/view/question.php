@@ -7,27 +7,21 @@
 </head> -->
 
 <body>
-	<?php
-	$info = $_SESSION['questions'][$_SESSION["question_id"]];
-	if ($data["choix"] == $info["correct_awnser"]) {//answer # aWnser
-		$_SESSION["score"]++;
-	}
-	?>
 	<div class="info_box">
 		<p> Bonjour, <?php echo htmlspecialchars($_SESSION["name"]); ?>: <?php echo $_SESSION["score"]; ?>pts. </p>
 		<div class="info_title">
-			<p><?php echo $info["question"]; ?></p>
+			<p><?php echo $data['info_question']["question"]; ?></p>
 		</div>
 		<?php
 		if (isset($data['choix'])) {
 		?>
 			<div class="info_list">
 				<?php
-				foreach ($info["awnsers"] as $a) {
+				foreach ($data['info_question']["answers"] as $a) {
 				?>
 					<div class="info">
 						<?php
-						if ($a == $info["correct_awnser"]) {
+						if ($a == $data['info_question']["correct_answer"]) {
 						?>
 							<span class="green">
 								<?php echo "✔"; ?>
@@ -49,12 +43,11 @@
 			</div>
 			<div class="info_title">
 				<?php
-				if ($data["choix"] == $info["correct_awnser"]) {
+				if ($data["choix"] == $data['info_question']["correct_answer"]) {
 					echo "Bravo !";
 				} else {
-					echo "Mauvaise réponse! Désolé. La bonne réponse est: " . $info["correct_awnser"];
+					echo "Mauvaise réponse! Désolé. La bonne réponse est: " . $data['info_question']["correct_answer"];
 				}
-				$_SESSION["question_id"]++;
 				?>
 			</div>
 			<form action="../public/questionController.php" method="post">
@@ -106,7 +99,7 @@
 			<form action="../public/questionController.php" method="post">
 				<div class="info_list">
 					<?php
-					foreach ($info["awnsers"] as $a) {
+					foreach ($data['info_question']["answers"] as $a) {
 					?>
 						<div class="info">
 							<input type="radio" id="<?php echo $a; ?>" name="choix" value="<?php echo $a; ?>" required>
