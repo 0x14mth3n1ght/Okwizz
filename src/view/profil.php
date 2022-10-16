@@ -1,33 +1,39 @@
 <?php
-  session_start(); 
-  include('../SQL/querries.sql'); 
-  // S'il n'y a pas de session alors on ne va pas sur cette page
-  if(!isset($_SESSION['id'])){ 
-    header('Location: ../index.php'); 
-    exit; 
-  }
-  // On récupère les informations de l'utilisateur connecté
-  $afficher_profil = $DB->query("SELECT * 
-    FROM utilisateur 
-    WHERE id = ?", 
-  array($_SESSION['id']));
-  
-  $afficher_profil = $afficher_profil->fetch(); 
-?>
+/** Modele pour la gestion des joueurs */
 
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Mon profil</title>
-        <head>
-            <body>
-                <h2>Voici le profil de <?= $afficher_profil['name'] ?></h2>
-                <div>Quelques informations sur vous : </div>
-                <ul>
-                    <li>Votre id est : <?= $afficher_profil['id'] ?></li>
-                    <li>Votre score maximal est : <?= $afficher_profil['score'] ?></li>
-                </ul>
-            </body>
-</html>
+
+
+/** recupération des joueurs en fonction de leur $id
+ * @args $db : connection à la base de donnée
+ * @args $User : joueur recherché
+ *
+ * @return : array
+ *
+ **/
+function trouveJoueur($db,$User){
+  
+    $sql="select u.highscore where pseudo = :User";
+    /* preparation de la requete */
+    $stmt = $db->prepare($sql);
+
+    $stmt->bindValue(':pseudo',$User,PDO::PARAM_INT);
+    /* lancement de la requete */
+    $stmt->execute();
+    /* recupération du résultat */
+    $clients=[];
+    foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $joueur){
+	$joueurs[]=$joueur;
+    }
+    /* retour */
+    return $joueurs;
+}
+
+function creeJoueur($db, $name){
+    $sql = "insert into User(pseudo) values (:pseudo, passwdhash)";
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':pseudo', $pseudo);
+    $stmt->bindValue(':passwdhash', $passwdhash);
+    $stmt->execute();
+    header('Location: index.php');
+}
+?>
