@@ -12,7 +12,7 @@ html, body {
 }
 
 body {
-  background: #202020;
+  background: white;
   font-family: 'Krub', sans-serif;
 }
 
@@ -38,7 +38,7 @@ body {
     left: 0;
     width: 300px;
     height: 80px;
-    background: crimson;
+    background: #007bff;
     animation: dsTop 1.5s;
   }
   .card .avatar-holder {
@@ -84,7 +84,7 @@ body {
   }
 	  .card .name:hover {
           text-decoration: underline;
-          color: crimson;
+          color: #007bff;
       }
       .card .name h6 {
       position: absolute;
@@ -121,7 +121,7 @@ body {
 	}
 	.card .button:hover {
         color: white;
-        background: crimson;
+        background: #007bff;
       }
 
   .card .ds-info {
@@ -150,7 +150,7 @@ body {
   .card .ds-info .projects h6, 
   .card .ds-info .posts h6 {
         text-transform: uppercase;
-        color: crimson;
+        color: #007bff;
       }
 	  .card .ds-info .pens p, 
 	  .card .ds-info .projects p, 
@@ -158,15 +158,13 @@ body {
         font-size: 12px;
       }
 
-      /* .card .ds-info .ds {
-      &:nth-of-type(2) {
+     .card .ds-info .ds:nth-of-type(2) {
         animation-delay: .5s;
       }
-      &:nth-of-type(1) {
+      card .ds-info .ds:nth-of-type(1) {
         animation-delay: 1s;
       }
-    }
-  } */
+    
   .card .ds-skill {
     position: absolute;
     margin: auto;
@@ -181,7 +179,7 @@ body {
       margin-bottom: 5px;
       font-weight: 700;
       text-transform: uppercase;
-      color: crimson;
+      color: #007bff;
     }
 	.card .ds-skill .skill 
       h6 {
@@ -192,12 +190,12 @@ body {
         color: white;
       }
       .card .ds-skill .skill .fab {
-        color: crimson;
+        color: #007bff;
         font-size: 14px;
       }
       .card .ds-skill .skill .bar {
         height: 5px;
-        background: crimson;
+        background: #007bff;
         text-align: right;
 	  }
         .card .ds-skill .skill .bar p {
@@ -276,5 +274,5 @@ body {
 
 .following {
   color: white;
-  background: crimson;
+  background: #007bff;
 }

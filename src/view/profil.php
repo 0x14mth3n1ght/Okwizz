@@ -50,6 +50,12 @@
     }
     ?>
 
+    <?php
+    $title = 'Profil';
+    $page = 'profil';
+    include_once('header.php');
+    ?>
+
     <div class="card">
         <div class="ds-top"></div>
         <div class="avatar-holder">
@@ -98,3 +104,7 @@
             </div>
         </div>
     </div>
+
+    <?php
+    include_once('footer.php');
+    ?>
