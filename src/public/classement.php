@@ -1,0 +1,1 @@
+<?php loadview(classement)?>
