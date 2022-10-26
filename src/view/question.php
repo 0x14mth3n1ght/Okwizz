@@ -8,7 +8,7 @@
 
 <body>
 	<div class="info_box">
-		<p> Bonjour, <?php echo htmlspecialchars($_SESSION["name"]); ?>: <?php echo $_SESSION["score"]; ?>pts. </p>
+		<p> Bonjour <?php echo htmlspecialchars($_SESSION["name"]); ?>: <?php echo $_SESSION["score"]; ?>pts. </p>
 		<div class="info_title">
 			<p><?php echo $data['info_question']["question"]; ?></p>
 		</div>
@@ -58,44 +58,43 @@
 		<?php
 		} else {
 		?>
-		<!-- load le script chrono -->
+			<!-- load le script chrono -->
 			<h1 id="chrono"></h1>
-		<script>
-			//Temps initial : 30s
-			var temps = 30;
-			const timerElement = document.getElementById("chrono");
+			<script>
+				//Temps initial : 30s
+				var temps = 30;
+				const timerElement = document.getElementById("chrono");
 
-			//Décrémente temps
-			function diminuerTemps() {
-				if (temps < 10) temps = "0" + temps;
-				timerElement.innerText = temps;
-				if (temps <= 0) {
-					temps = 0;
-					timerElement.innerText = "Time's up !";
+				//Décrémente temps
+				function diminuerTemps() {
+					if (temps < 10) temps = "0" + temps;
+					timerElement.innerText = temps;
+					if (temps <= 0) {
+						temps = 0;
+						timerElement.innerText = "Time's up !";
+					} else temps--;
 				}
-				else temps --;
-			}
 
-			//Démarre le timer.
-			function start_timer(){
-			setInterval(diminuerTemps, 1000); //appelle diminuerTemps toutes les secondes.
-			}
-
-			//Timer line
-			/*
-			function startTimerLine (){
-				counterLine = setInterval (timer, 29);
-				var time = 0;
-				function timer (){
-					time += 1;
-					startTimerLine.style.width = time + "px";
-					if (time > 549) clearInterval (counterLine);
+				//Démarre le timer.
+				function start_timer() {
+					setInterval(diminuerTemps, 1000); //appelle diminuerTemps toutes les secondes.
 				}
-			}*/
-			
-			start_timer();
-			//startTimerLine();
-		</script>		
+
+				//Timer line
+				/*
+				function startTimerLine (){
+					counterLine = setInterval (timer, 29);
+					var time = 0;
+					function timer (){
+						time += 1;
+						startTimerLine.style.width = time + "px";
+						if (time > 549) clearInterval (counterLine);
+					}
+				}*/
+
+				start_timer();
+				//startTimerLine();
+			</script>
 			<form action="../public/questionController.php" method="post">
 				<div class="info_list">
 					<?php
