@@ -1,4 +1,5 @@
 <?php
+
 /** Modele pour la gestion des joueurs */
 
 
@@ -10,25 +11,27 @@
  * @return : array
  *
  **/
-function trouveJoueur($db,$User){
-  
-    $sql="select u.highscore where pseudo = :User";
+function trouveJoueur($db, $User)
+{
+
+    $sql = "select u.highscore where pseudo = :User";
     /* preparation de la requete */
     $stmt = $db->prepare($sql);
 
-    $stmt->bindValue(':pseudo',$User,PDO::PARAM_INT);
+    $stmt->bindValue(':pseudo', $User, PDO::PARAM_INT);
     /* lancement de la requete */
     $stmt->execute();
     /* recupération du résultat */
-    $clients=[];
-    foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $joueur){
-	$joueurs[]=$joueur;
+    $clients = [];
+    foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $joueur) {
+        $joueurs[] = $joueur;
     }
     /* retour */
     return $joueurs;
 }
 
-function creeJoueur($db, $name){
+function creeJoueur($db, $name)
+{
     $sql = "insert into User(pseudo) values (:pseudo, passwdhash)";
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':pseudo', $pseudo);
@@ -36,4 +39,3 @@ function creeJoueur($db, $name){
     $stmt->execute();
     header('Location: index.php');
 }
-?>
