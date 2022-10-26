@@ -23,8 +23,8 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  width: 250px;
-  height: 400px;
+  width: 450px;
+  height: 550px;
   border-radius: 10px;
   box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
   background: #151515;
@@ -36,7 +36,7 @@ body {
     top: 0;
     right: 0;
     left: 0;
-    width: 300px;
+    width: 450px;
     height: 80px;
     background: #007bff;
     animation: dsTop 1.5s;
@@ -44,11 +44,11 @@ body {
   .card .avatar-holder {
     position: absolute;
     margin: auto;
-    top: 40px;
+    top: 10px;
     right: 0;
     left: 0;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     box-shadow: 0 0 0 5px #151515,
                 inset 0 0 0 5px #000000,
@@ -126,7 +126,7 @@ body {
 
   .card .ds-info {
     position: absolute;
-    margin: auto;
+    margin: 200px 80px 20px;
     top: 120px;
     bottom: 0;
     right: 0;
@@ -140,7 +140,7 @@ body {
   .card .ds-info .posts {
       position: relative;
       left: -300px;
-      width: calc(250px / 3);
+      width: calc(300px / 3);
       text-align: center;
       color: white;
       animation: fadeInMove 2s;
@@ -156,6 +156,7 @@ body {
 	  .card .ds-info .projects p, 
 	  .card .ds-info .posts p {
         font-size: 12px;
+		text-align: center;
       }
 
      .card .ds-info .ds:nth-of-type(2) {
@@ -168,7 +169,7 @@ body {
   .card .ds-skill {
     position: absolute;
     margin: auto;
-    bottom: 10px;
+    bottom: 80px;
     right: 0;
     left: 0;
     width: 200px;
@@ -178,13 +179,15 @@ body {
   .card .ds-skill h6 {
       margin-bottom: 5px;
       font-weight: 700;
+	  font-size: 15px;
+
       text-transform: uppercase;
       color: #007bff;
     }
 	.card .ds-skill .skill 
       h6 {
         font-weight: 400;
-        font-size: 8px;
+        font-size: 15px;
         letter-spacing: 0.05em;
         margin: 4px 0;
         color: white;
@@ -194,14 +197,14 @@ body {
         font-size: 14px;
       }
       .card .ds-skill .skill .bar {
-        height: 5px;
+        height: 10px;
         background: #007bff;
         text-align: right;
 	  }
         .card .ds-skill .skill .bar p {
           color: white;
-          font-size: 8px;
-          padding-top: 5px;
+          font-size: 12px;
+          padding-top: 10px;
           animation: fadeIn 5s;
         }
         .card .ds-skill .skill .bar:hover {
@@ -209,7 +212,7 @@ body {
         }
       
       .card .ds-skill .skill .bar .bar-html {
-        width: 95%;
+        width: 10px;
         animation: htmlSkill 1s;
         animation-delay: .4s;
       }

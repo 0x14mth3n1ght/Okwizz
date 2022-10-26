@@ -62,7 +62,7 @@
             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1820405/profile/profile-512.jpg?1533058950" alt="Albert Einstein">
         </div>
         <div class="name">
-            <a href="https://codepen.io/AlbertFeynman/" target="_blank">Albert Feynman</a>
+            <a href="https://codepen.io/AlbertFeynman/" target="_blank">User</a>
             <h6 title="Followers"><i class="fas fa-users"></i> <span class="followers">90</span></h6>
         </div>
         <div class="button">
@@ -70,34 +70,34 @@
         </div>
         <div class="ds-info">
             <div class="ds pens">
-                <h6 title="Nombre de points">Pens <i class="fas fa-edit"></i></h6>
+                <h6 title="Nombre de points">Parties jouées </h6>
                 <p>29</p>
             </div>
             <div class="ds projects">
-                <h6 title="Nombre de parties">Projects <i class="fas fa-project-diagram"></i></h6>
-                <p>0</p>
+                <h6 title="Nombre de parties">Victoire </h6>
+                <p>20</p>
             </div>
             <div class="ds posts">
-                <h6 title="Nombre de posts">Posts <i class="fas fa-comments"></i></h6>
-                <p>0</p>
+                <h6 title="Nombre de posts">Défaite</h6>
+                <p>9</p>
             </div>
         </div>
         <div class="ds-skill">
-            <h6>Skill <i class="fa fa-code" aria-hidden="true"></i></h6>
+            <h6>Catégories</h6>
             <div class="skill html">
-                <h6><i class="fab fa-html5"></i> HTML5 </h6>
+                <h6> Culture Général </h6>
                 <div class="bar bar-html">
                     <p>95%</p>
                 </div>
             </div>
             <div class="skill css">
-                <h6><i class="fab fa-css3-alt"></i> CSS3 </h6>
+                <h6> Pays </h6>
                 <div class="bar bar-css">
                     <p>90%</p>
                 </div>
             </div>
             <div class="skill javascript">
-                <h6><i class="fab fa-js"></i> JavaScript </h6>
+                <h6> Science </h6>
                 <div class="bar bar-js">
                     <p>75%</p>
                 </div>

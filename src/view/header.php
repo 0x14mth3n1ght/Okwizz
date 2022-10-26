@@ -16,7 +16,7 @@
                 <!-- <a href="#" class="logo">Scrum</a> -->
                 <img viewBox="0 0 640 512" width="100" title="scrum" src="/src/images/scrum-logo.png"> </img>
             </li>
-            <li class="navbar_listitem"><a href="index.php">Home</a></li>
+            <li class="navbar_listitem"><a href="../public/index.php">Home</a></li>
             <li class="navbar_listitem"><a href="h">Jouer</a>
                 <ul class="navbar_listitemdrop">
                     <li><a href="questionController.php">Partie rapide</a></li>
