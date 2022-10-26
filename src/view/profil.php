@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="profil.css">
+    <link rel="stylesheet" href="../view/stylesheet.css">
     <script type="text/javascript" src="profil.js"></script>
 </head>
 
@@ -62,11 +63,11 @@
             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1820405/profile/profile-512.jpg?1533058950" alt="Albert Einstein">
         </div>
         <div class="name">
-            <a href="https://codepen.io/AlbertFeynman/" target="_blank">User</a>
+            <a href="#">User</a>
             <h6 title="Followers"><i class="fas fa-users"></i> <span class="followers">90</span></h6>
         </div>
         <div class="button">
-            <a href="#" class="btn" onmousedown="follow();">Follow <i class="fas fa-user-plus"></i></a>
+            <a href="" class="btn" onmousedown="follow();">Jouer</a>
         </div>
         <div class="ds-info">
             <div class="ds pens">
