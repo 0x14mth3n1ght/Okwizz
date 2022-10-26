@@ -1,9 +1,10 @@
 <?php
-include_once '../models/user_manager.php' ; 
-$hscore = getHighscore($_SESSION["name"]);
-if ($_SESSION["score"]>$hscore)
-        $setHighscore($_SESSION["name"],$hscore);
-$scoreboard = getAllUserHightscore();
+require_once '../models/user_manager.php' ; 
+$um = new UserManager();
+
+$hscore = $um->getHighscore($_SESSION["name"]);
+
+$scoreboard = $um->getAllUserHightscore();
 print implode(";",$scoreboard);
 ?>
 
