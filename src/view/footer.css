@@ -10,6 +10,7 @@ body{
 	font-family: 'Poppins', sans-serif;
     display: table;
     width: 100%;
+	/* position: relative; */
 }
 *{
 	margin:0;
@@ -28,15 +29,16 @@ ul{
 	list-style: none;
 }
 .footer{
+	box-shadow: 0 50vh 0 50vh #24262b;
 	background-color: #24262b;
-    display: table-row;
+    display: table-row	;
     height:100px;
     /* padding: 70px 0; */
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
-    padding-bottom: 100px;
+    width: 100%;
+	/* width: 100%; */
+    /* padding-bottom: 100px; */
 }
 .footer-col{
    width: 25%;

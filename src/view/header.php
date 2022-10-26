@@ -19,7 +19,7 @@
             <li class="navbar_listitem"><a href="../public/index.php">Home</a></li>
             <li class="navbar_listitem"><a href="h">Jouer</a>
                 <ul class="navbar_listitemdrop">
-                    <li><a href="questionController.php">Partie rapide</a></li>
+                    <li><a href="../public/questionController.php">Partie rapide</a></li>
                     <li><a href="#">Multijoueurs</a></li>
                     <li><a href="#">Catégories</a></li>
                 </ul>
