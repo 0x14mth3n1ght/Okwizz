@@ -67,7 +67,7 @@
             <h6 title="Followers"><i class="fas fa-users"></i> <span class="followers">90</span></h6>
         </div>
         <div class="button">
-            <a href="" class="btn" onmousedown="follow();">Jouer</a>
+            <a href="../public/questionController.php" class="btn" onmousedown="follow();">Jouer</a>
         </div>
         <div class="ds-info">
             <div class="ds pens">
@@ -109,3 +109,4 @@
     <?php
     include_once('footer.php');
     ?>
+</body>

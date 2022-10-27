@@ -16,29 +16,29 @@
                 <div class="footer-col">
                     <h4>Compagny</h4>
                     <ul>
-                        <li><a href="#">A propos</a></li>
-                        <li><a href="#">Nos services</a></li>
-                        <li><a href="#">Politique de confidentialité</a></li>
-                        <li><a href="#">Mention légal</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Our services</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Legal notice</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h4>Aide</h4>
+                    <h4>Help</h4>
                     <ul>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Une erreur ?</a></li>
-                        <li><a href="#">Option de paiment</a></li>
+                        <li><a href="#">An error ?</a></li>
+                        <li><a href="#">Paiement options</a></li>
 
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h4>Vos quizz</h4>
+                    <h4>Your quizz</h4>
                     <ul>
-                        <li><a href="#">Un quizz, késako ?</a></li>
-                        <li><a href="#">Envoyez-nous vos quizz</a></li>
-                        <li><a href="#">Concours de quizz</a></li>
+                        <li><a href="#">Quizz, késako ?</a></li>
+                        <li><a href="#">Send us your Quizz</a></li>
+                        <li><a href="#">Quiz competition</a></li>
                     </ul>
                 </div>
 

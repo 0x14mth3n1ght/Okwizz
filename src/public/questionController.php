@@ -33,7 +33,7 @@ if ($_SESSION["question_id"] < $_SESSION["nombre_question"]) {
 
     if (isset($choix)) {
         if ($choix == $info_current_question["correct_answer"]) {
-            $_SESSION["score"]+=$temps;
+            $_SESSION["score"]+=1;
         }
         $_SESSION["question_id"]++;
     }
