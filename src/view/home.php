@@ -39,7 +39,7 @@
 				</div>
 			</div>
 			<div class="buttons">
-				<button type="submit" class="restart">Confirmer</button>
+				<button type="submit" class="restart">Start</button>
 				<button type="submit" class="restart">JOUER</button>
 			</div>
 		</form>
