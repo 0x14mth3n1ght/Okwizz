@@ -47,6 +47,7 @@ header {
 	position: fixed; 
 	width: 100vw;
 	box-shadow: 0 0 10px #e1e5ee;
+	z-index: auto;
 }
 
 .navbar .navbar_list{
