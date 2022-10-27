@@ -1,5 +1,6 @@
 <?php
 
+include 'question.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -32,7 +33,7 @@ if ($_SESSION["question_id"] < $_SESSION["nombre_question"]) {
 
     if (isset($choix)) {
         if ($choix == $info_current_question["correct_answer"]) {
-            $_SESSION["score"]++;
+            $_SESSION["score"]+=timer;
         }
         $_SESSION["question_id"]++;
     }
