@@ -27,6 +27,8 @@
             <li class="navbar_listitem"><a href="../public/classement.php">Ranking</a></li>
             <li class="navbar_listitem"><a href="#">Contact</a></li>
             <li class="navbar_listitem"><a href="../view/profil.php">Profil</a></li>
+            <li class="navbar_listitem"><a href="../view/login.php">Login</a></li>
+            <li class="navbar_listitem"><a href="../view/register.php">Register</a></li>
         </ul>
         <!-- <img src="../view/hamburger-button-icons-menu-bar-line.png" alt="menu hamburger" class="menu-hamburger"> -->
     </nav>

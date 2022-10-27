@@ -15,7 +15,7 @@
       <input type="password" placeholder="Password" required>
     </div>
     
-    <p class="inscription">Not registered yet ? <a href="register.html">Register now.</a>
+    <p class="inscription">Not registered yet ? <a href="register.php">Register now.</a>
     <div align="center">
       <button type="submit">Log in</button>
     </div>

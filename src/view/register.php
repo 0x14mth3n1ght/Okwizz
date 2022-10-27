@@ -16,7 +16,7 @@
       <input type="password" placeholder="Confirm Password" id="confirm_password" required>
     </div>
     
-    <p class="inscription">Already have an account ? <a href="login.html">Log in.</a>
+    <p class="inscription">Already have an account ? <a href="login.php">Log in.</a>
     
     <div align="center">
       <button type="submit">Register</button>
