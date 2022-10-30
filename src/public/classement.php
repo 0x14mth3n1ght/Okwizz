@@ -1,7 +1,6 @@
 <?php
 require_once 'template.php';
-require_once '../models/user_manager.php';
-$um = new UserManager();
-$scoreboard = $um->getAllUserHightscore();
+require_once '../models/userManager.php';
+$scoreboard = UserManager::getAllUserHightscore();
 loadview("classement.php", $scoreboard);
 ?>

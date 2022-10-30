@@ -2,12 +2,11 @@
 <div class="info_box">
 <p> Bonjour,<?php echo htmlspecialchars($_SESSION["name"]);?> :<?php echo $_SESSION["score"];?> pts. </p>
 <?php
-require_once '../models/user_manager.php' ;
-$um = new UserManager();
+require_once '../models/userManager.php' ;
  
-$hscore = $um->getHighscore($_SESSION["name"]);
+$hscore = UserManager::getHighscore($_SESSION["name"]);
 if ($_SESSION["score"]>$hscore)
-        $um->setHighscore($_SESSION["name"],$hscore); ?>
+	UserManager::setHighscore($_SESSION["name"],$hscore); ?>
 
 <form action="../public/index.php" method="post">
         <div class="buttons">
