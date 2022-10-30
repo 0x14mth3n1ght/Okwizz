@@ -20,7 +20,7 @@ class UserManager {
 	 */
 	public static function registerPlayer(string $pseudo, string $passwd): bool{
 		$passwdhash = password_hash($passwd, PASSWORD_ARGON2ID);
-		return UserManager::registerPlayerDB($pseudo, $passwdhash);
+		return self::registerPlayerDB($pseudo, $passwdhash);
 	}
 
 	/**
@@ -32,7 +32,7 @@ class UserManager {
 	 *         false if the password does not match or the player does not exist.
 	 */
 	public static function verifyPassword(string $pseudo, string $passwd): bool{
-		$info = UserManager::getInfosDB($pseudo);
+		$info = self::getInfosDB($pseudo);
 		if(!$info || empty($info))
 			return false;
 		return password_verify($passwd, $info[0]["passwdhash"]);
@@ -46,7 +46,7 @@ class UserManager {
 	 *         the highscore otherwith.
 	 */
 	public static function getHighscore(string $pseudo){
-		$info = UserManager::getInfosDB($pseudo);
+		$info = self::getInfosDB($pseudo);
 		if(!$info || empty($info))
 			return false;
 		return $info[0]["highscore"];
@@ -62,7 +62,7 @@ class UserManager {
 	 */
 	public static function setPassword(string $pseudo, string $passwd): bool{
 		$passwdhash = password_hash($passwd, PASSWORD_ARGON2ID);
-		return UserManager::setPasswordDB($pseudo, $passwdhash);
+		return self::setPasswordDB($pseudo, $passwdhash);
 	}
 
 	/**
@@ -76,7 +76,7 @@ class UserManager {
 	public static function setHighscore(string $pseudo, string $highscore): bool{
 		if($highscore < 0)
 			return false;
-		return UserManager::setHighscoreDB($pseudo, $highscore);
+		return self::setHighscoreDB($pseudo, $highscore);
 	}
 
 	/**
@@ -87,7 +87,7 @@ class UserManager {
 	 *         false if it already does not exist.
 	 */
 	public static function deletePlayer(string $pseudo): bool{
-		return UserManager::deletePlayerDB($pseudo);
+		return self::deletePlayerDB($pseudo);
 	}
 
 	/**
@@ -96,7 +96,7 @@ class UserManager {
 	 * @return unknown
 	 */
 	public static function getAllUserHightscore(){
-		return UserManager::getAllUserHightscoreDB();
+		return self::getAllUserHightscoreDB();
 	}
 
 	# ================
