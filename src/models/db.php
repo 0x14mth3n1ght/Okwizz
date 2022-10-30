@@ -7,11 +7,10 @@ class DB {
 	 *
 	 * @return PDO
 	 */
-	public function getDB(){
+	public static function getDB(){
 		if(!isset($GLOBALS["DATABASE"])){
-			$db = $this->initDB();
-			$this->populate_if_empty($db);
-			//$this->populate($db);
+			$db = DB::initDB();
+			DB::populate_if_empty($db);
 			$GLOBALS["DATABASE"] = $db;
 		}
 		return $GLOBALS["DATABASE"];
@@ -23,7 +22,7 @@ class DB {
 	 * @param PDOStatement $stmt
 	 * @return unknown[]
 	 */
-	public function fetchToMap(PDOStatement $stmt){
+	public static function fetchToMap(PDOStatement $stmt){
 		$items = [];
 		foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $item){
 			$items[] = $item;
@@ -36,7 +35,7 @@ class DB {
 	 *
 	 * @return PDO
 	 */
-	private function initDB(){
+	private static function initDB(){
 		try{
 			$db = new PDO('sqlite:../../pima2022-group9.sqlite');
 		}catch(Exception $e){
@@ -47,21 +46,26 @@ class DB {
 	}
 
 	/**
-	 * Populate the tables in the database if theirs does not already exist.
+	 * Populate the tables in the database if their does not already exist.
 	 *
 	 * @param PDO $db
 	 */
-	private function populate_if_empty(PDO $db){
+	private static function populate_if_empty(PDO $db){
 		$stmt = $db->prepare("SELECT sm.name FROM sqlite_master sm WHERE sm.type='table' AND sm.name=:table_name;");
 		$stmt->bindValue(':table_name', "User", PDO::PARAM_STR);
 		$stmt->execute();
-		$res = $this->fetchToMap($stmt);
+		$res = DB::fetchToMap($stmt);
 		if(!(isset($res) && isset($res[0]) && isset($res[0]["name"]) && $res[0]["name"] == "User")){
-			$this->populate($db);
+			DB::populate($db);
 		}
 	}
 
-	private function populate(PDO $db){
+	/**
+	 * Populate the tables in the database.
+	 * 
+	 * @param PDO $db
+	 */
+	private static function populate(PDO $db){
 		$sql = file_get_contents('../SQL/tables-create.sql');
 		$db->exec($sql);
 	}
