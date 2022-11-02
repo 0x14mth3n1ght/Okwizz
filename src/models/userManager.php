@@ -1,4 +1,5 @@
 <?php
+include_once 'error.php';
 require_once 'db.php';
 
 class UserManager {

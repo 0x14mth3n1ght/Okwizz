@@ -1,4 +1,5 @@
 <?php
+include_once '../models/error.php';
 
 /** Vue commune à toute les page.
  1 - on génère le doctype et les headers
