@@ -1,25 +1,16 @@
-/* importing google fonts */
-@import url('https://fonts.googleapis.com/css?family=Tangerine');
+@import
+	url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap')
+	;
 
-* {
+.main-container * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 }
 
-/* label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
-} */
-
-/* input,
-label {
-    margin: .4rem 0;
-} */
 .wrapper {
 	width: 450px;
-	background: white;
 	padding: 30px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0, 0.1);
 }
@@ -149,21 +140,13 @@ label {
 	transition: all 0.3s ease;
 }
 
-/* .buttons button.quit{
-	color : #007bff;
-}
-
-.butons button.quit:hover{
-	color : #fff;
-	background : #007bff;
-} */
-
-h1 {
+.main-container h1 {
 	position: absolute;
 	left: 50%;
 	top: 10%;
 	transform: translate(-50%, -50%);
 }
+
 .green {
 	color: green;
 }
