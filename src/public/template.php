@@ -9,11 +9,11 @@ function loadView($view, $styles, $data){
 		<meta charset="utf-8">
 		<title>Scrum gang</title>
 		<link rel="icon" type="image/png" href="../images/scrum-logo.png">
-		<link rel="stylesheet" href="../view/global.css">
-		<link rel="stylesheet" href="../view/header.css">
-		<link rel="stylesheet" href="../view/footer.css">
+		<link rel="stylesheet" href="../style/global.css">
+		<link rel="stylesheet" href="../style/header.css">
+		<link rel="stylesheet" href="../style/footer.css">
 		<?php foreach($styles as $style){ ?>
-			<link rel="stylesheet" href=<?php echo "../view/$style.css" ?>>
+			<link rel="stylesheet" href=<?php echo "../style/$style.css" ?>>
 		<?php } ?>
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 	</head>

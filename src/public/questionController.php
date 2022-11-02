@@ -1,6 +1,5 @@
 <?php
-include_once 'error.php';
-
+include_once '../models/error.php';
 require_once '../models/opentdbAPI.php';
 require_once '../public/template.php';
 
