@@ -28,10 +28,17 @@ if($_SESSION["question_id"] < $_SESSION["nombre_question"]){
 		$_SESSION["question_id"]++;
 	}
 
-	loadView('question', array('main'), [
-			'choix' => isset($choix) ? $choix : null,
-			'info_question' => $info_current_question
-	]);
+	if(isset($choix)){
+		loadView('awnser', array('main'), [
+				'choix' => $choix,
+				'info_question' => $info_current_question
+		]);
+	}else{
+		loadView('question', array('main'), [
+				'info_question' => $info_current_question
+		]);
+	}
+	
 }else{
 	loadView('resultat', array('main'), []);
 }
