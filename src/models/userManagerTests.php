@@ -52,17 +52,27 @@ assertf(UserManager::deletePlayer("test"));
 assertt(UserManager::getAllUserHightscore() == array());
 UserManager::registerPlayer("Xarus1", "test123");
 UserManager::setHighscore("Xarus1", 123);
+UserManager::incNbparties("Xarus1");
+UserManager::incNbparties("Xarus1");
+UserManager::incNbparties("Xarus1");
 UserManager::registerPlayer("Xarus2", "test123");
+UserManager::incNbparties("Xarus2");
+UserManager::incNbparties("Xarus2");
 UserManager::setHighscore("Xarus2", 56);
 assertt(UserManager::getAllUserHightscore() == array(
 		[
 				"pseudo" => "Xarus1",
-				"highscore" => 123
+				"highscore" => 123,
+				"nbparties" => 3
 		],
 		[
 				"pseudo" => "Xarus2",
-				"highscore" => 56
+				"highscore" => 56,
+				"nbparties" => 2
 		]
 ));
+
+
+
 
 ?>

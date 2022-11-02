@@ -7,9 +7,8 @@ class UserManager {
 	# =========
 	# == API ==
 	# =========
-	/**
-	 * TODO: add nb party played
-	 */
+
+	# == Constructeur & Destructeur ==
 
 	/**
 	 * Register a player in the database.
@@ -23,6 +22,19 @@ class UserManager {
 		$passwdhash = password_hash($passwd, PASSWORD_ARGON2ID);
 		return self::registerPlayerDB($pseudo, $passwdhash);
 	}
+
+	/**
+	 * Delete a player from the database.
+	 *
+	 * @param string $pseudo
+	 * @return bool true is the player have been sucessfully deleted,
+	 *         false if it already does not exist.
+	 */
+	public static function deletePlayer(string $pseudo): bool{
+		return self::deletePlayerDB($pseudo);
+	}
+
+	# == Getter ==
 
 	/**
 	 * Verify the the password provided by the player is correct.
@@ -54,6 +66,21 @@ class UserManager {
 	}
 
 	/**
+	 * Get the number of parties played by $pseudo.
+	 *
+	 * @param string $pseudo
+	 * @return boolean|unknown the number of parties or false if it failed.
+	 */
+	public static function getNbparties(string $pseudo){
+		$info = self::getInfosDB($pseudo);
+		if(!$info || empty($info))
+			return false;
+		return $info[0]["nbparties"];
+	}
+
+	# == Setter ==
+
+	/**
 	 * Set the password of the player.
 	 *
 	 * @param string $pseudo
@@ -81,20 +108,22 @@ class UserManager {
 	}
 
 	/**
-	 * Delete a player from the database.
+	 * Increment by 1 the number of parties played by $pseudo.
 	 *
 	 * @param string $pseudo
-	 * @return bool true is the player have been sucessfully deleted,
-	 *         false if it already does not exist.
+	 * @return bool return true if sucessfull
+	 *         or false if the player does not exist.
 	 */
-	public static function deletePlayer(string $pseudo): bool{
-		return self::deletePlayerDB($pseudo);
+	public static function incNbparties(string $pseudo): bool{
+		return self::incNbpartiesDB($pseudo);
 	}
+
+	# == Other fontions ==
 
 	/**
 	 * Get the list of players and hight score sort by hight score.
 	 *
-	 * @return unknown
+	 * @return unknown (psswdhash, hightscore, nbparties)
 	 */
 	public static function getAllUserHightscore(){
 		return self::getAllUserHightscoreDB();
@@ -127,10 +156,10 @@ class UserManager {
 	 * Get Information about a player.
 	 *
 	 * @param string $pseudo
-	 * @return unknown|boolean (psswdhash, hightscore)
+	 * @return unknown|boolean (psswdhash, hightscore, nbparties)
 	 */
 	private static function getInfosDB(string $pseudo){
-		$stmt = DB::getDB()->prepare("SELECT u.passwdhash, u.highscore
+		$stmt = DB::getDB()->prepare("SELECT u.passwdhash, u.highscore, u.nbparties
 		FROM 'User' u
 		WHERE u.pseudo = :pseudo;");
 		$stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
@@ -185,6 +214,25 @@ class UserManager {
 	}
 
 	/**
+	 * Increment by 1 the unmber of parties played by $pseudo
+	 *
+	 * @param string $pseudo
+	 * @return bool
+	 */
+	private static function incNbpartiesDB(string $pseudo): bool{
+		$stmt = DB::getDB()->prepare("UPDATE 'User'
+		SET nbparties = (SELECT u.nbparties FROM 'User' u WHERE pseudo = :pseudo) + 1
+		WHERE pseudo = :pseudo;");
+		$stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+		try{
+			$stmt->execute();
+			return $stmt->rowCount() == 1;
+		}catch(PDOException $e){
+			return false;
+		}
+	}
+
+	/**
 	 * Delete a player from the database.
 	 *
 	 * @param string $pseudo
@@ -205,10 +253,10 @@ class UserManager {
 	/**
 	 * Get the list of players and hight score sort by hight score.
 	 *
-	 * @return unknown[]|boolean
+	 * @return unknown[]|boolean (psswdhash, hightscore, nbparties)
 	 */
 	private static function getAllUserHightscoreDB(){
-		$stmt = DB::getDB()->prepare("SELECT u.pseudo, u.highscore
+		$stmt = DB::getDB()->prepare("SELECT u.pseudo, u.highscore, u.nbparties
 		FROM 'User' u
 		ORDER BY u.highscore DESC;");
 		try{
