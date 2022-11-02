@@ -1,10 +1,8 @@
 <?php
 include_once 'error.php';
 
-require_once '../models/opentdb_api.php';
-
-include_once '../public/template.php';
-
+require_once '../models/opentdbAPI.php';
+require_once '../public/template.php';
 
 session_start();
 extract($_POST);
@@ -32,9 +30,12 @@ if ($_SESSION["question_id"] < $_SESSION["nombre_question"]) {
         $_SESSION["question_id"]++;
     }
 
-    loadView('question.php', ['choix' => isset($choix) ? $choix : null, 'info_question' => $info_current_question]);
-} else {
-    loadView('resultat.php', []);
+	loadView('question', array('main'), [
+			'choix' => isset($choix) ? $choix : null,
+			'info_question' => $info_current_question
+	]);
+}else{
+	loadView('resultat', array('main'), []);
 }
 
 ?>

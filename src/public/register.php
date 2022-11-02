@@ -1,4 +1,4 @@
 <?php
-include_once '../public/template.php';
-loadview("../view/register.php", NULL);
+require_once '../public/template.php';
+loadview('register', array('login'), NULL);
 ?>
