@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="../view/classement.css">
-<DIV class="container">
+<div class="container">
 <table>
 <caption>Scoreboard</caption>
 <tr>
@@ -18,4 +17,4 @@ foreach ($data as $id){
 }
 ?>
 </table>
-</DIV>
+</div>
