@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="../view/classement.css">
 <div class="container">
 <table>
 <caption>Scoreboard</caption>
