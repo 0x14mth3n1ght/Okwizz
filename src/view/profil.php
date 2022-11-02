@@ -1,11 +1,3 @@
-<!-- <html> -->
-
-<!-- <head> -->
-<!--     <link rel="stylesheet" href="profil.css"> -->
-<!--     <link rel="stylesheet" href="../view/stylesheet.css"> -->
-<!--     <script type="text/javascript" src="profil.js"></script> -->
-<!-- </head> -->
-
 <?php
 
 /**

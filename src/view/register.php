@@ -16,20 +16,6 @@
 		<button type="submit">Register</button>
 	</div>
 
-	<script type="text/javascript">
-	var password = document.getElementById("password");
-	var confirm_password = document.getElementById("confirm_password");
-
-	function validatePassword(){
-	if(password.value != confirm_password.value) {
-		confirm_password.setCustomValidity("Passwords don't match");
-	} else {
-		confirm_password.setCustomValidity('');
-	}
-	}
-
-	password.onchange = validatePassword;
-	confirm_password.onkeyup = validatePassword;
-	</script>
+	<script src="../script/passwordValidity.js"></script>
 </form>
 
