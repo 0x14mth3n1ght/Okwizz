@@ -2,8 +2,8 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="../view/home.css">
-    <link rel="stylesheet" href="../view/stylesheet.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="stylesheet.css">
 
     <!-- <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'> -->
 </head>
@@ -24,7 +24,7 @@
                     <li><a href="#">Catégories</a></li>
                 </ul>
             </li>
-            <li class="navbar_listitem"><a href="../view/classement.php">Classement</a></li>
+            <li class="navbar_listitem"><a href="../public/classement.php">Classement</a></li>
             <li class="navbar_listitem"><a href="#">Contact</a></li>
             <li class="navbar_listitem"><a href="../view/profil.php">Profil</a></li>
         </ul>

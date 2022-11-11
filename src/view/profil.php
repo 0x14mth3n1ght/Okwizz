@@ -1,9 +1,9 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="profil.css">
-    <link rel="stylesheet" href="../view/stylesheet.css">
-    <script type="text/javascript" src="profil.js"></script>
+    <link rel="stylesheet" href="css/profil.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <script type="text/javascript" src="js/profil.js"></script>
 </head>
 
 <body>

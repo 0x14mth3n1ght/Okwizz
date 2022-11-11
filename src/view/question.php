@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!-- <script type="text/javascript" src="chrono.js"></script> -->
-
-<!-- <head>
-	<link rel="stylesheet" href="../view/home.css">
-</head> -->
-
 <body>
 	<div class="info_box">
 		<p> Bonjour <?php echo htmlspecialchars($_SESSION["name"]); ?>: <?php echo $_SESSION["score"]; ?>pts. </p>

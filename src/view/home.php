@@ -2,8 +2,8 @@
 <html>
 
 <head>
-	<link rel="stylesheet" href="../view/footer.css">
-	<link rel="stylesheet" href="../view/stylesheet.css">
+	<link rel="stylesheet" href="footer.css">
+	<link rel="stylesheet" href="stylesheet.css">
 
 	<!-- <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat'> -->
 </head>
@@ -13,7 +13,6 @@
 	<?php
 	$title = 'Home';
 	$page = 'home';
-	include_once('header.php');
 	?>
 
 	<div class="info_box">
@@ -46,7 +45,6 @@
 	</div>
 
 	<?php
-	include_once('footer.php');
 	?>
 
 </body>

@@ -26,6 +26,7 @@ function loadView($view, $data)
 		<div class="main-container">
 			<?php include_once "../view/$view" ?>
 		</div>
+		<?php include_once '../view/footer.php' ?>
 	</body>
 
 	</html>
