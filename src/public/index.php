@@ -18,4 +18,3 @@ loadView('home.php', array());
 /**
  * fin du model pour la page principale
  */
-?>

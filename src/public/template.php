@@ -11,6 +11,7 @@
  */
 function loadView($view, $data)
 {
+	// echo "../view/" . $view . ".css"
 ?>
 	<!doctype html>
 	<html lang="fr">
@@ -18,7 +19,11 @@ function loadView($view, $data)
 	<head>
 		<meta charset="utf-8">
 		<title>Scrum gang</title>
+		<!-- <link rel="stylesheet" href="../view/" .$view.".css"> -->
 		<link rel="stylesheet" href="../view/home.css">
+		<link rel="stylesheet" href="../view/profil.css">
+		<!-- Important à importer -->
+
 	</head>
 
 	<body>

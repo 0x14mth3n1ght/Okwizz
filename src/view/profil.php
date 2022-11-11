@@ -105,8 +105,5 @@
             </div>
         </div>
     </div>
-
-    <?php
-    include_once('footer.php');
-    ?>
+    <?php include_once '../view/footer.php' ?>
 </body>
