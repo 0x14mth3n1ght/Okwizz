@@ -1,18 +1,14 @@
 <?php
+include_once 'error.php';
 require_once 'db.php';
 
 class UserManager {
-	private DB $db;
-	private PDO $pdo;
-
-	function __construct(){
-		$this->db = new DB();
-		$this->pdo = $this->db->getDB();
-	}
 
 	# =========
 	# == API ==
 	# =========
+
+	# == Constructeur & Destructeur ==
 
 	/**
 	 * Register a player in the database.
@@ -22,10 +18,23 @@ class UserManager {
 	 * @return boolean true if the operation is sucessfull
 	 *         false if the player already exist
 	 */
-	public function registerPlayer(string $pseudo, string $passwd): bool{
+	public static function registerPlayer(string $pseudo, string $passwd): bool{
 		$passwdhash = password_hash($passwd, PASSWORD_ARGON2ID);
-		return $this->registerPlayerDB($pseudo, $passwdhash);
+		return self::registerPlayerDB($pseudo, $passwdhash);
 	}
+
+	/**
+	 * Delete a player from the database.
+	 *
+	 * @param string $pseudo
+	 * @return bool true is the player have been sucessfully deleted,
+	 *         false if it already does not exist.
+	 */
+	public static function deletePlayer(string $pseudo): bool{
+		return self::deletePlayerDB($pseudo);
+	}
+
+	# == Getter ==
 
 	/**
 	 * Verify the the password provided by the player is correct.
@@ -35,8 +44,8 @@ class UserManager {
 	 * @return boolean true if the password is verified
 	 *         false if the password does not match or the player does not exist.
 	 */
-	public function verifyPassword(string $pseudo, string $passwd): bool{
-		$info = $this->getInfosDB($pseudo);
+	public static function verifyPassword(string $pseudo, string $passwd): bool{
+		$info = self::getInfosDB($pseudo);
 		if(!$info || empty($info))
 			return false;
 		return password_verify($passwd, $info[0]["passwdhash"]);
@@ -49,12 +58,27 @@ class UserManager {
 	 * @return boolean|int false if the player does not exist,
 	 *         the highscore otherwith.
 	 */
-	public function getHighscore(string $pseudo){
-		$info = $this->getInfosDB($pseudo);
+	public static function getHighscore(string $pseudo){
+		$info = self::getInfosDB($pseudo);
 		if(!$info || empty($info))
 			return false;
 		return $info[0]["highscore"];
 	}
+
+	/**
+	 * Get the number of parties played by $pseudo.
+	 *
+	 * @param string $pseudo
+	 * @return boolean|unknown the number of parties or false if it failed.
+	 */
+	public static function getNbparties(string $pseudo){
+		$info = self::getInfosDB($pseudo);
+		if(!$info || empty($info))
+			return false;
+		return $info[0]["nbparties"];
+	}
+
+	# == Setter ==
 
 	/**
 	 * Set the password of the player.
@@ -64,9 +88,9 @@ class UserManager {
 	 * @return bool true if sucessfull,
 	 *         false if the player does not exist.
 	 */
-	public function setPassword(string $pseudo, string $passwd): bool{
+	public static function setPassword(string $pseudo, string $passwd): bool{
 		$passwdhash = password_hash($passwd, PASSWORD_ARGON2ID);
-		return $this->setPasswordDB($pseudo, $passwdhash);
+		return self::setPasswordDB($pseudo, $passwdhash);
 	}
 
 	/**
@@ -77,30 +101,32 @@ class UserManager {
 	 * @return bool true if sucessfull,
 	 *         false if the player does not exist.
 	 */
-	public function setHighscore(string $pseudo, string $highscore): bool{
+	public static function setHighscore(string $pseudo, string $highscore): bool{
 		if($highscore < 0)
 			return false;
-		return $this->setHighscoreDB($pseudo, $highscore);
+		return self::setHighscoreDB($pseudo, $highscore);
 	}
 
 	/**
-	 * Delete a player from the database.
+	 * Increment by 1 the number of parties played by $pseudo.
 	 *
 	 * @param string $pseudo
-	 * @return bool true is the player have been sucessfully deleted,
-	 *         false if it already does not exist.
+	 * @return bool return true if sucessfull
+	 *         or false if the player does not exist.
 	 */
-	public function deletePlayer(string $pseudo): bool{
-		return $this->deletePlayerDB($pseudo);
+	public static function incNbparties(string $pseudo): bool{
+		return self::incNbpartiesDB($pseudo);
 	}
+
+	# == Other fontions ==
 
 	/**
 	 * Get the list of players and hight score sort by hight score.
 	 *
-	 * @return unknown
+	 * @return unknown (psswdhash, hightscore, nbparties)
 	 */
-	public function getAllUserHightscore(){
-		return $this->getAllUserHightscoreDB();
+	public static function getAllUserHightscore(){
+		return self::getAllUserHightscoreDB();
 	}
 
 	# ================
@@ -114,8 +140,8 @@ class UserManager {
 	 * @param string $passwdhash
 	 * @return bool
 	 */
-	private function registerPlayerDB(string $pseudo, string $passwdhash): bool{
-		$stmt = $this->pdo->prepare("INSERT INTO 'User' (pseudo, passwdhash)
+	private static function registerPlayerDB(string $pseudo, string $passwdhash): bool{
+		$stmt = DB::getDB()->prepare("INSERT INTO 'User' (pseudo, passwdhash)
 		VALUES (:pseudo, :passwdhash);");
 		$stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
 		$stmt->bindValue(':passwdhash', $passwdhash, PDO::PARAM_STR);
@@ -130,16 +156,16 @@ class UserManager {
 	 * Get Information about a player.
 	 *
 	 * @param string $pseudo
-	 * @return unknown|boolean (psswdhash, hightscore)
+	 * @return unknown|boolean (psswdhash, hightscore, nbparties)
 	 */
-	private function getInfosDB(string $pseudo){
-		$stmt = $this->pdo->prepare("SELECT u.passwdhash, u.highscore
+	private static function getInfosDB(string $pseudo){
+		$stmt = DB::getDB()->prepare("SELECT u.passwdhash, u.highscore, u.nbparties
 		FROM 'User' u
 		WHERE u.pseudo = :pseudo;");
 		$stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
 		try{
 			$stmt->execute();
-			return $this->db->fetchToMap($stmt);
+			return DB::fetchToMap($stmt);
 		}catch(PDOException $e){
 			return false;
 		}
@@ -152,8 +178,8 @@ class UserManager {
 	 * @param string $passwdhash
 	 * @return bool
 	 */
-	private function setPasswordDB(string $pseudo, string $passwdhash): bool{
-		$stmt = $this->pdo->prepare("UPDATE 'User'
+	private static function setPasswordDB(string $pseudo, string $passwdhash): bool{
+		$stmt = DB::getDB()->prepare("UPDATE 'User'
 		SET passwdhash = :passwdhash
 		WHERE pseudo = :pseudo;");
 		$stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
@@ -173,12 +199,31 @@ class UserManager {
 	 * @param int $highscore
 	 * @return bool
 	 */
-	private function setHighscoreDB(string $pseudo, int $highscore): bool{
-		$stmt = $this->pdo->prepare("UPDATE 'User'
+	private static function setHighscoreDB(string $pseudo, int $highscore): bool{
+		$stmt = DB::getDB()->prepare("UPDATE 'User'
 		SET highscore = :highscore
 		WHERE pseudo = :pseudo;");
 		$stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
 		$stmt->bindValue(':highscore', $highscore, PDO::PARAM_INT);
+		try{
+			$stmt->execute();
+			return $stmt->rowCount() == 1;
+		}catch(PDOException $e){
+			return false;
+		}
+	}
+
+	/**
+	 * Increment by 1 the unmber of parties played by $pseudo
+	 *
+	 * @param string $pseudo
+	 * @return bool
+	 */
+	private static function incNbpartiesDB(string $pseudo): bool{
+		$stmt = DB::getDB()->prepare("UPDATE 'User'
+		SET nbparties = (SELECT u.nbparties FROM 'User' u WHERE pseudo = :pseudo) + 1
+		WHERE pseudo = :pseudo;");
+		$stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
 		try{
 			$stmt->execute();
 			return $stmt->rowCount() == 1;
@@ -193,8 +238,8 @@ class UserManager {
 	 * @param string $pseudo
 	 * @return bool
 	 */
-	private function deletePlayerDB(string $pseudo): bool{
-		$stmt = $this->pdo->prepare("DELETE FROM 'User'
+	private static function deletePlayerDB(string $pseudo): bool{
+		$stmt = DB::getDB()->prepare("DELETE FROM 'User'
 		WHERE pseudo = :pseudo;");
 		$stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
 		try{
@@ -208,15 +253,15 @@ class UserManager {
 	/**
 	 * Get the list of players and hight score sort by hight score.
 	 *
-	 * @return unknown[]|boolean
+	 * @return unknown[]|boolean (psswdhash, hightscore, nbparties)
 	 */
-	private function getAllUserHightscoreDB(){
-		$stmt = $this->pdo->prepare("SELECT u.pseudo, u.highscore
+	private static function getAllUserHightscoreDB(){
+		$stmt = DB::getDB()->prepare("SELECT u.pseudo, u.highscore, u.nbparties
 		FROM 'User' u
 		ORDER BY u.highscore DESC;");
 		try{
 			$stmt->execute();
-			return $this->db->fetchToMap($stmt);
+			return DB::fetchToMap($stmt);
 		}catch(PDOException $e){
 			return false;
 		}
