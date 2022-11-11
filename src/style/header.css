@@ -1,0 +1,109 @@
+header {
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* Reset default param */
+header * {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	list-style: none;
+}
+
+header {
+	width: 100vw;
+}
+
+.navbar {
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	box-shadow: 0 0 10px #e1e5ee;
+}
+
+.navbar .navbar_list {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 2rem;
+	margin: 0 2rem;
+}
+
+.navbar .navbar_list .navbar_listlogo {
+	list-style: none;
+	margin-right: auto;
+	cursor: pointer;
+}
+
+.navbar .navbar_list .navbar_listlogo img {
+	width: 2.5rem;
+	transition: fill 250ms ease-in;
+}
+
+.navbar .navbar_list .navbar_listlogo img:hover, .navbar .navbar_list .navbar_listlogo img:focus
+	{
+	fill: blueviolet;
+}
+
+.navbar .navbar_list .navbar_listitem {
+	list-style: none;
+	font-weight: bold;
+	position: relative;
+	padding: 1.5rem 1rem;
+	cursor: pointer;
+}
+
+.navbar .navbar_list .navbar_listitem:hover ul, .navbar .navbar_list .navbar_listitem:focus ul
+	{
+	opacity: 1;
+	visibility: visible;
+}
+
+.navbar .navbar_list .navbar_listitem:after {
+	content: "";
+	width: 0;
+	height: 0.3rem;
+	border-radius: 2.5rem;
+	position: absolute;
+	left: 1rem;
+	bottom: 0.8rem;
+	background-color: #007bff;
+	transition: width 200ms ease-in;
+}
+
+.navbar .navbar_list .navbar_listitem:hover:after, .navbar .navbar_list .navbar_listitem:focus:after
+	{
+	width: 80%;
+}
+
+.navbar .navbar_list .navbar_listitem .navbar_listitemdrop {
+	position: absolute;
+	top: 4rem;
+	left: -1rem;
+	box-shadow: 0 0 10px #e1e5ee;
+	border-radius: 0.2rem;
+	width: 12rem;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 200ms ease-in-out;
+}
+
+.navbar .navbar_list .navbar_listitem .navbar_listitemdrop li {
+	list-style: none;
+	padding: 0.5rem 1 rem;
+	border-radius: 0.2rem;
+	transition: background-color 200ms ease-in-out;
+}
+
+.navbar .navbar_list .navbar_listitem .navbar_listitemdrop li:hover,
+	.navbar .navbar_list .navbar_listitem .navbar_listitemdrop li:focus {
+	background-color: #007bff;
+}
+
+.navbar a {
+	color: black;
+}

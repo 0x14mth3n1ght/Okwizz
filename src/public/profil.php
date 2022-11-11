@@ -1,3 +1,3 @@
 <?php
-require_once 'template.php';
-loadview("profil", array());
+require_once '../public/template.php';
+loadview('profil', array('profil'), NULL);

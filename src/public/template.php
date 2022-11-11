@@ -1,17 +1,8 @@
 <?php
+include_once '../models/error.php';
 
-/** Vue commune à toute les page.
- 1 - on génère le doctype et les headers
- 2 - on charge l'en-tête
- 3 - on charge la bonne page (donnée par $view) 
- 4 - on charge le pied de  page
-
- $db et $data sont respectivement la liaison avec la base de donée 
- et les données à traiter
- */
-function loadView($view, $data)
+function loadView($view, $styles, $data)
 {
-	// echo "../view/" . $view . ".css"
 ?>
 	<!doctype html>
 	<html lang="fr">
@@ -19,18 +10,26 @@ function loadView($view, $data)
 	<head>
 		<meta charset="utf-8">
 		<title>Scrum gang</title>
-		<!-- <link rel="stylesheet" href="../view/" .$view.".css"> -->
-		<link rel="stylesheet" href="../view/home.css">
-		<link rel="stylesheet" href="../view/profil.css">
-		<!-- Important à importer -->
-
+		<link rel="icon" type="image/png" href="../images/scrum-logo.png">
+		<link rel="stylesheet" href="../style/global.css">
+		<link rel="stylesheet" href="../style/header.css">
+		<link rel="stylesheet" href="../style/footer.css">
+		<?php foreach ($styles as $style) { ?>
+			<link rel="stylesheet" href=<?php echo "../style/$style.css" ?>>
+		<?php } ?>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 	</head>
 
 	<body>
-		<?php include_once '../view/header.php' ?>
+		<header>
+			<?php include_once '../view/header.php' ?>
+		</header>
 		<div class="main-container">
-			<?php include_once "../view/$view" ?>
+			<?php require_once "../view/$view.php" ?>
 		</div>
+		<footer>
+			<?php include_once '../view/footer.php' ?>
+		</footer>
 	</body>
 
 	</html>

@@ -3,7 +3,7 @@ INSERT INTO 'User' (pseudo, passwdhash)
 VALUES (:pseudo, :passwdhash);
 
 -- get infos
-SELECT u.passwdhash, u.highscore
+SELECT u.passwdhash, u.highscore, u.nbparties
 FROM 'User' u
 WHERE u.pseudo = :pseudo;
 
@@ -17,8 +17,13 @@ UPDATE 'User'
 SET highscore = :highscore
 WHERE pseudo = :pseudo;
 
--- get all user highscore
-SELECT u.pseudo, u.highscore
+-- inc info nbparties
+UPDATE 'User'
+SET nbparties = (SELECT u.nbparties FROM 'User' u WHERE pseudo = :pseudo) + 1
+WHERE pseudo = :pseudo;
+
+-- get all user highscore & nbparties
+SELECT u.pseudo, u.highscore, u.nbparties
 FROM 'User' u
 ORDER BY u.highscore DESC;
 

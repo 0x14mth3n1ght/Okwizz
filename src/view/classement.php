@@ -1,3 +1,4 @@
+<div class="container">
 <table>
 <caption>Scoreboard</caption>
 <tr>
@@ -16,3 +17,4 @@ foreach ($data as $id){
 }
 ?>
 </table>
+</div>
