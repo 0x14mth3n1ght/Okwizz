@@ -1,5 +1,6 @@
 <?php
 include_once '../models/error.php';
+require_once '../models/userManager.php';
 require_once '../models/opentdbAPI.php';
 require_once '../public/template.php';
 
@@ -7,6 +8,15 @@ session_start();
 extract($_POST);
 
 if(isset($name)){
+	// We try to register the player if it does not already exist.
+	if(! UserManager::registerPlayer($name, "")){
+		// if the player already exist we verify that ir is a player without password.
+		if(! UserManager::verifyPassword($name, "")){
+			// if the player exist and as a define password, we can't play so we reload the page.
+			header("Location: ./index.php");
+		}
+	}
+	
 	$_SESSION["name"] = $name;
 	$_SESSION["question_id"] = 0;
 	$_SESSION["score"] = 0;
@@ -29,7 +39,7 @@ if($_SESSION["question_id"] < $_SESSION["nombre_question"]){
 	}
 
 	if(isset($choix)){
-		loadView('awnser', array('main'), [
+		loadView('anwser', array('main'), [
 				'choix' => $choix,
 				'info_question' => $info_current_question
 		]);
