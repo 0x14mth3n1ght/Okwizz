@@ -38,7 +38,7 @@ class DB {
 	 */
 	private static function initDB(){
 		try{
-			$db = new PDO('sqlite:../../pima2022-group9.sqlite');
+			$db = new PDO('sqlite:../../pima2022-group9-v1.2.sqlite');
 		}catch(Exception $e){
 			echo "Impossible d'accéder à la base de données SQLite : ".$e->getMessage();
 			die();
