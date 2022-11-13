@@ -3,7 +3,7 @@
 		<caption>Scoreboard</caption>
 		<tr>
 			<th>Pseudo</th>
-			<th>Score</th>
+			<th>High Score</th>
 			<th>Nombre de parties joué</th>
 		</tr>
 		<?php
