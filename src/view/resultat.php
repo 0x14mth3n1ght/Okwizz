@@ -1,14 +1,26 @@
 <div class="info_box">
 	<p> 
-		Bonjour,<?php echo htmlspecialchars($_SESSION["name"]);?> :<?php echo $_SESSION["score"];?> pts. 
+		Bonjour, <?php echo htmlspecialchars($_SESSION["name"]);?>
 	</p>
 
 	<?php
 	require_once '../models/userManager.php';
+	$score = $_SESSION["score"];
 	$hscore = UserManager::getHighscore($_SESSION["name"]);
-	if($_SESSION["score"] > $hscore)
-		UserManager::setHighscore($_SESSION["name"], $hscore);
+	if($score > $hscore)
+		UserManager::setHighscore($_SESSION["name"], $score);
+		UserManager::incNbparties($_SESSION["name"]);
 	?>
+	
+	<div>
+		<p>
+			Score: <?php echo $score ?>
+		</p>
+		<p>
+			High Score: <?php echo $hscore ?>
+		</p>
+	</div>
+	
 
 	<form action="../public/index.php" method="post">
 		<div class="buttons">
