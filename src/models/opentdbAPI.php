@@ -35,7 +35,14 @@ class OpentdbAPI {
 	 * @return mixed
 	 */
 	private static function GetQuestionsFromAPI($nombreQuestion, $category, $difficulty, $typeQuizz){
-		$jsonAPIQuestions = file_get_contents("https://opentdb.com/api.php?amount=".$nombreQuestion."&category=".$category."&difficulty=".$difficulty."&type=".$typeQuizz);
+		$api_url = "https://opentdb.com/api.php?amount=".$nombreQuestion."&type=".$typeQuizz;
+		if($category != 0){
+			$api_url .= "&category=".$category;
+		}
+		if($difficulty != "any difficulty"){
+			$api_url .= "&difficulty=".$difficulty;
+		}
+		$jsonAPIQuestions = file_get_contents($api_url);
 		return json_decode($jsonAPIQuestions, true)['results'];
 	}
 

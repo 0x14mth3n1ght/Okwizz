@@ -22,7 +22,13 @@ if(isset($name)){
 	$_SESSION["score"] = 0;
 	$_SESSION['nombre_question'] = 5;
 	$_SESSION['category'] = 9;
+	if(isset($category)){
+		$_SESSION['category'] = $category;
+	}
 	$_SESSION['difficulty'] = "easy";
+	if(isset($difficulte)){
+		$_SESSION['difficulte'] = $difficulte;
+	}
 	$_SESSION['type_question'] = "multiple";
 
 	$_SESSION['questions'] = OpentdbAPI::GetQuestions($_SESSION['nombre_question'], $_SESSION['category'], $_SESSION['difficulty'], $_SESSION['type_question']);

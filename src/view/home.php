@@ -11,7 +11,7 @@
 		<!-- <div class="info">4. Règle n°4</div> -->
 	</div>
 
-	<form action="../public/questionController.php" method="post">
+	<form action="../public/catalogueQuizz.php" method="post">
 		<div class="wrapper">
 			<div class="input-data">
 				<input id="name" name="name" type="text">

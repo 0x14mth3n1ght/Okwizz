@@ -1,0 +1,8 @@
+footer{
+    bottom: auto;
+}
+
+.navbar{
+    position: relative;
+    z-index: 999;
+}
