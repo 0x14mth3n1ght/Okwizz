@@ -31,6 +31,8 @@ $category = array(
     ["CategoryId" => 31, "CategoryName" => "Entertainment : Japanese Anime & Manga", "CategoryImg" => "ghost.png"],
     ["CategoryId" => 32, "CategoryName" => "Entertainment : Cartoon & Animations", "CategoryImg" => "leonardo.png"],
 );
-
-loadView('catalogueQuizz', array('catalogueQuizz') , array( "name" => $name, "category" => $category));
-?>
+if (empty($name)) {
+    loadView('catalogueQuizz', array('catalogueQuizz'), array("category" => $category));
+} else {
+    loadView('catalogueQuizz', array('catalogueQuizz'), array("name" => $name, "category" => $category));
+}
