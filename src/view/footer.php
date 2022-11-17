@@ -39,13 +39,13 @@
 			<div class="footer-col">
 				<h4>Suivez-nous</h4>
 				<div class="social-links">
-					<a href="https://www.facebook.com/profile.php?id=100087948190073">
+					<a href="https://www.facebook.com/profile.php?id=100087948190073" target="_blank">
 						<i class="fab fa-facebook-f"></i>
 					</a>
 					<a href="#">
 						<i class="fab fa-twitter"></i>
 					</a>
-					<a href="https://www.instagram.com/okwizz_officiel/">
+					<a href="https://www.instagram.com/okwizz_officiel/" target="_blank">
 						<i class="fab fa-instagram"></i>
 					</a>
 					<a href="#">
