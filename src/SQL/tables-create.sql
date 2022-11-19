@@ -10,15 +10,15 @@ CREATE TABLE player (
 	review TEXT(512),
 	CONSTRAINT Player_PK PRIMARY KEY (pseudo)
 );
--- quizzs drop
-DROP TABLE IF EXISTS quizzs;
--- quizzs create
-CREATE TABLE quizzs (
+-- quizz drop
+DROP TABLE IF EXISTS quizz;
+-- quizz create
+CREATE TABLE quizz (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	title TEXT(32) NOT NULL,
 	pseudo TEXT(32) NOT NULL,
 	nbparties INTEGER DEFAULT 0,
-	CONSTRAINT quizzs_FK FOREIGN KEY (pseudo) REFERENCES player(pseudo) ON DELETE CASCADE
+	CONSTRAINT quizz_FK FOREIGN KEY (pseudo) REFERENCES player(pseudo) ON DELETE CASCADE
 );
 -- questions drop
 DROP TABLE IF EXISTS question;
