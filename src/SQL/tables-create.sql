@@ -1,12 +1,13 @@
--- "User" definition
-
-DROP TABLE IF EXISTS "User";
-
-CREATE TABLE "User" (
-	pseudo TEXT NOT NULL,
+-- player drop
+DROP TABLE IF EXISTS player;
+-- player create
+CREATE TABLE player (
+	pseudo TEXT(32) NOT NULL,
 	passwdhash TEXT NOT NULL,
 	highscore INTEGER DEFAULT 0 NOT NULL,
 	nbparties INTEGER DEFAULT 0 NOT NULL,
-	CONSTRAINT User_PK PRIMARY KEY (pseudo)
+	appscore INTEGER,
+	review TEXT(512),
+	CONSTRAINT Player_PK PRIMARY KEY (pseudo)
 );
 

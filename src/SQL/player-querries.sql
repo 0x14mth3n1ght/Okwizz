@@ -1,32 +1,56 @@
 -- register player
-INSERT INTO 'User' (pseudo, passwdhash)
+INSERT INTO player (pseudo, passwdhash)
 VALUES (:pseudo, :passwdhash);
-
--- get infos
-SELECT u.passwdhash, u.highscore, u.nbparties
-FROM 'User' u
-WHERE u.pseudo = :pseudo;
-
--- set info passwdhash
-UPDATE 'User'
+-- delete player
+DELETE FROM player
+WHERE pseudo = :pseudo;
+-- get passwdhash
+SELECT p.passwdhash
+FROM player p
+WHERE p.pseudo = :pseudo;
+-- set passwdhash
+UPDATE player
 SET passwdhash = :passwdhash
 WHERE pseudo = :pseudo;
-
--- set info highscore
-UPDATE 'User'
+-- get highscore
+SELECT p.highscore
+FROM player p
+WHERE p.pseudo = :pseudo;
+-- set highscore
+UPDATE player
 SET highscore = :highscore
 WHERE pseudo = :pseudo;
-
--- inc info nbparties
-UPDATE 'User'
-SET nbparties = (SELECT u.nbparties FROM 'User' u WHERE pseudo = :pseudo) + 1
+-- get nbparties
+SELECT p.nbparties
+FROM player p
+WHERE p.pseudo = :pseudo;
+-- inc nbparties
+UPDATE player
+SET nbparties = (
+		SELECT p.nbparties
+		FROM player p
+		WHERE pseudo = :pseudo
+	) + 1
 WHERE pseudo = :pseudo;
-
+-- get appscore & review
+SELECT p.appscore,
+	p.review
+FROM player p
+WHERE p.pseudo = :pseudo;
+-- set appscore & review
+UPDATE player
+SET appscore = :appscore,
+	review = :review
+WHERE pseudo = :pseudo;
 -- get all user highscore & nbparties
-SELECT u.pseudo, u.highscore, u.nbparties
-FROM 'User' u
-ORDER BY u.highscore DESC;
-
--- delete player
-DELETE FROM 'User'
-WHERE pseudo = :pseudo;
+SELECT p.pseudo,
+	p.highscore,
+	p.nbparties
+FROM player p
+ORDER BY p.highscore DESC;
+-- get all user pseudo, appscores & reviews
+SELECT p.pseudo,
+	p.appscore,
+	p.review
+FROM player p
+ORDER BY p.appscore DESC;
