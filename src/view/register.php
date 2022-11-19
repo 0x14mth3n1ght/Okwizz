@@ -27,7 +27,7 @@ if (is_post_request()) {
         	]);
 	}
 
-    	if (UserManager::registerPlayer($inputs['username'], $inputs['password'])){
+    	if (registerPlayer($inputs['username'], $inputs['password'])){
 	redirect_with_message(
             'login.php',
             'Your account has been created successfully. Please login here.'

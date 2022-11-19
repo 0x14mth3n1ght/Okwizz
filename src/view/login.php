@@ -1,4 +1,20 @@
-<form>
+<?php
+require_once '../models/userManager.php';
+require '../models/login.php';
+require_once '../models/helpers.php';
+require_once  '../models/sanitization.php';
+require_once  '../models/validation.php';
+require_once  '../models/filter.php';
+?>
+
+
+<?php if (isset($errors['login'])) : ?>
+    <div class="alert alert-error">
+        <?= $errors['login'] ?>
+    </div>
+<?php endif ?>
+
+<form action="login.php" method="post">
 	<h1>Log in</h1>
 	<div class="inputs">
 		<input type="text" placeholder="Username" required />
