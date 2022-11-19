@@ -14,7 +14,7 @@ CREATE TABLE player (
 DROP TABLE IF EXISTS quizz;
 -- quizz create
 CREATE TABLE quizz (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	quizz_id INTEGER PRIMARY KEY AUTOINCREMENT,
 	title TEXT(32) NOT NULL,
 	pseudo TEXT(32) NOT NULL,
 	nbparties INTEGER DEFAULT 0,
@@ -32,5 +32,5 @@ CREATE TABLE question (
 	w_awnser2 TEXT(20) NOT NULL,
 	w_awnser3 TEXT(20) NOT NULL,
 	CONSTRAINT NewTable_PK PRIMARY KEY (question_id, quizz_id),
-	CONSTRAINT question_FK FOREIGN KEY (quizz_id) REFERENCES quizzs(id) ON DELETE CASCADE
+	CONSTRAINT question_FK FOREIGN KEY (quizz_id) REFERENCES quizz(quizz_id) ON DELETE CASCADE
 );

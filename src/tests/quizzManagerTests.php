@@ -63,7 +63,7 @@ class Test
 		self::atrue(QuizzManager::getQuizz(1) == $qz1);
 		self::atrue(QuizzManager::listQuizz() == array(
 			[
-				"id" => 1,
+				"quizz_id" => 1,
 				"title" => "titre",
 				"pseudo" => "Xarus",
 				"nbparties" => 1

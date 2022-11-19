@@ -26,7 +26,7 @@ SELECT q.title,
 	q.pseudo,
 	q.nbparties
 FROM quizz q
-WHERE q.id = :id;
+WHERE q.quizz_id = :quizz_id;
 -- get question of quizz
 SELECT q.question,
 	q.c_awnser,
@@ -41,13 +41,13 @@ UPDATE quizz
 SET nbparties = (
 		SELECT q.nbparties
 		FROM quizz q
-		WHERE id = :id
+		WHERE quizz_id = :quizz_id
 	) + 1
-WHERE id = :id;
+WHERE quizz_id = :quizz_id;
 -- list quizz
-SELECT q.id,
+SELECT q.quizz_id,
 	q.title,
 	q.pseudo,
 	q.nbparties
 FROM quizz q
-ORDER BY q.nbparties ASC;
+ORDER BY q.nbparties DESC;

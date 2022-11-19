@@ -88,8 +88,8 @@ class QuizzManager
 		$stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
 		if (!DB::tryRunStmt($stmt, 1))
 			return false;
-		$stmt = DB::getDB()->prepare("SELECT last_insert_rowid() 'id';");
-		return DB::tryRunStmtR($stmt)[0]["id"];
+		$stmt = DB::getDB()->prepare("SELECT last_insert_rowid() 'quizz_id';");
+		return DB::tryRunStmtR($stmt)[0]["quizz_id"];
 	}
 
 	private static function addQuestionDB(
@@ -131,14 +131,14 @@ class QuizzManager
 
 	# == Getter ==
 
-	private static function getQuizzDB(int $id)
+	private static function getQuizzDB(int $quizz_id)
 	{
 		$stmt = DB::getDB()->prepare("SELECT q.title,
 			q.pseudo,
 			q.nbparties
 		FROM quizz q
-		WHERE q.id = :id;");
-		$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+		WHERE q.quizz_id = :quizz_id;");
+		$stmt->bindValue(':quizz_id', $quizz_id, PDO::PARAM_INT);
 		return DB::tryRunStmtR($stmt);
 	}
 
@@ -158,16 +158,16 @@ class QuizzManager
 
 	# == Setter ==
 
-	private static function incNbpartiesDB(int $id): bool
+	private static function incNbpartiesDB(int $quizz_id): bool
 	{
 		$stmt = DB::getDB()->prepare("UPDATE quizz
 		SET nbparties = (
 				SELECT q.nbparties
 				FROM quizz q
-				WHERE id = :id
+				WHERE quizz_id = :quizz_id
 			) + 1
-		WHERE id = :id;");
-		$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+		WHERE quizz_id = :quizz_id;");
+		$stmt->bindValue(':quizz_id', $quizz_id, PDO::PARAM_INT);
 		return DB::tryRunStmt($stmt, 1);
 	}
 
@@ -175,7 +175,7 @@ class QuizzManager
 
 	private static function listQuizzDB()
 	{
-		$stmt = DB::getDB()->prepare("SELECT q.id,
+		$stmt = DB::getDB()->prepare("SELECT q.quizz_id,
 			q.title,
 			q.pseudo,
 			q.nbparties
