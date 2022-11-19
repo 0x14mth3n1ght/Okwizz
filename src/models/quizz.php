@@ -13,6 +13,8 @@ class Question
 		$this->question = $question;
 		$this->correctAwnser = $correctAwnser;
 		$this->wrongAwnsers = $wrongAwnsers;
+		if (count($wrongAwnsers) != 3)
+			throw new OutOfRangeException("should be 3 wrongs awnsers");
 	}
 
 	private string $question;
@@ -44,13 +46,12 @@ class Quizz
 	public function __construct(
 		string $title,
 		string $pseudo,
-		int $nbParties,
-		array $questions,
+		int $nbParties
 	) {
 		$this->title = $title;
 		$this->pseudo = $pseudo;
 		$this->nbParties = $nbParties;
-		$this->questions = $questions;
+		$this->questions = array();
 	}
 
 	private string $title;
@@ -76,5 +77,10 @@ class Quizz
 	public function getQuestions(): array
 	{
 		return $this->questions;
+	}
+
+	public function addQuestion(Question $qe)
+	{
+		$this->questions[] = $qe;
 	}
 }

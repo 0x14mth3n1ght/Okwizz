@@ -63,7 +63,7 @@ class DB
 	private static function initDB()
 	{
 		try {
-			$db = new PDO('sqlite:../../pima2022-group9-v1.2.sqlite');
+			$db = new PDO('sqlite:../../pima2022-group9-v1.3.sqlite');
 		} catch (Exception $e) {
 			echo "Impossible d'accéder à la base de données SQLite : " . $e->getMessage();
 			die();
@@ -79,10 +79,10 @@ class DB
 	private static function populate_if_empty(PDO $db)
 	{
 		$stmt = $db->prepare("SELECT sm.name FROM sqlite_master sm WHERE sm.type='table' AND sm.name=:table_name;");
-		$stmt->bindValue(':table_name', "User", PDO::PARAM_STR);
+		$stmt->bindValue(':table_name', "player", PDO::PARAM_STR);
 		$stmt->execute();
 		$res = DB::fetchToMap($stmt);
-		if (!(isset($res) && isset($res[0]) && isset($res[0]["name"]) && $res[0]["name"] == "User")) {
+		if (!(isset($res) && isset($res[0]) && isset($res[0]["name"]) && $res[0]["name"] == "player")) {
 			DB::populate($db);
 		}
 	}

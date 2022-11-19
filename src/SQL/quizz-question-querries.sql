@@ -4,6 +4,7 @@ VALUES(:title, :pseudo);
 SELECT last_insert_rowid() 'id';
 -- add question to quizz
 INSERT INTO question (
+		question_id,
 		quizz_id,
 		question,
 		c_awnser,
@@ -12,6 +13,7 @@ INSERT INTO question (
 		w_awnser3
 	)
 VALUES(
+		:question_id,
 		:quizz_id,
 		:question,
 		:c_awnser,
@@ -23,7 +25,7 @@ VALUES(
 SELECT q.title,
 	q.pseudo,
 	q.nbparties
-FROM q.quizzs
+FROM quizz q
 WHERE q.id = :id;
 -- get question of quizz
 SELECT q.question,
@@ -32,7 +34,8 @@ SELECT q.question,
 	q.w_awnser2,
 	q.w_awnser3
 FROM question q
-WHERE q.quizz_id = :quizz_id;
+WHERE q.quizz_id = :quizz_id
+ORDER BY q.question_id ASC;
 -- inc nbparties
 UPDATE quizz
 SET nbparties = (
@@ -46,5 +49,5 @@ SELECT q.id,
 	q.title,
 	q.pseudo,
 	q.nbparties
-FROM quizzs q
+FROM quizz q
 ORDER BY q.nbparties ASC;

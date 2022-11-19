@@ -12,12 +12,16 @@ class QuizzManager
 
 	# == Constructeur & Destructeur ==
 
-	public function addQuizz(Quizz $qz)
+	public static function addQuizz(Quizz $qz): bool
 	{
 		$quizz_id = self::addQuizzDB($qz->getTitle(), $qz->getPseudo());
-		foreach ($qz->getQuestions() as $qe) {
+		if (!$quizz_id)
+			return false;
+		var_dump($quizz_id);
+		foreach ($qz->getQuestions() as $key => $qe) {
 			/** @var Question $qe */
-			self::addQuestionDB(
+			$res = self::addQuestionDB(
+				$key,
 				$quizz_id,
 				$qe->getQuestion(),
 				$qe->getCorrectAwnser(),
@@ -25,48 +29,49 @@ class QuizzManager
 				$qe->getWrongAwnsers()[1],
 				$qe->getWrongAwnsers()[2]
 			);
+			if (!$res)
+				return false;
 		}
+		return true;
 	}
 
 	# == Getter ==
 
-	public function getQuizz(int $quizz_id)
+	public static function getQuizz(int $quizz_id)
 	{
 		$infos = self::getQuizzDB($quizz_id);
 		if (!$infos || empty($infos))
 			return false;
 		$info = $infos[0];
+		$qz = new Quizz($info["title"], $info["pseudo"], $info["nbparties"]);
 
 		$infos = self::getQuestionsDB($quizz_id);
 		if (!$infos || empty($infos))
 			return false;
-
-		$qes = [];
 		foreach ($infos as $info) {
 			$qe = new Question(
 				$info["question"],
 				$info["c_awnser"],
 				array($info["w_awnser1"], $info["w_awnser2"], $info["w_awnser3"])
 			);
-			$qes[] = $qe;
+			$qz->addQuestion($qe);
 		}
 
-		$qz = new Quizz($info["title"], $info["pseudo"], $info["nbParties"], $qes);
 		return $qz;
 	}
 
 	# == Setter ==
 
-	public function incNbparties(int $quizz_id)
+	public static function incNbparties(int $quizz_id): bool
 	{
 		return self::incNbpartiesDB($quizz_id);
 	}
 
 	# == Other fontions ==
 
-	public function listQuizz(int $quizz_id)
+	public static function listQuizz()
 	{
-		return self::listQuizzDB($quizz_id);
+		return self::listQuizzDB();
 	}
 
 	# ================
@@ -75,7 +80,7 @@ class QuizzManager
 
 	# == Constructeur & Destructeur ==
 
-	private function addQuizzDB(string $title, string $pseudo)
+	private static function addQuizzDB(string $title, string $pseudo): int
 	{
 		$stmt = DB::getDB()->prepare("INSERT INTO quizz (title, pseudo)
 		VALUES(:title, :pseudo);");
@@ -87,15 +92,17 @@ class QuizzManager
 		return DB::tryRunStmtR($stmt)[0]["id"];
 	}
 
-	private function addQuestionDB(
+	private static function addQuestionDB(
+		int $question_id,
 		int $quizz_id,
 		string $question,
 		string $c_awnser,
 		string $w_awnser1,
 		string $w_awnser2,
 		string $w_awnser3
-	) {
+	): bool {
 		$stmt = DB::getDB()->prepare("INSERT INTO question (
+				question_id,
 				quizz_id,
 				question,
 				c_awnser,
@@ -104,6 +111,7 @@ class QuizzManager
 				w_awnser3
 			)
 		VALUES(
+				:question_id,
 				:quizz_id,
 				:question,
 				:c_awnser,
@@ -111,7 +119,8 @@ class QuizzManager
 				:w_awnser2,
 				:w_awnser3
 			);");
-		$stmt->bindValue(':quizz_id', $quizz_id, PDO::PARAM_STR);
+		$stmt->bindValue(':question_id', $question_id, PDO::PARAM_INT);
+		$stmt->bindValue(':quizz_id', $quizz_id, PDO::PARAM_INT);
 		$stmt->bindValue(':question', $question, PDO::PARAM_STR);
 		$stmt->bindValue(':c_awnser', $c_awnser, PDO::PARAM_STR);
 		$stmt->bindValue(':w_awnser1', $w_awnser1, PDO::PARAM_STR);
@@ -122,18 +131,18 @@ class QuizzManager
 
 	# == Getter ==
 
-	private function getQuizzDB(int $id)
+	private static function getQuizzDB(int $id)
 	{
 		$stmt = DB::getDB()->prepare("SELECT q.title,
 			q.pseudo,
 			q.nbparties
-		FROM q.quizzs
+		FROM quizz q
 		WHERE q.id = :id;");
 		$stmt->bindValue(':id', $id, PDO::PARAM_INT);
 		return DB::tryRunStmtR($stmt);
 	}
 
-	private function getQuestionsDB(int $quizz_id)
+	private static function getQuestionsDB(int $quizz_id)
 	{
 		$stmt = DB::getDB()->prepare("SELECT q.question,
 			q.c_awnser,
@@ -141,14 +150,15 @@ class QuizzManager
 			q.w_awnser2,
 			q.w_awnser3
 		FROM question q
-		WHERE q.quizz_id = :quizz_id;");
+		WHERE q.quizz_id = :quizz_id
+		ORDER BY q.question_id ASC;");
 		$stmt->bindValue(':quizz_id', $quizz_id, PDO::PARAM_INT);
 		return DB::tryRunStmtR($stmt);
 	}
 
 	# == Setter ==
 
-	private function incNbpartiesDB(int $id)
+	private static function incNbpartiesDB(int $id): bool
 	{
 		$stmt = DB::getDB()->prepare("UPDATE quizz
 		SET nbparties = (
@@ -163,13 +173,13 @@ class QuizzManager
 
 	# == Other fontions ==
 
-	private function listQuizzDB()
+	private static function listQuizzDB()
 	{
 		$stmt = DB::getDB()->prepare("SELECT q.id,
 			q.title,
 			q.pseudo,
 			q.nbparties
-		FROM quizzs q
+		FROM quizz q
 		ORDER BY q.nbparties DESC;");
 		return DB::tryRunStmtR($stmt);
 	}

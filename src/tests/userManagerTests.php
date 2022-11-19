@@ -1,6 +1,6 @@
 <?php
-require_once 'db.php';
-require_once 'userManager.php';
+require_once '../models/db.php';
+require_once '../models/userManager.php';
 
 class Test
 {

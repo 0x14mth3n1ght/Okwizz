@@ -24,12 +24,13 @@ CREATE TABLE quizz (
 DROP TABLE IF EXISTS question;
 -- questions create
 CREATE TABLE question (
-	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	question_id INTEGER NOT NULL,
 	quizz_id INTEGER,
 	question TEXT(80) NOT NULL,
 	c_awnser TEXT(20) NOT NULL,
 	w_awnser1 TEXT(20) NOT NULL,
 	w_awnser2 TEXT(20) NOT NULL,
 	w_awnser3 TEXT(20) NOT NULL,
+	CONSTRAINT NewTable_PK PRIMARY KEY (question_id, quizz_id),
 	CONSTRAINT question_FK FOREIGN KEY (quizz_id) REFERENCES quizzs(id) ON DELETE CASCADE
 );
