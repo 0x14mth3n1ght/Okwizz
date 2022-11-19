@@ -4,7 +4,8 @@ require_once 'userManager.php';
 
 $GLOBALS["nbtest"] = 1;
 
-function assertt(bool $res){
+function assertt(bool $res)
+{
 	$nbtest = $GLOBALS["nbtest"];
 	echo "<p> test $nbtest: ";
 	echo $res ? "P" : "F";
@@ -12,7 +13,8 @@ function assertt(bool $res){
 	$GLOBALS["nbtest"]++;
 }
 
-function assertf(bool $res){
+function assertf(bool $res)
+{
 	$nbtest = $GLOBALS["nbtest"];
 	echo "<p> test $nbtest: ";
 	echo $res ? "F" : "P";
@@ -20,10 +22,6 @@ function assertf(bool $res){
 	$GLOBALS["nbtest"]++;
 }
 
-/**
- * Recreate the Database if it already exist.
- * @var Ambiguous $sql
- */
 $sql = file_get_contents('../SQL/tables-create.sql');
 DB::getDB()->exec($sql);
 
@@ -60,19 +58,14 @@ UserManager::incNbparties("Xarus2");
 UserManager::incNbparties("Xarus2");
 UserManager::setHighscore("Xarus2", 56);
 assertt(UserManager::getAllUserHightscore() == array(
-		[
-				"pseudo" => "Xarus1",
-				"highscore" => 123,
-				"nbparties" => 3
-		],
-		[
-				"pseudo" => "Xarus2",
-				"highscore" => 56,
-				"nbparties" => 2
-		]
+	[
+		"pseudo" => "Xarus1",
+		"highscore" => 123,
+		"nbparties" => 3
+	],
+	[
+		"pseudo" => "Xarus2",
+		"highscore" => 56,
+		"nbparties" => 2
+	]
 ));
-
-
-
-
-?>
