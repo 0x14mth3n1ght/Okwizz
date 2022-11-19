@@ -19,7 +19,7 @@ if (is_post_request()) {
     }
 
     // if login fails
-    if (!verifyPassword($inputs['username'], $inputs['password'])) {
+    if (!UserManager::verifyPassword($inputs['username'], $inputs['password'])) {
 
         $errors['login'] = 'Invalid username or password';
 
