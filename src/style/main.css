@@ -33,7 +33,8 @@
 	/* border-bottom: 2px solid silver; */
 }
 
-.input-data input:focus ~ label, .input-data input:valid ~ label {
+.input-data input:focus~label,
+.input-data input:valid~label {
 	transform: translateY(-30px);
 	font-size: 15px;
 	color: #4158d0;
@@ -65,8 +66,8 @@
 	transition: transform 0.3s ease;
 }
 
-.input-data input:focus ~ .underline:before, .input-data input:valid ~
-	.underline:before {
+.input-data input:focus~.underline:before,
+.input-data input:valid~.underline:before {
 	transform: scaleX(1);
 	font-size: 15px;
 	color: #4158d0;

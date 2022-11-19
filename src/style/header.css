@@ -41,8 +41,8 @@ header {
 	transition: fill 250ms ease-in;
 }
 
-.navbar .navbar_list .navbar_listlogo img:hover, .navbar .navbar_list .navbar_listlogo img:focus
-	{
+.navbar .navbar_list .navbar_listlogo img:hover,
+.navbar .navbar_list .navbar_listlogo img:focus {
 	fill: blueviolet;
 }
 
@@ -54,8 +54,8 @@ header {
 	cursor: pointer;
 }
 
-.navbar .navbar_list .navbar_listitem:hover ul, .navbar .navbar_list .navbar_listitem:focus ul
-	{
+.navbar .navbar_list .navbar_listitem:hover ul,
+.navbar .navbar_list .navbar_listitem:focus ul {
 	opacity: 1;
 	visibility: visible;
 }
@@ -72,8 +72,8 @@ header {
 	transition: width 200ms ease-in;
 }
 
-.navbar .navbar_list .navbar_listitem:hover:after, .navbar .navbar_list .navbar_listitem:focus:after
-	{
+.navbar .navbar_list .navbar_listitem:hover:after,
+.navbar .navbar_list .navbar_listitem:focus:after {
 	width: 80%;
 }
 
@@ -101,7 +101,7 @@ header {
 }
 
 .navbar .navbar_list .navbar_listitem .navbar_listitemdrop li:hover,
-	.navbar .navbar_list .navbar_listitem .navbar_listitemdrop li:focus {
+.navbar .navbar_list .navbar_listitem .navbar_listitemdrop li:focus {
 	background-color: #007bff;
 }
 

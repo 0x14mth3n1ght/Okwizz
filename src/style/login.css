@@ -26,13 +26,13 @@
 	text-align: center;
 }
 
-.main-container  form .inputs {
+.main-container form .inputs {
 	display: flex;
 	flex-direction: column;
 }
 
-.main-container form .inputs input[type='text'], .main-container input[type='password']
-	{
+.main-container form .inputs input[type='text'],
+.main-container input[type='password'] {
 	padding: 15px;
 	border: none;
 	border-radius: 5px;
@@ -41,8 +41,8 @@
 	margin-bottom: 15px;
 }
 
-.main-container form .inputs input[type='text'], .main-container input[type='password']
-	{
+.main-container form .inputs input[type='text'],
+.main-container input[type='password'] {
 	padding: 15px;
 	border: none;
 	border-radius: 5px;

@@ -91,14 +91,14 @@ footer ul {
 }
 
 /*responsive*/
-@media ( max-width : 767px) {
+@media (max-width : 767px) {
 	.footer-col-container {
 		width: 50%;
 		margin-bottom: 30px;
 	}
 }
 
-@media ( max-width : 574px) {
+@media (max-width : 574px) {
 	.footer-col-container {
 		width: 100%;
 	}
