@@ -42,7 +42,7 @@ UPDATE player
 SET appscore = :appscore,
 	review = :review
 WHERE pseudo = :pseudo;
--- get all user highscore & nbparties
+-- get all user pseudo, highscore & nbparties
 SELECT p.pseudo,
 	p.highscore,
 	p.nbparties
@@ -53,4 +53,5 @@ SELECT p.pseudo,
 	p.appscore,
 	p.review
 FROM player p
+WHERE p.review <> ''
 ORDER BY p.appscore DESC;

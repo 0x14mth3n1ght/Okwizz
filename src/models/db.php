@@ -34,6 +34,27 @@ class DB
 		return $items;
 	}
 
+	public static function tryRunStmt(PDOStatement $stmt, int $nbMods): bool
+	{
+		try {
+			return $stmt->execute() && $stmt->rowCount() == $nbMods;
+			return false;
+		} catch (PDOException $e) {
+			return false;
+		}
+	}
+
+	public static function tryRunStmtR(PDOStatement $stmt)
+	{
+		try {
+			if ($stmt->execute())
+				return DB::fetchToMap($stmt);
+			return false;
+		} catch (PDOException $e) {
+			return false;
+		}
+	}
+
 	/**
 	 * Initialize the Database PDO.
 	 *
