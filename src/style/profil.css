@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Krub:400,700');
 
+.main-container {
+	height: 740px;
+}
+
 .main-container * {
 	margin: 0;
 	padding: 0;
