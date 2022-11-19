@@ -1,3 +1,13 @@
+footer {
+	font-family: 'Poppins', sans-serif;
+	box-shadow: 0 50vh 0 50vh #24262b;
+	background-color: #24262b;
+	display: table-row;
+	position: absolute;
+	bottom: auto;
+	width: 100%;
+}
+
 footer .footer-container {
 	max-width: 1000px;
 	margin: auto;
@@ -11,17 +21,6 @@ footer .row {
 footer ul {
 	padding: 0;
 	list-style: none;
-}
-
-footer {
-	font-family: 'Poppins', sans-serif;
-	box-shadow: 0 50vh 0 50vh #24262b;
-	background-color: #24262b;
-	display: table-row;
-	height: 100px;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
 }
 
 .footer-col-container {
