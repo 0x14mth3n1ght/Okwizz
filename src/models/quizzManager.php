@@ -12,6 +12,12 @@ class QuizzManager
 
 	# == Constructeur & Destructeur ==
 
+	/**
+	 * Add a Quizz to the database.
+	 * 
+	 * @param Quizz $qz the quizz to save in the database. (see quizz.php for the Quizz type)
+	 * @return bool return false if fail, true otherwise.
+	 */
 	public static function addQuizz(Quizz $qz): bool
 	{
 		$quizz_id = self::addQuizzDB($qz->getTitle(), $qz->getPseudo());
@@ -37,6 +43,12 @@ class QuizzManager
 
 	# == Getter ==
 
+	/**
+	 * 
+	 * @param int $quizz_id the id of the Quizz to get.
+	 * @return boolean|Quizz false if the Querry fail,
+	 * If sucess, it will return a Quizz Obect. (see quizz.php)
+	 */
 	public static function getQuizz(int $quizz_id)
 	{
 		$infos = self::getQuizzDB($quizz_id);
@@ -62,6 +74,12 @@ class QuizzManager
 
 	# == Setter ==
 
+	/**
+	 * Increment by 1 the number of parties of that Quizz that have been played. 
+	 * 
+	 * @param int $quizz_id the id of the quizz.
+	 * @return bool
+	 */
 	public static function incNbparties(int $quizz_id): bool
 	{
 		return self::incNbpartiesDB($quizz_id);
@@ -69,6 +87,19 @@ class QuizzManager
 
 	# == Other fontions ==
 
+	/**
+	 * 
+	 * 
+	 * @return bool|array return false if failed,
+	 * If sucess, return the list of Quizz in the database as an array.
+	 * Quizz are represented by the following data structure:
+	 * 	[
+	 * 		"quizz_id" => 3, // this is the quizz number 3, this number is use to get the quizz istsef, and increment the nbparties counter from the DB later 
+	 * 		"title" => "nom du quizz",
+	 * 		"pseudo" => "pseudo du joueur qui a crée le quizz",
+	 * 		"nbparties" => 37 // 37 player have played that Quizz
+	 * 	]
+	 */
 	public static function listQuizz()
 	{
 		return self::listQuizzDB();
