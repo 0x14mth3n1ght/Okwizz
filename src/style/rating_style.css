@@ -1,7 +1,5 @@
 body
 {
-	background-color:#0B4C5F;
-	font-family:helvetica;
 	text-align:center;
 }
 h1
@@ -19,13 +17,14 @@ h1
 .div
 {
 	border:1px solid #E6E6E6;
+	background-color:#007bff;
 	clear:both;
 	margin-top:20px;
 	height:100px;
 	width:400px;
 	padding:10px;
 	margin-left:300px;
-	border-radius:3px;
+	border-radius:8px;
 }
 .div p
 {
@@ -44,13 +43,25 @@ img
 }
 input[type="submit"]
 {
-	border:none;
-	background:none;
-	background-color:#585858;
-	width:100px;
-	height:50px;
-	color:white;
-	border-radius:3px;
-	font-size:17px;
-	margin-top:20px;
+	padding: 15px 25px;
+        border-radius: 5px;
+        border: none;
+        font-size: 15px;
+        color: #fff;
+        background-color: #007bff;
+        outline: none;
+        cursor: pointer;
+
+
 }
+form button:hover {
+        padding: 15px 25px;
+        border-radius: 5px;
+        border: none;
+        font-size: 15px;
+        color: #fff;
+        background-color: #007bff;
+        outline: none;
+        cursor: pointer;
+}
+
