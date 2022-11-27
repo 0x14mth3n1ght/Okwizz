@@ -1,6 +1,4 @@
 <link rel="stylesheet" type="text/css" href="../style/rating_style.css">
-<img src="../images/star1.png" id="image1" >
-<img src="../images/star2.png" id="image2" >
   <script type="text/javascript">
   
    function change(id)
@@ -11,22 +9,25 @@
 
       for(var i=ab;i>=1;i--)
       {
-         document.getElementById(cname+i).src="star2.png";
+         document.getElementById(cname+i).src="../images/star2.png";
       }
       var id=parseInt(ab)+1;
       for(var j=id;j<=5;j++)
       {
-         document.getElementById(cname+j).src="star1.png";
+         document.getElementById(cname+j).src="../images/star1.png";
       }
    }
 
 </script>
-<?php$comment = "";?>
-<h2>Tell us your thought about O'Kwiz !!</h2>
+
+
+<div><h1>Tell us your thought about O'Kwiz !!</h1></div>
+<br></br>
+<br></br>
 <form method="post" action="../public/review.php">
 	
-	<label>Name</label><input type="text" name="name" class="form-control" required><br><br/>
-	<label>Comment:</label> <textarea name="comment" rows="5" cols="40"></textarea><br><br/>
+	<label>Name : </label><input type="text" name="name" class="form-control" required><br><br/>
+	<label>Comment : </label> <textarea name="comment" rows="5" cols="40"></textarea><br><br/>
 <div class="div">
 	  <input type="hidden"  id="php1_hidden" value=1>
 	  <img src="../images/star1.png" onmouseover="change(this.id);" id="php1" class="php">
@@ -44,14 +45,22 @@
 </form>
 
 
+<div class="container">
+        <table>
+                <caption><h2>User's feedback</h2></caption>
+                
 
 <?php
 	foreach($data as $review){
-        	?>
-                	<?php echo htmlentities($review['pseudo'])?>
-                        <?php echo htmlentities($review['appscore'])?>
+		?>
+			<tr>
+                	<?php echo htmlentities($review['pseudo'])?> :  
+                        <?php echo htmlentities($review['appscore'])?> / 5, 
                         <?php echo htmlentities($review['review'])?>
-			<?php
-			}
-?>
+			</tr>
+ <?php
+                }
+                ?>
+        </table>
+</div>
 
