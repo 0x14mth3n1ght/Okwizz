@@ -69,7 +69,7 @@ class OpentdbAPI {
 	 * @param string $correctAnswer
 	 * @return array
 	 */
-	private static function AddCorrectAnswerToAnswerList($incorrectAnswers, $correctAnswer){
+	public static function AddCorrectAnswerToAnswerList($incorrectAnswers, $correctAnswer){
 		array_splice($incorrectAnswers, rand(0, 4), 0, $correctAnswer);
 		return $incorrectAnswers;
 	}

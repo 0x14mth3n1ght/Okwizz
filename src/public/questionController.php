@@ -2,6 +2,8 @@
 include_once '../models/error.php';
 require_once '../models/userManager.php';
 require_once '../models/opentdbAPI.php';
+require_once '../models/quizzManager.php';
+require_once '../models/quizz.php';
 require_once '../public/template.php';
 
 session_start();
@@ -33,7 +35,12 @@ if (isset($name)) {
 	}
 	$_SESSION['type_question'] = "multiple";
 
-	$_SESSION['questions'] = OpentdbAPI::GetQuestions($_SESSION['nombre_question'], $_SESSION['category'], $_SESSION['difficulty'], $_SESSION['type_question']);
+	if(isset($quizz_id)){
+		$_SESSION['questions'] = QuizzManager::getQuizzInAPIFormat($quizz_id);
+		print_r($_SESSION['questions']);
+	}else{
+		$_SESSION['questions'] = OpentdbAPI::GetQuestions($_SESSION['nombre_question'], $_SESSION['category'], $_SESSION['difficulty'], $_SESSION['type_question']);
+	}
 }
 
 if ($_SESSION["question_id"] < $_SESSION["nombre_question"]) {

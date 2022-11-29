@@ -2,6 +2,7 @@
 include_once 'error.php';
 require_once 'db.php';
 require_once 'quizz.php';
+require_once 'opentdbAPI.php';
 
 class QuizzManager
 {
@@ -70,6 +71,50 @@ class QuizzManager
 		}
 
 		return $qz;
+	}
+
+	/**
+	 * 
+	 * @param int $quizz_id the id of the Quizz to get.
+	 * @return boolean|Quizz false if the Querry fail,
+	 * If sucess, it will return a Quizz in API Format. 
+	 */
+	public static function getQuizzInAPIFormat(int $quizz_id)
+	{
+		$quizz = self::getQuizz($quizz_id);
+		if($quizz == false){
+			return false;
+		}
+		$quizz_api_format = self::convertQuizzToQuizzAPIFormat($quizz);
+		return $quizz_api_format;
+	}
+
+	/**
+	 * 
+	 * @param Quizz $quizz the quizz to convert 
+	 * @return array it will return a Quizz in API Format. (see opentdbAPI.php)
+	 */
+	public static function convertQuizzToQuizzAPIFormat(Quizz $quizz)
+	{
+		$quizz_api_format = array();
+		foreach($quizz->getQuestions() as $question){
+			$question_api_format = self::convertQuestionToQuestionAPIFormat($question);
+			array_push($quizz_api_format, $question_api_format);
+		}
+		return $quizz_api_format;
+	}
+
+	/**
+	 * 
+	 * @param Question $question the question to convert 
+	 * @return array it will return a question in API Format. (see opentdbAPI.php)
+	 */
+	public static function convertQuestionToQuestionAPIFormat(Question $question)
+	{
+		$answers_list = OpentdbAPI::AddCorrectAnswerToAnswerList($question->getWrongAwnsers(), $question->getCorrectAwnser());
+		return array("question" => $question->getQuestion(), 
+					"answers" => $answers_list, 
+					"correct_answer" => $question->getCorrectAwnser());
 	}
 
 	# == Setter ==
