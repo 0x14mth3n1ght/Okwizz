@@ -1,0 +1,78 @@
+.main-container {
+    width: 100%;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+ol {
+    list-style: none;
+    width: 50%;
+}
+
+ol li {
+    font-size: 1.2rem;
+    background: gainsboro;
+    margin: 10px 0;
+    padding: 20px 30px;
+    cursor: pointer;
+    position: relative;
+    transition: all .4s;
+    z-index: 5;
+}
+
+ol li button{
+    all: unset;
+    width: 100%;
+}
+
+ol li::before {
+    content: '';
+    position:absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 5px;
+    background: pink;
+    transition: all .4s;
+    z-index: -1;
+}
+
+ol li:hover::before {
+    width: 100%;
+}
+
+ol li:hover {
+    transform: translateX(20px);
+}
+
+ol li .title {
+    font-weight: bold;
+}
+
+ol li .nbparties {
+    font-weight: bold;
+}
+
+ol li .info *{
+    margin: 0px 20px;
+    display: flex;
+}
+
+ol li .info {
+    flex-direction: row;
+    flex-wrap: wrap;
+}

@@ -1,5 +1,6 @@
 .main-container {
-	margin-top: 15%;
+	margin-top: 8%;
+	margin-bottom: 8%;
 	display: flex;
 	justify-content: center;
 }
@@ -26,13 +27,13 @@
 	text-align: center;
 }
 
-.main-container  form .inputs {
+.main-container form .inputs {
 	display: flex;
 	flex-direction: column;
 }
 
-.main-container form .inputs input[type='text'], .main-container input[type='password']
-	{
+.main-container form .inputs input[type='text'],
+.main-container input[type='password'] {
 	padding: 15px;
 	border: none;
 	border-radius: 5px;
@@ -41,8 +42,8 @@
 	margin-bottom: 15px;
 }
 
-.main-container form .inputs input[type='text'], .main-container input[type='password']
-	{
+.main-container form .inputs input[type='text'],
+.main-container input[type='password'] {
 	padding: 15px;
 	border: none;
 	border-radius: 5px;

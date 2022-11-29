@@ -2,12 +2,12 @@
 	<div class="row">
 		<div class="footer-col-container">
 			<div class="footer-col">
-				<h4>Compagny</h4>
+				<h4>Company</h4>
 				<ul>
-					<li><a href="#">About us</a></li>
-					<li><a href="#">Our services</a></li>
-					<li><a href="#">Privacy Policy</a></li>
-					<li><a href="#">Legal notice</a></li>
+					<li><a href="../footer_pages/about_us.php">About us</a></li>
+					<li><a href="../footer_pages/our_services.php">Our services</a></li>
+					<li><a href="../footer_pages/privacy_policy.php">Privacy Policy</a></li>
+					<li><a href="../footer_pages/legal_notice.php">Legal notice</a></li>
 				</ul>
 			</div>
 		</div>
@@ -16,9 +16,9 @@
 			<div class="footer-col">
 				<h4>Help</h4>
 				<ul>
-					<li><a href="#">FAQ</a></li>
-					<li><a href="#">An error ?</a></li>
-					<li><a href="#">Paiement options</a></li>
+					<li><a href="../footer_pages/faq.php">FAQ</a></li>
+					<li><a href="../footer_pages/an_error.php">An error ?</a></li>
+					<li><a href="../footer_pages/payment_option.php">Payment options</a></li>
 
 				</ul>
 			</div>
@@ -28,16 +28,16 @@
 			<div class="footer-col">
 				<h4>Your quizz</h4>
 				<ul>
-					<li><a href="#">Quizz, késako ?</a></li>
-					<li><a href="#">Send us your Quizz</a></li>
-					<li><a href="#">Quiz competition</a></li>
+					<li><a href="../footer_pages/quizz_kesako.php">Quizz, késako ?</a></li>
+					<li><a href="../footer_pages/send_quizz.php">Send us your quizz</a></li>
+					<li><a href="../footer_pages/quizz_competition.php">Quizz competition</a></li>
 				</ul>
 			</div>
 		</div>
 
 		<div class="footer-col-container">
 			<div class="footer-col">
-				<h4>Suivez-nous</h4>
+				<h4>Follow us</h4>
 				<div class="social-links">
 					<a href="https://www.facebook.com/profile.php?id=100087948190073" target="_blank">
 						<i class="fab fa-facebook-f"></i>

@@ -1,6 +1,8 @@
-@import
-	url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap')
-	;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.main-container {
+	height: 740px;
+}
 
 .main-container * {
 	margin: 0;
@@ -25,12 +27,14 @@
 	height: 100%;
 	width: 100%;
 	border: none;
-	outline: none; /* remove border of box */
+	outline: none;
+	/* remove border of box */
 	font-size: 17px;
-	border-bottom: 2px solid silver;
+	/* border-bottom: 2px solid silver; */
 }
 
-.input-data input:focus ~ label, .input-data input:valid ~ label {
+.input-data input:focus~label,
+.input-data input:valid~label {
 	transform: translateY(-30px);
 	font-size: 15px;
 	color: #4158d0;
@@ -62,18 +66,20 @@
 	transition: transform 0.3s ease;
 }
 
-.input-data input:focus ~ .underline:before, .input-data input:valid ~
-	.underline:before {
+.input-data input:focus~.underline:before,
+.input-data input:valid~.underline:before {
 	transform: scaleX(1);
 	font-size: 15px;
 	color: #4158d0;
 }
 
-.start_btn, .info_box {
-	position: absolute;
-	top: 50%;
+.start_btn,
+.info_box {
+	height: fit-content;
+	position: relative;
+	top: 15%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, 0%);
 }
 
 /* Start Quiz Button Styling */
@@ -99,7 +105,6 @@
 .info_box .info_title {
 	height: 60px;
 	width: 105%;
-	border-bottom: 1px solid lightgray;
 	display: flex;
 	align-items: center;
 	padding: 0 35px;
@@ -109,6 +114,7 @@
 
 .info_box .info_list {
 	padding: 5px 35px;
+	border-top: 1px solid lightgray;
 }
 
 .info_box .info_list .info {
