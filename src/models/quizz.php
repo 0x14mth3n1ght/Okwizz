@@ -25,17 +25,17 @@ class Question
 	}
 
 	/**
-	 * @var $question the question asked to the user.
+	 * @var string $question the question asked to the user.
 	 */
 	private string $question;
 	/**
 	 * 
-	 * @var $correctAwnser the correct awnser to the question.
+	 * @var string $correctAwnser the correct awnser to the question.
 	 */
 	private string $correctAwnser;
 	/**
 	 * 
-	 * @var $wrongAwnsers a list of string of size 3 containing the wrong awnser to the question.
+	 * @var array $wrongAwnsers a list of string of size 3 containing the wrong awnser to the question.
 	 */
 	private array $wrongAwnsers; // array of string
 
@@ -92,22 +92,22 @@ class Quizz
 
 	/**
 	 * 
-	 * @var $title the name of the Quizz.
+	 * @var string $title the name of the Quizz.
 	 */
 	private string $title;
 	/**
 	 * 
-	 * @var $pseudo the pseudo of the player that register the quizz. 
+	 * @var string $pseudo the pseudo of the player that register the quizz. 
 	 */
 	private string $pseudo;
 	/**
 	 * 
-	 * @var $nbParties the numbers of parties all players have played that Quizz.
+	 * @var int $nbParties the numbers of parties all players have played that Quizz.
 	 */
 	private int $nbParties;
 	/**
 	 * 
-	 * @var $questions a list of Question (see above) that compose the Quizz. 
+	 * @var array $questions a list of Question (see above) that compose the Quizz. 
 	 */
 	private array $questions; // array of Question*
 
