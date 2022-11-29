@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="footer-col-container">
 			<div class="footer-col">
-				<h4>Compagny</h4>
+				<h4>Company</h4>
 				<ul>
 					<li><a href="#">About us</a></li>
 					<li><a href="#">Our services</a></li>
@@ -18,7 +18,7 @@
 				<ul>
 					<li><a href="#">FAQ</a></li>
 					<li><a href="#">An error ?</a></li>
-					<li><a href="#">Paiement options</a></li>
+					<li><a href="#">Payment options</a></li>
 
 				</ul>
 			</div>
@@ -29,15 +29,15 @@
 				<h4>Your quizz</h4>
 				<ul>
 					<li><a href="#">Quizz, késako ?</a></li>
-					<li><a href="#">Send us your Quizz</a></li>
-					<li><a href="#">Quiz competition</a></li>
+					<li><a href="#">Send us your quizz</a></li>
+					<li><a href="#">Quizz competition</a></li>
 				</ul>
 			</div>
 		</div>
 
 		<div class="footer-col-container">
 			<div class="footer-col">
-				<h4>Suivez-nous</h4>
+				<h4>Follow us</h4>
 				<div class="social-links">
 					<a href="https://www.facebook.com/profile.php?id=100087948190073" target="_blank">
 						<i class="fab fa-facebook-f"></i>
