@@ -29,7 +29,7 @@
 				<h4>Your quizz</h4>
 				<ul>
 					<li><a href="../footer_pages/quizz_kesako.php">Quizz, késako ?</a></li>
-					<li><a href="../footer_pages/send_quizz.php">Send us your quizz</a></li>
+					<li><a href="../public/sendQuizz.php">Send us your quizz</a></li>
 					<li><a href="../footer_pages/quizz_competition.php">Quizz competition</a></li>
 				</ul>
 			</div>

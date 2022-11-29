@@ -81,9 +81,10 @@ header {
 
 .navbar .navbar_list .navbar_listitem .navbar_listitemdrop {
 	position: absolute;
+	background-color: white;
 	top: 4rem;
 	left: -1rem;
-	box-shadow: 0 0 10px #e1e5ee;
+	box-shadow: 0 0 5px #007bff;
 	border-radius: 0.2rem;
 	width: 12rem;
 	padding: 1rem;
@@ -91,13 +92,13 @@ header {
 	flex-direction: column;
 	gap: 0.5rem;
 	opacity: 0;
-	visibility: hidden;
+	visibility:hidden; 
 	transition: opacity 200ms ease-in-out;
 }
 
 .navbar .navbar_list .navbar_listitem .navbar_listitemdrop li {
 	list-style: none;
-	padding: 0.5rem 1 rem;
+	padding: 0.5rem 1rem;
 	border-radius: 0.2rem;
 	transition: background-color 200ms ease-in-out;
 }

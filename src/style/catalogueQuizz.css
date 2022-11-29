@@ -36,7 +36,7 @@
 }
 
 .container .box:hover {
-	background: pink;
+	background: #007bff;
 }
 
 .container .box img {

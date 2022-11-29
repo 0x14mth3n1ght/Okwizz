@@ -46,7 +46,7 @@ ol li::before {
     left: 0;
     height: 100%;
     width: 5px;
-    background: pink;
+    background: #007bff;
     transition: all .4s;
     z-index: -1;
 }

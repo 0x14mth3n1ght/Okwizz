@@ -35,10 +35,10 @@ if (isset($name)) {
 	}
 	$_SESSION['type_question'] = "multiple";
 
-	if(isset($quizz_id)){
+	if (isset($quizz_id)) {
+		$_SESSION["quizz_id"] = $quizz_id;
 		$_SESSION['questions'] = QuizzManager::getQuizzInAPIFormat($quizz_id);
-		print_r($_SESSION['questions']);
-	}else{
+	} else {
 		$_SESSION['questions'] = OpentdbAPI::GetQuestions($_SESSION['nombre_question'], $_SESSION['category'], $_SESSION['difficulty'], $_SESSION['type_question']);
 	}
 }
