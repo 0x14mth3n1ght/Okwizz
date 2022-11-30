@@ -4,10 +4,10 @@
 			<div class="footer-col">
 				<h4>Company</h4>
 				<ul>
-					<li><a href="../footer_pages/about_us.php">About us</a></li>
-					<li><a href="../footer_pages/our_services.php">Our services</a></li>
-					<li><a href="../footer_pages/privacy_policy.php">Privacy Policy</a></li>
-					<li><a href="../footer_pages/legal_notice.php">Legal notice</a></li>
+					<li><a href="./loadfooter.php?footer_page=about_us">About us</a></li>
+					<li><a href="./loadfooter.php?footer_page=our_services">Our services</a></li>
+					<li><a href="./loadfooter.php?footer_page=privacy_policy">Privacy Policy</a></li>
+					<li><a href="./loadfooter.php?footer_page=legal_notice">Legal notice</a></li>
 				</ul>
 			</div>
 		</div>
@@ -16,10 +16,9 @@
 			<div class="footer-col">
 				<h4>Help</h4>
 				<ul>
-					<li><a href="../footer_pages/faq.php">FAQ</a></li>
-					<li><a href="../footer_pages/an_error.php">An error ?</a></li>
-					<li><a href="../footer_pages/payment_option.php">Payment options</a></li>
-
+					<li><a href="./loadfooter.php?footer_page=faq">FAQ</a></li>
+					<li><a href="./loadfooter.php?footer_page=an_error">An error ?</a></li>
+					<li><a href="./loadfooter.php?footer_page=payment_option">Payment options</a></li>
 				</ul>
 			</div>
 		</div>
@@ -28,9 +27,9 @@
 			<div class="footer-col">
 				<h4>Your quizz</h4>
 				<ul>
-					<li><a href="../footer_pages/quizz_kesako.php">Quizz, késako ?</a></li>
+					<li><a href="./loadfooter.php?footer_page=quizz_kesako">Quizz, késako ?</a></li>
 					<li><a href="../public/sendQuizz.php">Send us your quizz</a></li>
-					<li><a href="../footer_pages/quizz_competition.php">Quizz competition</a></li>
+					<li><a href="./loadfooter.php?footer_page=quizz_competition">Quizz competition</a></li>
 				</ul>
 			</div>
 		</div>
