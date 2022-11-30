@@ -17,7 +17,7 @@
 
 
 <div>
-   <h1>Tell us your thought about O'Kwiz !!</h1>
+   <h1>Tell us your thoughts about O'Kwiz !!</h1>
 </div>
 <br></br>
 <br></br>
@@ -37,7 +37,7 @@
       <input type="hidden" id="php5_hidden" value=5>
       <img src="../images/star1.png" onmouseover="change(this.id);" id="php5" class="php">
    </div>
-   <input type="hidden" name="rating" id="phprating" value="0">
+   <input type="hidden" name="rating" id="phprating" value=0>
    <label>Add my review</label>
    <div><input type="submit" name="add"> </div>
 </form>

@@ -1,6 +1,6 @@
 <div class="info_box">
 	<p>
-		Bonjour, <?php echo htmlspecialchars($_SESSION["name"]); ?>
+		Hi , <?php echo htmlspecialchars($_SESSION["name"]); ?> !
 	</p>
 
 	<?php
@@ -18,10 +18,10 @@
 
 	<div>
 		<p>
-			Score: <?php echo $score ?>
+			Your score: <?php echo $score ?>
 		</p>
 		<p>
-			High Score: <?php echo $hscore ?>
+			Your highest Score: <?php echo $hscore ?>
 		</p>
 	</div>
 
@@ -33,7 +33,7 @@
 	</form>
 	<form action="../public/classement.php" method="post">
 		<div class="buttons">
-			<button type="submit">Classement</button>
+			<button type="submit">Ranking</button>
 		</div>
 	</form>
 </div>
