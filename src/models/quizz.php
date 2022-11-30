@@ -156,6 +156,6 @@ class Quizz
 	 */
 	public function addQuestion(Question $qe)
 	{
-		$this->questions[] = $qe;
+		array_push($this->questions[], $qe);
 	}
 }

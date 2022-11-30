@@ -82,9 +82,9 @@ class QuizzManager
 	public static function getQuizzInAPIFormat(int $quizz_id)
 	{
 		$quizz = self::getQuizz($quizz_id);
-		if($quizz == false){
+		if (!$quizz)
 			return false;
-		}
+
 		$quizz_api_format = self::convertQuizzToQuizzAPIFormat($quizz);
 		return $quizz_api_format;
 	}
@@ -97,7 +97,7 @@ class QuizzManager
 	public static function convertQuizzToQuizzAPIFormat(Quizz $quizz)
 	{
 		$quizz_api_format = array();
-		foreach($quizz->getQuestions() as $question){
+		foreach ($quizz->getQuestions() as $question) {
 			$question_api_format = self::convertQuestionToQuestionAPIFormat($question);
 			array_push($quizz_api_format, $question_api_format);
 		}
@@ -112,9 +112,11 @@ class QuizzManager
 	public static function convertQuestionToQuestionAPIFormat(Question $question)
 	{
 		$answers_list = OpentdbAPI::AddCorrectAnswerToAnswerList($question->getWrongAwnsers(), $question->getCorrectAwnser());
-		return array("question" => $question->getQuestion(), 
-					"answers" => $answers_list, 
-					"correct_answer" => $question->getCorrectAwnser());
+		return array(
+			"question" => $question->getQuestion(),
+			"answers" => $answers_list,
+			"correct_answer" => $question->getCorrectAwnser()
+		);
 	}
 
 	# == Setter ==

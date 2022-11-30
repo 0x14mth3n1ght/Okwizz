@@ -29,7 +29,7 @@ class DB
 	{
 		$items = [];
 		foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $item) {
-			$items[] = $item;
+			array_push($items, $item);
 		}
 		return $items;
 	}
