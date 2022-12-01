@@ -1,22 +1,24 @@
 <?php
-require_once 'template.php';
-require_once '../models/userManager.php';
-session_start();
+require_once '../models/Session.php';
+require_once '../models/Template.php';
+require_once '../models/UserManager.php';
+
 $scoreboard = UserManager::getAllUserHighscore();
-if(isset($_SESSION["name"])){
-	foreach($scoreboard as $key => $value){
-		if($value['pseudo'] == $_SESSION["name"]){
+
+if (Session::isLogin()) {
+	$pseudo = Session::getPseudo();
+	foreach ($scoreboard as $key => $value) {
+		if ($value['pseudo'] == $pseudo) {
 			$id = $key;
 		}
 	}
-	if(isset($id)){
+	if (isset($id)) {
 		$vous = $scoreboard[$id];
 		unset($scoreboard[$id]);
-		$pseudo = $vous['pseudo'];
-		$vous['pseudo'] = "Vous ($pseudo)";
+		$user = $vous['pseudo'];
+		$vous['pseudo'] = "Vous ($user)";
 		array_unshift($scoreboard, $vous);
 	}
 }
-loadview('classement', array(
-		'classement'
-), $scoreboard);
+
+Template::loadview('classement', array('classement'), $scoreboard);
