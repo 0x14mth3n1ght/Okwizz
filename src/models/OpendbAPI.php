@@ -1,4 +1,6 @@
 <?php
+require_once 'QuizzManager.php';
+require_once 'Quizz.php';
 
 class OpentdbAPI
 {
@@ -23,6 +25,12 @@ class OpentdbAPI
 	{
 		$questions_form_api = self::GetQuestionsFromAPI($nombreQuestion, $category, $difficulty, $typeQuizz);
 		return self::ConvertArrayFormat($questions_form_api);
+	}
+
+	public static function GetQuizz($nombreQuestion, $category, $difficulty, $typeQuizz): Quizz
+	{
+		$questions_form_api = self::GetQuestionsFromAPI($nombreQuestion, $category, $difficulty, $typeQuizz);
+		return self::ConvertToQuizz($questions_form_api);
 	}
 
 	/**
@@ -64,6 +72,16 @@ class OpentdbAPI
 			array_push($questions, self::AddNewFormattedQuestion($APIQuestion));
 		}
 		return $questions;
+	}
+
+	private static function ConvertToQuizz($APIQuestions)
+	{
+		$quizz = new Quizz("", "", 0, -1);
+		foreach ($APIQuestions as $APIQuestion) {
+			$qe = new Question($APIQuestion["question"], $APIQuestion["correct_answer"], $APIQuestion["incorrect_answers"]);
+			$quizz->addQuestion($qe);
+		}
+		return $quizz;
 	}
 
 	/**
