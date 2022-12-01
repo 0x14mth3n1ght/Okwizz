@@ -8,6 +8,7 @@ Session::redirectUnLog();
 
 $rating = Utils::getPostOrRedirect("rating"); // always 0
 $comment = Utils::getPostOrRedirect("comment");
+$rating = 5;
 
 UserManager::setReview(Session::getPseudo(), $rating, $comment);
 
