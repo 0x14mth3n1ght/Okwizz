@@ -20,7 +20,7 @@ extract($data);
 	<div class="ds-info">
 		<div class="ds pens">
 			<h6 title="Nombre de points">Games played</h6>
-			<p><?php echo htmlentities($nbparties) ?></p>
+			<p><?php echo htmlentities($highscore) ?></p>
 		</div>
 		<div class="ds projects">
 			<h6 title="Nombre de parties">HighScore</h6>
