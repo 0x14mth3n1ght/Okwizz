@@ -17,7 +17,7 @@
 				<h4>Help</h4>
 				<ul>
 					<li><a href="./loadfooter.php?footer_page=faq">FAQ</a></li>
-					<li><a href="./loadfooter.php?footer_page=an_error">An error ?</a></li>
+					<li><a href="../public/contact.php">An error ?</a></li>
 					<li><a href="./loadfooter.php?footer_page=payment_option">Payment options</a></li>
 				</ul>
 			</div>
@@ -41,13 +41,13 @@
 					<a href="https://www.facebook.com/profile.php?id=100087948190073" target="_blank">
 						<i class="fab fa-facebook-f"></i>
 					</a>
-					<a href="#">
+					<a href="https://www.linkedin.com/in/o-kwizz-officiel-927a08258/" target="_blank">
 						<i class="fab fa-twitter"></i>
 					</a>
 					<a href="https://www.instagram.com/okwizz_officiel/" target="_blank">
 						<i class="fab fa-instagram"></i>
 					</a>
-					<a href="#">
+					<a href="https://twitter.com/DamienB25747841" target="_blank">
 						<i class="fab fa-linkedin-in"></i>
 					</a>
 				</div>
