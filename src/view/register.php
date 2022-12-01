@@ -1,10 +1,4 @@
-<?php
-require_once '../models/Session.php';
-
-Session::redirectLog();
-?>
-
-<form action="doregister.php" method="post">
+<form action="_register.php" method="post">
 	<h1>Register</h1>
 
 	<div class="inputs">
