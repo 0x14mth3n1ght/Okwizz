@@ -25,7 +25,7 @@ extract($data);
 			?>
 		</div>
 		<div class="buttons">
-			<button type="submit">Envoyer la réponse</button>
+			<button type="submit">Send the Awnser</button>
 		</div>
 	</form>
 	<form action="index.php" method="post">
