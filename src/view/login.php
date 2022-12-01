@@ -1,9 +1,4 @@
-<?php
-require_once '../models/Session.php';
-
-Session::redirectLog();
-?>
-<form action="dologin.php" method="post">
+<form action="_login.php" method="post">
 	<h1>Log in</h1>
 	<div class="inputs">
 		<input type="text" name="pseudo" placeholder="Username" required />
