@@ -4,18 +4,18 @@
 		<?php
 		require_once '../models/Session.php';
 		require_once '../models/Utils.php';
-		if (Session::isLog()) {
-			$pseudo_d = Session::getPseudo();
+		if (Session::isLogin()) {
+			$pseudo = Session::getPseudo();
 		?>
-			<li class="navbar_listitem">(<?php echo $pseudo_d ?>)</li>
+			<li class="navbar_listitem"><a href="_logout.php"> <?php echo htmlentities($pseudo) ?> (logout) </a></li>
 		<?php
 		}
 		?>
 		<li class="navbar_listitem"><a href="../public/index.php">Home</a></li>
 		<li class="navbar_listitem"><a href="h">Game</a>
 			<ul class="navbar_listitemdrop">
-				<li><a href="../public/questionController.php">Fast game</a></li>
-				<li><a href="../public/catalogueQuizz.php">Categories</a></li>
+				<li><a href="../public/catalogue.php">Fast game</a></li>
+				<!-- <li><a href="../public/catalogue.php">Categories</a></li> -->
 				<li><a href="../public/sendQuizz.php">Send your quizz</a></li>
 				<li><a href="../public/review.php">Review</a></li>
 			</ul>
