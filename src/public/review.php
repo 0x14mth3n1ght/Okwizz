@@ -1,30 +1,26 @@
 <?php
-require_once 'template.php';
-require_once '../models/userManager.php';
-session_start();
-$Reviews=UserManager::getAllUserReview();
+require_once '../models/Session.php';
+require_once '../models/Template.php';
+require_once '../models/UserManager.php';
 
-if(isset($_SESSION["name"])){
-        foreach($Reviews as $key => $value){
-                if($value['pseudo'] == $_SESSION["name"]){
-                        $id = $key;
-                }
-        }
-        if(isset($id)){
-                $vous = $Reviews[$id];
-                unset($Reviews[$id]);
-                $pseudo = $vous['pseudo'];
-                $vous['pseudo'] = "Vous ($pseudo)";
-                array_unshift($Reviews, $vous);
-        }
-}
-   
+Session::redirectUnLog();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$name = $_POST["name"];
-	$rating = $_POST["rating"];
-	$comment = $_POST["comment"];
-	UserManager::setReview($name, $rating, $comment);
+$reviews = UserManager::getAllUserReview();
+
+if (Session::isLogin()) {
+	$pseudo = Session::getPseudo();
+	foreach ($reviews as $key => $value) {
+		if ($value['pseudo'] == $pseudo) {
+			$id = $key;
+		}
+	}
+	if (isset($id)) {
+		$vous = $reviews[$id];
+		unset($reviews[$id]);
+		$user = $vous['pseudo'];
+		$vous['pseudo'] = "Vous ($user)";
+		array_unshift($reviews, $vous);
+	}
 }
-loadview('review', array('review'),$Reviews);
-?>
+
+Template::loadview('review', array('rating_style'), $reviews);
