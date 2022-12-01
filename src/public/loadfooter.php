@@ -1,6 +1,6 @@
 <?php
-require_once './template.php';
 require_once '../models/Utils.php';
+require_once '../models/Template.php';
 
 $footer = Utils::getOrRedirect($_GET, "footer_page");
 
@@ -19,4 +19,4 @@ $footers = [
 if (!in_array($footer, $footers, true))
 	Utils::redirect();
 
-loadView("footer_pages/" . $footer, array(), null);
+Template::loadView("footer_pages/" . $footer, array(), null);

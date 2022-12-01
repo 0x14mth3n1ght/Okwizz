@@ -1,3 +1,3 @@
 <?php
-require_once '../public/template.php';
-loadView('home', array('main') , NULL);
+require_once '../models/Template.php';
+Template::loadView('home', array('main'), NULL);
