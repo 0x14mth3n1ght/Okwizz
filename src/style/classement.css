@@ -1,5 +1,4 @@
-@import
-	url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
 
 .main-container {
 	-base-spacing-unit: 24px;
@@ -8,7 +7,9 @@
 	-color-form-highlight: #EEEEEE;
 }
 
-.main-container *, .main-container *:before, .main-container *:after {
+.main-container *,
+.main-container *:before,
+.main-container *:after {
 	box-sizing: border-box;
 }
 
@@ -24,13 +25,19 @@
 	margin: 0;
 }
 
-.main-container h1, .main-container h2, .main-container h3, .main-container h4,
-	.main-container h5, .main-container h6 {
+.main-container h1,
+.main-container h2,
+.main-container h3,
+.main-container h4,
+.main-container h5,
+.main-container h6 {
 	margin: 0;
 }
 
-.main-container table, .main-container th, .main-container td,
-	.main-container caption {
+.main-container table,
+.main-container th,
+.main-container td,
+.main-container caption {
 	border: 1px solid;
 }
 
@@ -38,7 +45,8 @@
 	background-color: coral;
 }
 
-.main-container th, .main-container td {
+.main-container th,
+.main-container td {
 	padding: 15px;
 	text-align: left;
 }
@@ -48,10 +56,11 @@
 	border-collapse: collapse;
 }
 
-.main-container th, .main-container caption {
+.main-container th,
+.main-container caption {
 	font-weight: bold;
 	font-size: large;
-	background-color: #04AA6D;
+	background-color: #007bff;
 	color: white;
 }
 
@@ -87,7 +96,8 @@
 	background: var(-color-form-highlight);
 }
 
-.table-data, .header__item {
+.table-data,
+.header__item {
 	flex: 1 1 20%;
 	text-align: center;
 }

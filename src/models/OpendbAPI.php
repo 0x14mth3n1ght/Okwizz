@@ -1,6 +1,9 @@
 <?php
+require_once 'QuizzManager.php';
+require_once 'Quizz.php';
 
-class OpentdbAPI {
+class OpentdbAPI
+{
 
 	/**
 	 * Call the API to get an array & format it.
@@ -18,9 +21,16 @@ class OpentdbAPI {
 	 *         ["correct_answer"] => string(5) "correct_answer"
 	 *         }
 	 */
-	public static function GetQuestions($nombreQuestion, $category, $difficulty, $typeQuizz){
+	public static function GetQuestions($nombreQuestion, $category, $difficulty, $typeQuizz)
+	{
 		$questions_form_api = self::GetQuestionsFromAPI($nombreQuestion, $category, $difficulty, $typeQuizz);
 		return self::ConvertArrayFormat($questions_form_api);
+	}
+
+	public static function GetQuizz($nombreQuestion, $category, $difficulty, $typeQuizz): Quizz
+	{
+		$questions_form_api = self::GetQuestionsFromAPI($nombreQuestion, $category, $difficulty, $typeQuizz);
+		return self::ConvertToQuizz($questions_form_api);
 	}
 
 	/**
@@ -34,8 +44,16 @@ class OpentdbAPI {
 	 *        	multiple
 	 * @return mixed
 	 */
-	private static function GetQuestionsFromAPI($nombreQuestion, $category, $difficulty, $typeQuizz){
-		$jsonAPIQuestions = file_get_contents("https://opentdb.com/api.php?amount=".$nombreQuestion."&category=".$category."&difficulty=".$difficulty."&type=".$typeQuizz);
+	private static function GetQuestionsFromAPI($nombreQuestion, $category, $difficulty, $typeQuizz)
+	{
+		$api_url = "https://opentdb.com/api.php?amount=" . $nombreQuestion . "&type=" . $typeQuizz;
+		if ($category != 0) {
+			$api_url .= "&category=" . $category;
+		}
+		if ($difficulty != "any difficulty") {
+			$api_url .= "&difficulty=" . $difficulty;
+		}
+		$jsonAPIQuestions = file_get_contents($api_url);
 		return json_decode($jsonAPIQuestions, true)['results'];
 	}
 
@@ -46,13 +64,24 @@ class OpentdbAPI {
 	 * @param unknown $nombreQuestion
 	 * @return NULL[]
 	 */
-	private static function ConvertArrayFormat($APIQuestions){
+	private static function ConvertArrayFormat($APIQuestions)
+	{
 		$questions = array();
-		foreach($APIQuestions as $APIQuestion){
+		foreach ($APIQuestions as $APIQuestion) {
 			$APIQuestion['incorrect_answers'] = self::AddCorrectAnswerToAnswerList($APIQuestion['incorrect_answers'], $APIQuestion['correct_answer']);
-			$questions[] = self::AddNewFormattedQuestion($APIQuestion);
+			array_push($questions, self::AddNewFormattedQuestion($APIQuestion));
 		}
 		return $questions;
+	}
+
+	private static function ConvertToQuizz($APIQuestions)
+	{
+		$quizz = new Quizz("", "", 0, -1);
+		foreach ($APIQuestions as $APIQuestion) {
+			$qe = new Question($APIQuestion["question"], $APIQuestion["correct_answer"], $APIQuestion["incorrect_answers"]);
+			$quizz->addQuestion($qe);
+		}
+		return $quizz;
 	}
 
 	/**
@@ -62,7 +91,8 @@ class OpentdbAPI {
 	 * @param string $correctAnswer
 	 * @return array
 	 */
-	private static function AddCorrectAnswerToAnswerList($incorrectAnswers, $correctAnswer){
+	public static function AddCorrectAnswerToAnswerList($incorrectAnswers, $correctAnswer)
+	{
 		array_splice($incorrectAnswers, rand(0, 4), 0, $correctAnswer);
 		return $incorrectAnswers;
 	}
@@ -73,12 +103,12 @@ class OpentdbAPI {
 	 * @param unknown $jsonApiQuestion
 	 * @return unknown[]
 	 */
-	private static function AddNewFormattedQuestion($APIQuestion){
+	private static function AddNewFormattedQuestion($APIQuestion)
+	{
 		return array(
-				"question" => $APIQuestion['question'],
-				"answers" => $APIQuestion['incorrect_answers'],
-				"correct_answer" => $APIQuestion['correct_answer']
+			"question" => $APIQuestion['question'],
+			"answers" => $APIQuestion['incorrect_answers'],
+			"correct_answer" => $APIQuestion['correct_answer']
 		);
 	}
 }
-?>

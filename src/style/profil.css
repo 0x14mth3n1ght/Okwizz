@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Krub:400,700');
 
+.main-container {
+	height: 740px;
+}
+
 .main-container * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-.main-container html, .main-container body {
+.main-container html,
+.main-container body {
 	width: 100%;
 	height: 100%;
 }
@@ -53,10 +58,10 @@
 	height: 150px;
 	border-radius: 50%;
 	box-shadow: 0 0 0 5px #151515,
-				inset 0 0 0 5px #000000,
-				inset 0 0 0 5px #000000,
-				inset 0 0 0 5px #000000,
-				inset 0 0 0 5px #000000;
+		inset 0 0 0 5px #000000,
+		inset 0 0 0 5px #000000,
+		inset 0 0 0 5px #000000,
+		inset 0 0 0 5px #000000;
 	background: white;
 	overflow: hidden;
 	animation: mvTop 1.5s;
@@ -145,24 +150,28 @@
 	display: flex;
 }
 
-.card .ds-info .pens, .card .ds-info .projects, .card .ds-info .posts {
+.card .ds-info .pens,
+.card .ds-info .projects,
+.card .ds-info .posts {
 	position: relative;
 	left: -300px;
-	width: calc(300px/ 3);
+	width: calc(300px/ 2);
 	text-align: center;
 	color: white;
 	animation: fadeInMove 2s;
 	animation-fill-mode: forwards;
 }
 
-.card .ds-info .pens h6, .card .ds-info .projects h6, .card .ds-info .posts h6
-	{
+.card .ds-info .pens h6,
+.card .ds-info .projects h6,
+.card .ds-info .posts h6 {
 	text-transform: uppercase;
 	color: #007bff;
 }
 
-.card .ds-info .pens p, .card .ds-info .projects p, .card .ds-info .posts p
-	{
+.card .ds-info .pens p,
+.card .ds-info .projects p,
+.card .ds-info .posts p {
 	font-size: 12px;
 	text-align: center;
 }
@@ -242,75 +251,83 @@ card .ds-info .ds:nth-of-type(1) {
 	animation-delay: .4s;
 }
 
-@keyframes fadeInMove { 
+@keyframes fadeInMove {
 	0% {
 		opacity: 0;
 		left: -300px;
 	}
+
 	100% {
 		opacity: 1;
 		left: 0;
 	}
 }
 
-@keyframes fadeIn { 
+@keyframes fadeIn {
 	0% {
 		opacity: 0;
 	}
+
 	100% {
 		opacity: 1;
 	}
 }
 
-@keyframes htmlSkill { 
+@keyframes htmlSkill {
 	0% {
 		width: 0;
 	}
+
 	100% {
 		width: 95%;
 	}
 }
 
-@keyframes cssSkill { 
+@keyframes cssSkill {
 	0% {
 		width: 0;
 	}
+
 	100% {
 		width: 90%;
 	}
 }
 
-@keyframes jsSkill { 
+@keyframes jsSkill {
 	0% {
 		width: 0;
 	}
+
 	100% {
 		width: 75%;
 	}
 }
 
-@keyframes mvBottom { 
+@keyframes mvBottom {
 	0% {
 		bottom: -150px;
 	}
+
 	100% {
 		bottom: 10px;
 	}
 }
 
-@keyframes mvTop { 
+@keyframes mvTop {
 	0% {
 		top: -150px;
 	}
+
 	100% {
 		top: 40px;
 	}
 }
 
-@keyframes dsTop { 
+@keyframes dsTop {
 	0% {
 		top: -150px;
 	}
+
 	100% {
 		top: 0;
 	}

@@ -11,17 +11,20 @@
 		<!-- <div class="info">4. Règle n°4</div> -->
 	</div>
 
-	<form action="../public/questionController.php" method="post">
+	<form action="../public/_noaccountlogin.php" method="post">
 		<div class="wrapper">
 			<div class="input-data">
-				<input id="name" name="name" type="text">
+				<input id="name" name="pseudo" type="text">
 				<div class="underline"></div>
 				<label>Pseudo</label>
-				<!-- </div> -->
 			</div>
 		</div>
 		<div class="buttons">
 			<button type="submit" class="restart">Confirm</button>
+		</div>
+	</form>
+	<form action="catalogue.php" method="post">
+		<div class="buttons">
 			<button type="submit" class="restart">Start</button>
 		</div>
 	</form>

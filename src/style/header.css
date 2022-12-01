@@ -15,10 +15,13 @@ header {
 }
 
 .navbar {
-	position: fixed;
+	position: relative;
+	z-index: 999;
 	top: 0;
 	width: 100vw;
 	box-shadow: 0 0 10px #e1e5ee;
+	z-index: 999;
+	background-color: white;
 }
 
 .navbar .navbar_list {
@@ -36,12 +39,12 @@ header {
 }
 
 .navbar .navbar_list .navbar_listlogo img {
-	width: 2.5rem;
+	width: 5rem;
 	transition: fill 250ms ease-in;
 }
 
-.navbar .navbar_list .navbar_listlogo img:hover, .navbar .navbar_list .navbar_listlogo img:focus
-	{
+.navbar .navbar_list .navbar_listlogo img:hover,
+.navbar .navbar_list .navbar_listlogo img:focus {
 	fill: blueviolet;
 }
 
@@ -53,8 +56,8 @@ header {
 	cursor: pointer;
 }
 
-.navbar .navbar_list .navbar_listitem:hover ul, .navbar .navbar_list .navbar_listitem:focus ul
-	{
+.navbar .navbar_list .navbar_listitem:hover ul,
+.navbar .navbar_list .navbar_listitem:focus ul {
 	opacity: 1;
 	visibility: visible;
 }
@@ -71,16 +74,17 @@ header {
 	transition: width 200ms ease-in;
 }
 
-.navbar .navbar_list .navbar_listitem:hover:after, .navbar .navbar_list .navbar_listitem:focus:after
-	{
+.navbar .navbar_list .navbar_listitem:hover:after,
+.navbar .navbar_list .navbar_listitem:focus:after {
 	width: 80%;
 }
 
 .navbar .navbar_list .navbar_listitem .navbar_listitemdrop {
 	position: absolute;
+	background-color: white;
 	top: 4rem;
 	left: -1rem;
-	box-shadow: 0 0 10px #e1e5ee;
+	box-shadow: 0 0 5px #007bff;
 	border-radius: 0.2rem;
 	width: 12rem;
 	padding: 1rem;
@@ -88,19 +92,19 @@ header {
 	flex-direction: column;
 	gap: 0.5rem;
 	opacity: 0;
-	visibility: hidden;
+	visibility:hidden; 
 	transition: opacity 200ms ease-in-out;
 }
 
 .navbar .navbar_list .navbar_listitem .navbar_listitemdrop li {
 	list-style: none;
-	padding: 0.5rem 1 rem;
+	padding: 0.5rem 1rem;
 	border-radius: 0.2rem;
 	transition: background-color 200ms ease-in-out;
 }
 
 .navbar .navbar_list .navbar_listitem .navbar_listitemdrop li:hover,
-	.navbar .navbar_list .navbar_listitem .navbar_listitemdrop li:focus {
+.navbar .navbar_list .navbar_listitem .navbar_listitemdrop li:focus {
 	background-color: #007bff;
 }
 

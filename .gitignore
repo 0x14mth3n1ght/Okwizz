@@ -1,5 +1,5 @@
 .buildpath
 .project
 .settings
-pima2022-group9.sqlite
+*.sqlite
 .idea/

@@ -1,21 +1,17 @@
-<form>
+<form action="_register.php" method="post">
 	<h1>Register</h1>
 
 	<div class="inputs">
-		<input type="text" placeholder="Username" required />
-		<input type="password" placeholder="Password" id="password" required />
-		<input type="password" placeholder="Confirm Password" id="confirm_password" required />
+		<input type="text" name="pseudo" placeholder="Username" id="username" required />
+		<input type="password" name="passwd" placeholder="Password" id="password" required />
+		<input type="password" name="passwd_verify" placeholder="Confirm Password" id="confirm_password" required />
 	</div>
-
 	<p class="inscription">
 		Already have an account ?
 		<a href="login.php">Log in.</a>
 	</p>
-
-	<div align="center">
+	<div>
 		<button type="submit">Register</button>
 	</div>
-
 	<script src="../script/passwordValidity.js"></script>
 </form>
-
