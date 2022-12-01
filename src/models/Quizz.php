@@ -22,6 +22,7 @@ class Question
 		$this->wrongAwnsers = $wrongAwnsers;
 		if (count($wrongAwnsers) != 3)
 			throw new OutOfRangeException("should be 3 wrongs awnsers");
+		$this->correctAwnsersPosition = rand(0, 3);
 	}
 
 	/**
@@ -38,6 +39,11 @@ class Question
 	 * @var array $wrongAwnsers a list of string of size 3 containing the wrong awnser to the question.
 	 */
 	private array $wrongAwnsers; // array of string
+
+	/**
+	 * @var int $correctAwnsersPosition position of the wrong awnser in getAllAwnsers.
+	 */
+	private int $correctAwnsersPosition;
 
 	/**
 	 * 
@@ -65,6 +71,24 @@ class Question
 	{
 		return $this->wrongAwnsers;
 	}
+
+	/**
+	 * @return array, get the list of awnsers with the correct awnser at a radom constant place.
+	 */
+	public function getAllAwnsers(): array
+	{
+		$allAnswers = $this->wrongAwnsers;
+		array_splice($allAnswers, $this->correctAwnsersPosition, 0, $this->correctAwnser);
+		return $allAnswers;
+	}
+
+	/**
+	 * @return int, get the position of the correct awnser.
+	 */
+	public function getCorrectAwnserPosition(): int
+	{
+		return $this->correctAwnsersPosition;
+	}
 }
 
 /**
@@ -78,16 +102,19 @@ class Quizz
 	 * @param string $title the name of the Quizz.
 	 * @param string $pseudo the pseudo of the player that register the quizz.
 	 * @param int $nbParties the numbers of parties all players have played that Quizz.
+	 * @param int $quizz_id the is of the quizz in the database (if querry from the database).
 	 */
 	public function __construct(
 		string $title,
 		string $pseudo,
 		int $nbParties,
+		int $quizz_id = NULL
 	) {
 		$this->title = $title;
 		$this->pseudo = $pseudo;
 		$this->nbParties = $nbParties;
 		$this->questions = array();
+		$this->quizz_id = $quizz_id;
 	}
 
 	/**
@@ -145,6 +172,15 @@ class Quizz
 	public function getQuestions(): array
 	{
 		return $this->questions;
+	}
+
+	/**
+	 * 
+	 * @return int, the id of the quizz.
+	 */
+	public function getId(): int
+	{
+		return $this->quizz_id;
 	}
 
 	/**
