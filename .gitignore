@@ -3,3 +3,4 @@
 .settings
 *.sqlite
 .idea/
+.vscode/*
