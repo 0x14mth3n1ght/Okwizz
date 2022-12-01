@@ -42,17 +42,26 @@
 			</div>
 		</form>
 		<table>
-			<h2>User's feedback</h2>
-			<?php
-			foreach ($data as $review) {
-			?>
+			<thead>
 				<tr>
-					<?php echo htmlentities($review['pseudo']) ?> :
-					<?php echo htmlentities($review['appscore']) ?> / 5,
-					<?php echo htmlentities($review['review']) ?>
+					<td>Pseudo</td>
+					<td>Appscore</td>
+					<td>Review</td>
 				</tr>
-			<?php
-			}
-			?>
+			</thead>
+			<tbody>
+				<h2>User's feedback</h2>
+				<?php
+				foreach ($data as $review) {
+				?>
+					<tr>
+						<td><?php echo htmlentities($review['pseudo']) ?> :</td>
+						<td><?php echo htmlentities($review['appscore']) ?> / 5</td>
+						<td><?php echo htmlentities($review['review']) ?></td>
+					</tr>
+				<?php
+				}
+				?>
+			</tbody>
 		</table>
 	</div>
