@@ -25,10 +25,10 @@ extract($data);
 		<div class="buttons">
 			<button type="submit">Ranking</button>
 		</div>
-        </form>
+	</form>
 	<form action="../public/review.php" method="post">
-        <div class="buttons">
-                <button type="submit">Review</button>
-        </div>
+		<div class="buttons">
+			<button type="submit">Review</button>
+		</div>
 	</form>
 </div>
