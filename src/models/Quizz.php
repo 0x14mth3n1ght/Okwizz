@@ -82,7 +82,7 @@ class Quizz
 	public function __construct(
 		string $title,
 		string $pseudo,
-		int $nbParties
+		int $nbParties,
 	) {
 		$this->title = $title;
 		$this->pseudo = $pseudo;
@@ -156,6 +156,6 @@ class Quizz
 	 */
 	public function addQuestion(Question $qe)
 	{
-		array_push($this->questions[], $qe);
+		array_push($this->questions, $qe);
 	}
 }

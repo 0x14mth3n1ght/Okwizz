@@ -1,6 +1,6 @@
 <?php
 include_once 'error.php';
-require_once 'db.php';
+require_once 'DB.php';
 
 class UserManager
 {

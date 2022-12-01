@@ -3,6 +3,7 @@
 class Utils
 {
 	const INDEX = './index.php';
+	const LOGIN = './login.php';
 
 	public static function redirect(string $location = self::INDEX)
 	{

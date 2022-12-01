@@ -1,8 +1,8 @@
 <?php
 include_once 'error.php';
-require_once 'db.php';
-require_once 'quizz.php';
-require_once 'opentdbAPI.php';
+require_once 'DB.php';
+require_once 'Quizz.php';
+require_once 'OpendbAPI.php';
 
 class QuizzManager
 {
@@ -24,7 +24,7 @@ class QuizzManager
 		$quizz_id = self::addQuizzDB($qz->getTitle(), $qz->getPseudo());
 		if (!$quizz_id)
 			return false;
-		var_dump($quizz_id);
+
 		foreach ($qz->getQuestions() as $key => $qe) {
 			/** @var Question $qe */
 			$res = self::addQuestionDB(
@@ -56,7 +56,7 @@ class QuizzManager
 		if (!$infos || empty($infos))
 			return false;
 		$info = $infos[0];
-		$qz = new Quizz($info["title"], $info["pseudo"], $info["nbparties"]);
+		$qz = new Quizz($info["title"], $info["pseudo"], $info["nbparties"], $quizz_id);
 
 		$infos = self::getQuestionsDB($quizz_id);
 		if (!$infos || empty($infos))
@@ -71,52 +71,6 @@ class QuizzManager
 		}
 
 		return $qz;
-	}
-
-	/**
-	 * 
-	 * @param int $quizz_id the id of the Quizz to get.
-	 * @return boolean|Quizz false if the Querry fail,
-	 * If sucess, it will return a Quizz in API Format. 
-	 */
-	public static function getQuizzInAPIFormat(int $quizz_id)
-	{
-		$quizz = self::getQuizz($quizz_id);
-		if (!$quizz)
-			return false;
-
-		$quizz_api_format = self::convertQuizzToQuizzAPIFormat($quizz);
-		return $quizz_api_format;
-	}
-
-	/**
-	 * 
-	 * @param Quizz $quizz the quizz to convert 
-	 * @return array it will return a Quizz in API Format. (see opentdbAPI.php)
-	 */
-	public static function convertQuizzToQuizzAPIFormat(Quizz $quizz)
-	{
-		$quizz_api_format = array();
-		foreach ($quizz->getQuestions() as $question) {
-			$question_api_format = self::convertQuestionToQuestionAPIFormat($question);
-			array_push($quizz_api_format, $question_api_format);
-		}
-		return $quizz_api_format;
-	}
-
-	/**
-	 * 
-	 * @param Question $question the question to convert 
-	 * @return array it will return a question in API Format. (see opentdbAPI.php)
-	 */
-	public static function convertQuestionToQuestionAPIFormat(Question $question)
-	{
-		$answers_list = OpentdbAPI::AddCorrectAnswerToAnswerList($question->getWrongAwnsers(), $question->getCorrectAwnser());
-		return array(
-			"question" => $question->getQuestion(),
-			"answers" => $answers_list,
-			"correct_answer" => $question->getCorrectAwnser()
-		);
 	}
 
 	# == Setter ==
