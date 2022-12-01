@@ -155,7 +155,7 @@
 .card .ds-info .posts {
 	position: relative;
 	left: -300px;
-	width: calc(300px/ 3);
+	width: calc(300px/ 2);
 	text-align: center;
 	color: white;
 	animation: fadeInMove 2s;
