@@ -41,13 +41,13 @@
 					<a href="https://www.facebook.com/profile.php?id=100087948190073" target="_blank">
 						<i class="fab fa-facebook-f"></i>
 					</a>
-					<a href="https://www.linkedin.com/in/o-kwizz-officiel-927a08258/" target="_blank">
+					<a href="https://twitter.com/DamienB25747841" target="_blank">
 						<i class="fab fa-twitter"></i>
 					</a>
 					<a href="https://www.instagram.com/okwizz_officiel/" target="_blank">
 						<i class="fab fa-instagram"></i>
 					</a>
-					<a href="https://twitter.com/DamienB25747841" target="_blank">
+					<a href="https://www.linkedin.com/in/o-kwizz-officiel-927a08258/" target="_blank">
 						<i class="fab fa-linkedin-in"></i>
 					</a>
 				</div>
