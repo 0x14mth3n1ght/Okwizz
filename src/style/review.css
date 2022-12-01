@@ -2,12 +2,12 @@
 
 /* Contact  */
 
-section#contact {
+.main-container section#contact {
 	/* background-color: #f9f9fb; */
 	padding: 100px 15px;
 }
 
-section#contact .container {
+.main-container section#contact .container {
 	max-width: 1100px;
 	margin: 0 auto;
 	display: flex;
@@ -21,37 +21,37 @@ section#contact .container {
 }
 
 
-section#contact .title {
+.main-container section#contact .title {
 	text-align: center;
 	margin-bottom: 5px;
 }
 
-section#contact .title h6 {
+.main-container section#contact .title h6 {
 	font-size: 1em;
 }
 
-section#contact .title h3 {
+.main-container section#contact .title h3 {
 	font-size: 2.5em;
 }
 
-section#contact .container form {
+.main-container section#contact .container form {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	max-width: 600px;
 }
 
-section#contact .container form div input {
+.main-container section#contact .container form div input {
 	width: 45%;
 }
 
-section#contact .container form input:hover,
-section#contact .container form textarea:hover {
+.main-container section#contact .container form input:hover,
+.main-container section#contact .container form textarea:hover {
 	border-bottom: 2px solid #007bff;
 }
 
-section#contact .container form input,
-section#contact .container textarea {
+.main-container section#contact .container form input,
+.main-container section#contact .container textarea {
 	margin: 15px 0;
 	padding: 10px;
 	border: none;
@@ -61,14 +61,14 @@ section#contact .container textarea {
 	box-sizing: border-box;
 }
 
-section#contact .container form textarea {
+.main-container section#contact .container form textarea {
 	width: 100%;
 	resize: none;
 	height: 100px;
 	margin-bottom: 20px;
 }
 
-section#contact .container form button {
+.main-container section#contact .container form button {
 	width: 192px;
 	height: 50px;
 	border-radius: 8px;
@@ -83,7 +83,7 @@ section#contact .container form button {
 	transition: 0.4s;
 }
 
-section#contact .container form button:hover {
+.main-container section#contact .container form button:hover {
 	transform: translateY(-8px);
 	box-shadow: rgb(214 214 214) 0px 10px 40px -5px;
 }
@@ -128,7 +128,7 @@ section#contact .container form button:hover {
 	text-align:left;
 	color:#E6E6E6;
 }
-img
+.main-container img
 {
     /* align-items: center; */
 	margin-top:0px;
