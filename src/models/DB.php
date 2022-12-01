@@ -3,7 +3,7 @@ include_once 'error.php';
 
 class DB
 {
-
+	const BD_PATH = 'sqlite:../../data/pima2022-group9-v1.3.sqlite';
 	/**
 	 * Get the PDO Object the Database.
 	 *
@@ -63,7 +63,7 @@ class DB
 	private static function initDB()
 	{
 		try {
-			$db = new PDO('sqlite:../../pima2022-group9-v1.3.sqlite');
+			$db = new PDO(self::BD_PATH);
 		} catch (Exception $e) {
 			echo "Impossible d'accéder à la base de données SQLite : " . $e->getMessage();
 			die();
