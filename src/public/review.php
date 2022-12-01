@@ -23,4 +23,4 @@ if (Session::isLogin()) {
 	}
 }
 
-Template::loadview('review', array('rating_style'), $reviews);
+Template::loadview('review', array('review'), $reviews);

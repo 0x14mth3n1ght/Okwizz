@@ -20,15 +20,8 @@
 			<h1>Tell us your thoughts about O'Kwiz !!</h1>
 		</div>
 		<form method="post" action="_review.php">
-
-			<!-- <label>Name : </label> -->
-
-			<input type="text" name="name" placeholder="Name" required="">
-			<div> -->
-				<!-- <label>Comment : </label> -->
+			<div>
 				<textarea name="comment" placeholder="Write your comment"></textarea>
-				<!-- <textarea name="comment" placeholder="Write your comment"></textarea> -->
-
 				<div class="star">
 					<input type="hidden" id="php1_hidden" value=1>
 					<img src="../images/star1.png" onmouseover="change(this.id);" id="php1" class="php">
@@ -48,13 +41,8 @@
 				<button type="submit" name="add">Add my review</button>
 			</div>
 		</form>
-
 		<table>
-			<!-- <caption> -->
 			<h2>User's feedback</h2>
-			<!-- </caption> -->
-
-
 			<?php
 			foreach ($data as $review) {
 			?>

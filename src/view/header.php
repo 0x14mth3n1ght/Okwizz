@@ -12,7 +12,7 @@
 		}
 		?>
 		<li class="navbar_listitem"><a href="../public/index.php">Home</a></li>
-		<li class="navbar_listitem"><a href="h">Game</a>
+		<li class="navbar_listitem"><a href="../public/index.php">Game</a>
 			<ul class="navbar_listitemdrop">
 				<li><a href="../public/catalogue.php">Fast game</a></li>
 				<!-- <li><a href="../public/catalogue.php">Categories</a></li> -->
