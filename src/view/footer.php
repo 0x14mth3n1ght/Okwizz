@@ -17,7 +17,7 @@
 				<h4>Help</h4>
 				<ul>
 					<li><a href="./loadfooter.php?footer_page=faq">FAQ</a></li>
-					<li><a href="./loadfooter.php?footer_page=an_error">An error ?</a></li>
+					<li><a href="../public/contact.php">An error ?</a></li>
 					<li><a href="./loadfooter.php?footer_page=payment_option">Payment options</a></li>
 				</ul>
 			</div>
