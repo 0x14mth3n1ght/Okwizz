@@ -1,29 +1,31 @@
-# README
+# Projet informatique et méthodes agiles
 
-## Structure théorique du porojet
+## Structure théorique du projet
 
 ```
 pima2022-groupe9
 ├── README.md
 └── src
-    ├── models # contien les models
+    ├── models # contient les modèles
     │   └── model.php
-    ├── public # contien les controlers (charges des views en fonctions des besoins)
+    ├── public # contient les controllers (chargent des views en fonctions des besoins)
     │   ├── index.php
     │   ├── pseudo.css
     │   ├── pseudo.html
     │   └── stylesheet.css
-    └── view # contien les views qui font appel au controleurs
+    └── view # contient les views qui font appel aux controlleurs
         ├── footer.php
         ├── home.php
         ├── navbar.php
         └── question.php
 ```
 
-## Coding style
+## Lancement
 
-vous etes prié d'indenter correctement votre code avec des **TABULATIONS**
-
+```
+php -S localhost:8080
+#accéder avec le navigateur à : localhost:8080/src/public/index.php
+```
 
 
 
